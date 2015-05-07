@@ -8,7 +8,7 @@ import glob
 import re
 import os
 
-class rnamodel: 
+class RNAmodel: 
     def __init__(self, fpath, residues):
         # parser 1-5 -> 1 2 3 4 5
         self.struc = Bio.PDB.PDBParser().get_structure('', fpath)
@@ -79,7 +79,7 @@ def get_rna_models_from_dir(directory, residues):
     files = glob.glob(directory + "/*.pdb")
     for f in files:
         print f
-        models.append(rnamodel(f, residues))
+        models.append(RNAmodel(f, residues))
     return models
         # print pv.get_p_value(3,10)#r.get_rmsd_to(r2), 3)
 
