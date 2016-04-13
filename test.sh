@@ -1,0 +1,1 @@
+python rnastruc_evo_clustix.py --rna_alignment_fn test_data/rp14sub.stk --output_dir test_out/rp14 --input_dir test_data --mapping 'target:rp14_farna_eloop_nol2fixed_cst|AACY023581040:aacy23_cst|AJ630128:aj63_cst' -x test_out/rp14_matrix.txt

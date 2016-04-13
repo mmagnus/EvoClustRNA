@@ -1,11 +1,14 @@
-hclustix - homology clustering
+rnastruc\_evo\_clustix.py
+============================================================================================================
+Marcin Magnus & Rhiju Das
+
+The Python implementation of a clustering routines of evolutionary conserved regions (helical regions) for RNA fold prediction. 
+
+Example: RNA Puzzle Challenge 14: L-glutamine riboswitch
 -------------------------------------------------------------------------------
 
-Define p1 p2 p3
+@todo
 
-homolog1/
-homolog2/
-homolog3/
+The results <http://ahsoka.u-strasbg.fr/rnapuzzles/Problem0014_Bound/14_index.php>
 
-
-hclustix.py homolog1/ 1-5 10-15 homolog2/ 1-5 12-16 homolog3/
+<http://ahsoka.u-strasbg.fr/rnapuzzles/problems_past.php>

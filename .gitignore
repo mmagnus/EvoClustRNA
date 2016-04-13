@@ -1,10 +1,5 @@
+*bucket
+*.pyc
 *~
-*html
-raw/
-.R*
-moderna.log
-Rplots.pdf
 \#*#
-figure*
-bucket
-*pyc
+.#*
