@@ -4,13 +4,16 @@ Marcin Magnus & Rhiju Das
 
 The Python implementation of a clustering routines of evolutionary conserved regions (helical regions) for RNA fold prediction. 
 
-Example: RNA Puzzle Challenge 13: ZMP riboswitch
+Example: RNA Puzzle Challenge 13: ZMP riboswitch (#2 modeling in the ranking)
 -------------------------------------------------------------------------------
 
 @todo
 
-Example: RNA Puzzle Challenge 14: L-glutamine riboswitch
+The results <http://ahsoka.u-strasbg.fr/rnapuzzles/Problem0013/13_index.php>
+
+Example: RNA Puzzle Challenge 14: L-glutamine riboswitch (#1 modeling in the ranking)
 -------------------------------------------------------------------------------
+(bound sequence)
 
 @todo
 
