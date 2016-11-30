@@ -1,16 +1,21 @@
 EvoClustRNA
-============================================================================================================
+================================================================================
 Marcin Magnus & Rhiju Das
 
 The Python implementation of a clustering routines of evolutionary conserved regions (helical regions) for RNA fold prediction. 
 
-Results
--------------------------------------------------------------------------------
+  * [Results](#results)
+  * [Example](#example)
+    * [RNA Puzzle Challenge 13: ZMP riboswitch (\#2 modeling in the ranking)](#rna-puzzle-challenge-13-zmp-riboswitch-2-modeling-in-the-ranking)
+    * [RNA Puzzle Challenge 14: L\-glutamine riboswitch (\#1 modeling in the ranking)](#rna-puzzle-challenge-14-l-glutamine-riboswitch-1-modeling-in-the-ranking)
+	
+# Results
 
 @plot here
 
-Example: RNA Puzzle Challenge 13: ZMP riboswitch (#2 modeling in the ranking)
--------------------------------------------------------------------------------
+# Example
+
+## RNA Puzzle Challenge 13: ZMP riboswitch (#2 modeling in the ranking)
 
 @todo
 
@@ -22,8 +27,8 @@ Example: RNA Puzzle Challenge 13: ZMP riboswitch (#2 modeling in the ranking)
 
 The results <http://ahsoka.u-strasbg.fr/rnapuzzles/Problem0013/13_index.php>
 
-Example: RNA Puzzle Challenge 14: L-glutamine riboswitch (#1 modeling in the ranking)
--------------------------------------------------------------------------------
+## RNA Puzzle Challenge 14: L-glutamine riboswitch (#1 modeling in the ranking)
+
 (bound sequence)
 
 @todo
