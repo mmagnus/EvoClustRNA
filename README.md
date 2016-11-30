@@ -11,7 +11,7 @@ The Python implementation of a clustering routines of evolutionary conserved reg
 	
 # Results
 
-@plot here
+![@plot here](docs/results.png)
 
 # Example
 
