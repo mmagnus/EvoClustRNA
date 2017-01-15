@@ -2,6 +2,8 @@ EvoClustRNA
 ================================================================================
 Marcin Magnus & Rhiju Das
 
+[![Documentation Status](https://readthedocs.org/projects/evoclustrna/badge/?version=latest)](http://evoclustrna.readthedocs.io/en/latest/?badge=latest)
+     
 The Python implementation of a clustering routines of evolutionary conserved regions (helical regions) for RNA fold prediction. 
 
   * [Results](#results)
