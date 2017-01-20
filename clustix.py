@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-"""CLUSTIX - CLUSTering of matrIX :-)
+"""CLUSTIX - CLUSTering of matrIX :-)::
 
-./clustix.py -m <matrix> -c <cuttoff>
+   ./clustix.py -m <matrix> -c <cuttoff>
 
 Required: numpy
 
@@ -21,7 +21,7 @@ except ImportError:
     sys.exit(1)
 
 import os.path
-import optparse
+import argparse
 
 MIN_CLUSTER = 5
 
@@ -31,33 +31,32 @@ try:
 except ImportError:
     dont_use_timex = True
 
-if __name__ == '__main__':
-    print 'clustix'
-    print '-' * 80
 
-    optparser=optparse.OptionParser(usage="%prog [<options>]")
-    optparser.add_option('-m',type="string",
-                         dest="matrix",
-                         default='',
+def get_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-m',
+                         dest="matrix", required=True,
                          help="A txt file with a similarity matrix with column headers, See test_data/matrix.txt for more")
-
-    optparser.add_option('-o',type="string",
+    parser.add_argument('-o',
                          dest="output",
                          default='output',
                          help="See test_data/output.txt for more, don't type extension of the file")
-
-    optparser.add_option('-c',type="float",
+    parser.add_argument('-c',type=float,
                          dest="cut_off",
                          default=5.0,
                          help="Cut_off of RMSD for the formation of a cluster")
 
-    optparser.add_option("-v", "--verbose",
-                     action="store_true", default=False, dest="verbose", help="")
+    parser.add_argument("-v", "--verbose",
+                    action="store_true", default=False, dest="verbose", help="be verbose")
+    return parser
 
-    (opts, args)=optparser.parse_args()
 
-    if len(sys.argv) == 1:
-        print optparser.format_help() #prints help if no arguments
+if __name__ == '__main__':
+
+    parser = get_parser()
+    opts = parser.parse_args()
+    if not opts.matrix:
+        parser.print_help()
         sys.exit(1)
 
     if not dont_use_timex: t = timex.Timex(); t.start()

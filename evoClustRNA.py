@@ -1,11 +1,15 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+
+"""
+Author: Marcin Magnus <magnus@genesilico.pl>
+"""
 
 import Bio.PDB.PDBParser
 import Bio.PDB.Superimposer
 from Bio.PDB.PDBIO import Select
 from Bio.PDB import PDBIO, Superimposer
 
-import optparse
+import argparse
 import sys
 import math
 import glob
@@ -160,46 +164,32 @@ def parse_num_list(s):
 #    def calc_distance():
 #        pass
 
+def get_parser():
+    """Get parser of arguments"""
+        
+    parser = argparse.ArgumentParser()
+    
+    parser.add_argument('-a',"--rna_alignment_fn", help="")
+
+    parser.add_argument('-o',"--output_dir")
+
+    parser.add_argument('-i',"--input_dir")
+
+    parser.add_argument('-m',"--mapping")
+
+    parser.add_argument('-x',"--matrix_fn")
+                        
+    parser.add_argument("-s", "--save", action="store_true", default=False)
+    return parser
+
 if __name__ == '__main__':
-    print 'rnastruc_evo_clustix.py'
-    print '-' * 80
-    
-    optparser=optparse.OptionParser(usage="%prog [<options>]")
-    optparser.add_option('-a',"--rna_alignment_fn", type="string",
-                         dest="rna_alignment_fn",
-                         default='',
-                         help="")
 
-    optparser.add_option('-o',"--output_dir", type="string",
-                         dest="output_dir",
-                         default='',
-                         help="")
-
-    optparser.add_option('-i',"--input_dir", type="string",
-                         dest="input_dir",
-                         default='',
-                         help="")
-
-    optparser.add_option('-m',"--mapping", type="string",
-                         dest="mapping",
-                         default='',
-                         help="")
-
-    optparser.add_option('-x',"--matrix_fn", type="string",
-                         dest="matrix_fn",
-                         default='matrix.txt',
-                         help="")
-
-    optparser.add_option("-s", "--save",
-                     action="store_true", default=False, dest="save", help="")
-
-    
-    (opts, args)=optparser.parse_args()
-
-    if len(sys.argv) == 1:
-        print optparser.format_help() #prints help if no arguments
+    parser = get_parser()
+    opts = parser.parse_args()
+    if not opts.rna_alignment_fn:
+        parser.print_help()
         sys.exit(1)
-
+        
     ra = RNAalignment(opts.rna_alignment_fn)
     global save
     save = opts.save

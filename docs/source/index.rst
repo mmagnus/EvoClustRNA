@@ -19,7 +19,8 @@ Contents:
 
    install
    getstarted
-   
+   adv
+	      
 Indices and tables
 ==================
 
