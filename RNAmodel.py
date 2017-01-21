@@ -8,7 +8,7 @@ from Bio.PDB import PDBIO, Superimposer
 
 class RNAmodel:
     """RNAModel"""
-    def __init__(self, fpath, residues, save):
+    def __init__(self, fpath, residues, save, output_dir):
         # parser 1-5 -> 1 2 3 4 5
         self.struc = Bio.PDB.PDBParser().get_structure('', fpath)
         self.residues = residues #self.__parser_residues(residues)
@@ -17,7 +17,8 @@ class RNAmodel:
         self.fn = os.path.basename(fpath)
         #self.atoms = []
         if save:
-            self.save() # @save
+            self.save(output_dir) # @save
+
 
     def __parser_residues(self, residues):
         """Get string and parse it
@@ -74,7 +75,7 @@ class RNAmodel:
             
         return rms
 
-    def save(self, verbose=True):
+    def save(self, output_dir, verbose=True):
         """Save structures and motifs """
         folder_to_save =  output_dir + os.sep # ugly hack 'rp14/'
         try:

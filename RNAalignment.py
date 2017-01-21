@@ -27,12 +27,19 @@ class RNAalignment:
         """Load the alignment in the Stockholm format using biopython"""
         self.alignment = AlignIO.read(open(fn), "stockholm")
 
-    def get_range(self, seqid, offset=0):
-        """Get a list of positions for selected residues based on the last line of the alignment!"""
+    def get_range(self, seqid, offset=0,verbose=True):
+        """Get a list of positions for selected residues based on the last line of the alignment!
+
+        If seqis not found in the alignment, raise an exception, like ::
+
+            Exception: Seq not found in the alignment: 'CP000879.1/21644622164546"""
+
         x = self.alignment.get_all_seqs()[-1].seq # ---(((((((----xxxxx--
         x_range = []
+        seq_found = False
         for record in self.alignment:
-            if record.id == seqid:
+            if record.id == seqid.strip():
+                seq_found = True
                 spos = 0
                 for xi, si in zip(x, record.seq):
                     if si != '-':
@@ -41,7 +48,9 @@ class RNAalignment:
                         #print xi, si,
                         #print si, spos
                         x_range.append(spos + offset)
-       #print len(x_range)
+        print '    # selected residues:', len(x_range)
+        if not seq_found:
+            raise Exception('Seq not found in the alignment: %s' % seqid)            
         if not x_range:
             raise Exception('Seq not found or wrong x line')
         return x_range

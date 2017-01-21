@@ -23,7 +23,7 @@ except ImportError:
 import os.path
 import argparse
 
-MIN_CLUSTER = 5
+MIN_CLUSTER = 3
 
 try:
     import lib.timex.timex as timex
@@ -109,7 +109,7 @@ if __name__ == '__main__':
         curr_biggest_cluster = array(no_neighbors_under_cf_of_struc)
         curr_biggest_cluster_no_of_struc = curr_biggest_cluster.max()
 
-        print 'cluster #' + str(c+1), " curr the biggest cluster size ", curr_biggest_cluster_no_of_struc
+        print 'cluster #' + str(c+1), " curr the biggest cluster size ", int(curr_biggest_cluster_no_of_struc)
 
         if curr_biggest_cluster_no_of_struc < MIN_CLUSTER: break
 

@@ -20,7 +20,7 @@ from Bio.PDB import PDBIO, Superimposer
 from RNAalignment import RNAalignment
 from RNAmodel import RNAmodel
 
-def get_rna_models_from_dir(directory, residues, save):
+def get_rna_models_from_dir(directory, residues, save, output_dir):
     """"""
     models = []
     if not os.path.exists(directory):
@@ -29,7 +29,7 @@ def get_rna_models_from_dir(directory, residues, save):
     files_sorted = sort_nicely(files)
     for f in files_sorted:
         #print f
-        models.append(RNAmodel(f, residues, save))
+        models.append(RNAmodel(f, residues, save, output_dir))
     return models
 
 def sort_nicely( l ):
@@ -68,7 +68,7 @@ def get_parser():
     parser.add_argument('-o',"--output_dir")
     parser.add_argument('-i',"--input_dir")
     parser.add_argument('-m',"--mapping")
-    parser.add_argument('-x',"--matrix_fn")
+    parser.add_argument('-x',"--matrix_fn", default="matrix.txt")
     parser.add_argument("-s", "--save", action="store_true", default=False)
     return parser
 
@@ -97,7 +97,7 @@ if __name__ == '__main__':
         rs_name_alignment, rs_name_dir = rs.split(':') # target:rp14_farna_eloop_nol2fixed_cst 
         print ' ', rs_name_alignment,'<->', rs_name_dir
         print '   cutting out fragments ... '
-        models.extend( get_rna_models_from_dir(input_dir + os.sep + rs_name_dir, ra.get_range(rs_name_alignment), opts.save)[:] )        
+        models.extend( get_rna_models_from_dir(input_dir + os.sep + rs_name_dir, ra.get_range(rs_name_alignment), opts.save, opts.output_dir)[:] )        
 
     print ' # of models:', len(models)
 
