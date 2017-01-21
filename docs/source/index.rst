@@ -17,10 +17,10 @@ Contents:
 .. toctree::
    :maxdepth: 3
 
-   install
    getstarted
    adv
-	      
+   install
+      
 Indices and tables
 ==================
 
