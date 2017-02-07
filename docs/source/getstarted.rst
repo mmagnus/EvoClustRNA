@@ -29,6 +29,8 @@ The output should look like ::
      # of models: 300
     matrix was created!  test_out/rp14_matrix.txt
 
+This ``test_out/rp14_matrix.txt`` matrix keeps all-vs-all cores RMSD. Now it's time to cluster it to see what is the most common core in the pool.
+
 Clustix
 -------------------------------------------
 
@@ -41,4 +43,17 @@ Now you can cluster the obtained matrix of RMSD (``test_out/rp14_matrix.txt``)::
    60.pdb
    >> OK! The output is written to the output_cf3.out file
 
-play with ``-c`` (cuttoff) to get 1/6 of your initial models in the first cluster.
+play with ``-c`` (cuttoff) to get 1/6  of your initial models in the first cluster.
+
+TPP Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Do clustix.py and pick RMSD cutoff, to get 1/6 structures in the biggest cluster, for 4 homologs, we should have 100 structures per homolog, so 400 in total. 400 * 1/6 ~= 66)
+
+The most common core in your pool is the first core is the first structure in the cluster #1::
+
+  $ clustix.py -m matrix.txt -c 9.31
+ cluster #1  curr the biggest cluster size  66
+ XXXXX.pdb ...
+
+now you can fetch the full structure for XXXXX.pdb in <output_fn>/structures/XXXXX.pdb . This is your final prediction :-)
