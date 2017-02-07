@@ -94,7 +94,17 @@ if __name__ == '__main__':
     models = []
 
     for rs in rnastruc:
-        rs_name_alignment, rs_name_dir = rs.split(':') # target:rp14_farna_eloop_nol2fixed_cst 
+        try:
+            rs_name_alignment, rs_name_dir = rs.split(':') # target:rp14_farna_eloop_nol2fixed_cst
+        except ValueError:
+            #if -m 'tpp|tpp_pdb|CP000050.1/ ..
+            #rnastruc: ['tpp', 'tpp_pdb', 'CP000050.1/1019813-1019911:tc5_pdb', 'AE017180.1/640928-641029:tae_pdb', 'BX248356.1/234808-234920:tb2_pdb']
+            #Traceback (most recent call last):
+            #File "/home/magnus/work/src/evoClustRNA/evoClustRNA.py", line 100, in <module>
+            #raise Exception("There is an error in your mapping, check all : and | carefully")
+            #Exception: There is an error in your mapping, check all : and | carefully
+            raise Exception("There is an error in your mapping, check all : and | carefully")
+
         print ' ', rs_name_alignment,'<->', rs_name_dir
         print '   cutting out fragments ... '
         models.extend( get_rna_models_from_dir(input_dir + os.sep + rs_name_dir, ra.get_range(rs_name_alignment), opts.save, opts.output_dir)[:] )        
