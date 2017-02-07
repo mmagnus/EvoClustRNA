@@ -64,12 +64,12 @@ def get_parser():
         
     parser = argparse.ArgumentParser()
     
-    parser.add_argument('-a',"--rna_alignment_fn", help="")
-    parser.add_argument('-o',"--output_dir")
-    parser.add_argument('-i',"--input_dir")
-    parser.add_argument('-m',"--mapping")
-    parser.add_argument('-x',"--matrix_fn", default="matrix.txt")
-    parser.add_argument("-s", "--save", action="store_true", default=False)
+    parser.add_argument('-a',"--rna_alignment_fn", help="rna alignemnt with the extra guidance line, e.g. test_data/rp14sub.stk")
+    parser.add_argument('-o',"--output_dir", help="output folder where motifs and structures will be saved, e.g. test_out/rp14")
+    parser.add_argument('-i',"--input_dir", help="input folder with structures, .e.g. test_data")
+    parser.add_argument('-m',"--mapping", help="map folders on the drive with sequence names in the alignment (<name in the alignment>|<folder name>), e.g. 'target:rp14_farna_eloop_nol2fixed_cst|AACY023581040:aacy23_cst', use | as a separator")
+    parser.add_argument('-x',"--matrix_fn", default="matrix.txt", help="output matrix with rmsds all-vs-all")
+    parser.add_argument("-s", "--save", action="store_true", default=False, help="save motifs and structures to output_dir, this slows down the program")
     return parser
 
 if __name__ == '__main__':
