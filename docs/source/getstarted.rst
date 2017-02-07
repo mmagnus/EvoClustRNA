@@ -54,6 +54,6 @@ The most common core in your pool is the first core is the first structure in th
 
   $ clustix.py -m matrix.txt -c 9.31
  cluster #1  curr the biggest cluster size  66
- XXXXX.pdb ...
+ tpp_min.out.2.pdb tpp_min.out.3.pdb tpp_min.out.4.pdb tpp_min.out.5.pdb tpp_min.out.6.pdb tpp_min.out.7.pdb tpp_min.out.8.pdb tpp_min.out.9.pdb tpp_min.out.10.pdb tpp_min.out.14.pdb tpp_min.out.17.pdb tpp_min.out.18.pdb tpp_min.out.20.pdb tpp_min.out.22.pdb tpp_min.out.23.pdb tpp_min.out.24.pdb tpp_min.out.25.pdb tpp_min.out.27.pdb tpp_min.out.28.pdb tpp_min.out.29.pdb tpp_min.out.30.pdb tpp_min.out.31.pdb tpp_min.out.32.pdb tpp_min.out.36.pdb tpp_min.out.37.pdb tpp_min.out.39.pdb tpp_min.out.42.pdb tpp_min.out.44.pdb tpp_min.out.45.pdb tpp_min.out.48.pdb tpp_min.out.49.pdb tpp_min.out.50.pdb tpp_min.out.53.pdb tpp_min.out.54.pdb tpp_min.out.58.pdb tpp_min.out.65.pdb tpp_min.out.66.pdb tpp_min.out.69.pdb tpp_min.out.70.pdb tpp_min.out.71.pdb tpp_min.out.72.pdb tpp_min.out.73.pdb tpp_min.out.77.pdb tpp_min.out.82.pdb tpp_min.out.84.pdb tpp_min.out.86.pdb tpp_min.out.87.pdb tpp_min.out.89.pdb tpp_min.out.90.pdb tpp_min.out.92.pdb tpp_min.out.93.pdb tpp_min.out.94.pdb tpp_min.out.95.pdb tpp_min.out.98.pdb tc5_min.out.29.pdb tc5_min.out.33.pdb tc5_min.out.45.pdb tc5_min.out.56.pdb tc5_min.out.66.pdb tc5_min.out.79.pdb tc5_min.out.83.pdb tae_min.out.18.pdb tae_min.out.23.pdb tae_min.out.26.pdb tae_min.out.75.pdb tae_min.out.83.pdb
 
-now you can fetch the full structure for XXXXX.pdb in <output_fn>/structures/XXXXX.pdb . This is your final prediction :-)
+now you can fetch the full structure for tpp_min.out.2.pdb in <output_fn>/structures/tpp_min.out.2.pdb . This is your final prediction :-)
