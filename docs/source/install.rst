@@ -9,7 +9,7 @@ or download https://github.com/mmagnus/EvoClustRNA/archive/master.zip and unzip 
 
 To install, type::
 
-    ./install.sh
+    sudo ./install.sh
 
 and go to Get Started! :-)
     

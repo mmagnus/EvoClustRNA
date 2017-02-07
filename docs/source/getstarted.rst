@@ -3,7 +3,8 @@ Get Started
 
 Modeling
 -------------------------------------------
-First you have to use ROSETTA or SimRNA to get initial PDB models.
+
+To get an initial set of structures, you might want to use ROSETTA/FARNA (https://www.rosettacommons.org/) and/or SimRNAweb (http://genesilico.pl/SimRNAweb/).
 
 evoClustRNA
 -------------------------------------------
