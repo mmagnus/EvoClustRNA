@@ -39,7 +39,6 @@ def get_parser():
                          help="A txt file with a similarity matrix with column headers, See test_data/matrix.txt for more")
     parser.add_argument('-o',
                          dest="output",
-                         default='output',
                          help="See test_data/output.txt for more, don't type extension of the file")
     parser.add_argument('-c',type=float,
                          dest="cut_off",
@@ -87,7 +86,10 @@ if __name__ == '__main__':
     if verbose: print '> matrix of neighbors:\n', mclust
 
     matrixfn = os.path.splitext(os.path.basename(opts.matrix))[0] # get only fn of matrix, remove extension
-    out_name = opts.output + "_cf%i.out" %(int(opts.cut_off))
+    if not opts.output:
+        out_name = matrixfn + "_cf%i.out" %(int(opts.cut_off))
+    else:
+        out_name = opts.output + "_cf%i.out" %(int(opts.cut_off))
     output = open(out_name, "w")
     
     output.write( "CLUSTER_BAKER_cf%i_%s\n" %(int(cf), matrixfn))
