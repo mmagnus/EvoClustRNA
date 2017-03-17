@@ -9,9 +9,6 @@ A clustering routines of evolutionary conserved regions (helical regions) for RN
 At the moment we are testing the approach using models from ROSETTA/FARNA (https://www.rosettacommons.org/) and SimRNAweb (http://genesilico.pl/SimRNAweb/).
 
 The documentation can be found here http://evoclustrna.readthedocs.io/en/latest/
-
-  * [Example](#example)
-    * [RNA Puzzle Challenge 14: L\-glutamine riboswitch (\#1 modeling in the ranking)](#rna-puzzle-challenge-14-l-glutamine-riboswitch-1-modeling-in-the-ranking)
 	
 # Example
 
