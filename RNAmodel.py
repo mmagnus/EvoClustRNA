@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+__docformat__ = 'reStructuredText'
+
 import os
 import Bio.PDB.PDBParser
 import Bio.PDB.Superimposer
@@ -8,7 +10,24 @@ from Bio.PDB import PDBIO, Superimposer
 
 class RNAmodel:
     """RNAModel"""
+
     def __init__(self, fpath, residues, save, output_dir):
+        """RNAmodel
+
+        :Example:
+
+            >>> rna = RNAmodel("test_data/rp14/rp14_5ddp_bound_clean_ligand.pdb", [1], False, None)
+            >>> rna.get_report()
+            "File:  rp14_5ddp_bound_clean_ligand.pdb  # of atoms: 1 \\nresi:  1  atom:  <Atom C3'> \\n"
+
+        :param fpath: file path, string
+        :param residues: list of residues to use (and since we take only 1 atom, C3', this equals to number of atoms.
+        :param save: boolean, save to output_dir or not
+        :param output_dir: string, if save, save segments to this folder
+        :returns: None
+        :rtype: None
+
+        """
         # parser 1-5 -> 1 2 3 4 5
         self.struc = Bio.PDB.PDBParser().get_structure('', fpath)
         self.residues = residues #self.__parser_residues(residues)
@@ -18,7 +37,6 @@ class RNAmodel:
         #self.atoms = []
         if save:
             self.save(output_dir) # @save
-
 
     def __parser_residues(self, residues):
         """Get string and parse it
@@ -33,7 +51,7 @@ class RNAmodel:
         return rs
 
     def __get_atoms(self):
-        self.atoms=[]
+        self.atoms = []
         for res in self.struc.get_residues():
             if res.id[1] in self.residues:
                 self.atoms.append(res["C3'"])
@@ -43,7 +61,7 @@ class RNAmodel:
         if len(self.atoms) <= 0:
             raise Exception('problem: none atoms were selected!')
         return self.atoms
-    
+
     def __str__(self):
         return self.fn #+ ' # beads' + str(len(self.residues))
 
@@ -51,10 +69,10 @@ class RNAmodel:
         return self.fn #+ ' # beads' + str(len(self.residues))
 
     def get_report(self):
-        """Str a short report about rna model""" 
+        """Str a short report about rna model"""
         t = ' '.join(['File: ', self.fn, ' # of atoms:', str(len(self.atoms)), '\n'])
-        for r,a in zip(self.residues, self.atoms ):
-            t += ' '.join(['resi: ', str(r) ,' atom: ', str(a) , '\n' ])
+        for r, a in zip(self.residues, self.atoms):
+            t += ' '.join(['resi: ', str(r), ' atom: ', str(a), '\n'])
         return t
 
     def get_rmsd_to(self, other_rnamodel, output=''):
@@ -116,4 +134,11 @@ class RNAmodel:
         io.save(fn, BpSelect())
         if verbose:
             print '    saved to motifs: %s ' % fn
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+
+    rna = RNAmodel("test_data/rp14/rp14_5ddp_bound_clean_ligand.pdb", [1], False, None)
+    print rna.get_report()
 
