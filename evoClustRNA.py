@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+"""
+When RNA models are loaded, models ending with 'template.pdb' are ignore.
+"""
+
 import Bio.PDB.PDBParser
 import Bio.PDB.Superimposer
 from Bio.PDB.PDBIO import Select
@@ -21,6 +25,17 @@ from RNAalignment import RNAalignment
 from RNAmodel import RNAmodel
 
 def get_rna_models_from_dir(directory, residues, save, output_dir):
+    """@todo
+
+    :param directory: 
+    :param residues: 
+    :param save: 
+    :param output_dir: 
+    :returns: 
+    :rtype: 
+
+    """
+    
     """"""
     models = []
     if not os.path.exists(directory):
@@ -28,11 +43,20 @@ def get_rna_models_from_dir(directory, residues, save, output_dir):
     files = glob.glob(directory + "/*.pdb")
     files_sorted = sort_nicely(files)
     for f in files_sorted:
-        #print f
+        ## ignore files that can be found in your folder
+        ## be careful with this --magnus
+        if f.endswith('template.pdb'):
+            continue
+        if 'clust01X' in f:
+            continue
+        if 'clust02X' in f:
+            continue
+        if 'clust03X' in f:
+            continue
         models.append(RNAmodel(f, residues, save, output_dir))
     return models
 
-def sort_nicely( l ):
+def sort_nicely(l):
    """ Sort the given list in the way that humans expect.
 
    http://blog.codinghorror.com/sorting-for-humans-natural-sort-order/
@@ -67,13 +91,13 @@ def get_parser():
     parser.add_argument('-a',"--rna_alignment_fn", help="rna alignemnt with the extra guidance line, e.g. test_data/rp14sub.stk")
     parser.add_argument('-o',"--output_dir", help="output folder where motifs and structures will be saved, e.g. test_out/rp14")
     parser.add_argument('-i',"--input_dir", help="input folder with structures, .e.g. test_data")
-    parser.add_argument('-m',"--mapping", help="map folders on the drive with sequence names in the alignment (<name in the alignment>|<folder name>), e.g. 'target:rp14_farna_eloop_nol2fixed_cst|AACY023581040:aacy23_cst', use | as a separator")
-    parser.add_argument('-x',"--matrix_fn", default="matrix.txt", help="output matrix with rmsds all-vs-all")
+    parser.add_argument('-m',"--mapping", help="map folders on the drive with sequence names in the alignment (<name in the alignment>:<folder name>), use | to \
+    for multiple seqs, e.g. 'target:rp14_farna_eloop_nol2fixed_cst|AACY023581040:aacy23_cst', use | as a separator")
+    parser.add_argument('-x',"--matrix_fn", default="", help="output matrix with rmsds all-vs-all")
     parser.add_argument("-s", "--save", action="store_true", default=False, help="save motifs and structures to output_dir, this slows down the program")
     return parser
 
 if __name__ == '__main__':
-
     parser = get_parser()
     opts = parser.parse_args()
     if not opts.rna_alignment_fn:
@@ -86,7 +110,12 @@ if __name__ == '__main__':
     global output_dir  # ugly hack!
     output_dir = opts.output_dir
     input_dir = opts.input_dir
-    matrix_fn = opts.matrix_fn
+    if opts.matrix_fn:
+        matrix_fn = opts.matrix_fn
+    else:
+        matrix_fn = os.path.splitext(os.path.basename(opts.rna_alignment_fn))[0] + '_matrix.txt'
+    print matrix_fn
+
     rnastruc = opts.mapping.strip().split('|') # 'target:rp14_farna_eloop_nol2fixed_cst|X:X'
     print ' # of rnastruc:', len(rnastruc)
     print ' rnastruc:', rnastruc
@@ -108,9 +137,9 @@ if __name__ == '__main__':
         print ' ', rs_name_alignment,'<->', rs_name_dir
         print '   cutting out fragments ... '
         models.extend( get_rna_models_from_dir(input_dir + os.sep + rs_name_dir, ra.get_range(rs_name_alignment), opts.save, opts.output_dir)[:] )        
-
     print ' # of models:', len(models)
 
+    # prepare a matrix
     f = open(matrix_fn, 'w')
     t = '# '
     for r1 in models:

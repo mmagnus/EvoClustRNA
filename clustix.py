@@ -73,6 +73,7 @@ if __name__ == '__main__':
     if verbose: print '> matrix:\n', m
     
     mshape = m.shape
+    print 'There is ', mshape[0] ,'structures in your matrix. 1/6 of this is ', mshape[0] * 1/6
     # matrix for clustering, contain 0 for values > cf and 1 - for values from matri that are < cf
     mclust = zeros(mshape)
 
@@ -85,11 +86,13 @@ if __name__ == '__main__':
 
     if verbose: print '> matrix of neighbors:\n', mclust
 
+    print opts.cut_off
     matrixfn = os.path.splitext(os.path.basename(opts.matrix))[0] # get only fn of matrix, remove extension
     if not opts.output:
-        out_name = matrixfn + "_cf%i.out" %(int(opts.cut_off))
+        out_name = matrixfn + "_cf%.2f.out" %(opts.cut_off)
     else:
-        out_name = opts.output + "_cf%i.out" %(int(opts.cut_off))
+        out_name = opts.output + "_cf%.2f.out" %(opts.cut_off)
+    print out_name
     output = open(out_name, "w")
     
     output.write( "CLUSTER_BAKER_cf%i_%s\n" %(int(cf), matrixfn))

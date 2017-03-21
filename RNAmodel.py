@@ -9,25 +9,23 @@ from Bio.PDB.PDBIO import Select
 from Bio.PDB import PDBIO, Superimposer
 
 class RNAmodel:
-    """RNAModel"""
+    """RNAmodel
 
+    :Example:
+
+        >>> rna = RNAmodel("test_data/rp14/rp14_5ddp_bound_clean_ligand.pdb", [1], False, None)
+        >>> rna.get_report()
+        "File:  rp14_5ddp_bound_clean_ligand.pdb  # of atoms: 1 \\nresi:  1  atom:  <Atom C3'> \\n"
+
+    :param fpath: file path, string
+    :param residues: list of residues to use (and since we take only 1 atom, C3', this equals to number of atoms.
+    :param save: boolean, save to output_dir or not
+    :param output_dir: string, if save, save segments to this folder
+    """
+    #:returns: None
+    #:rtype: None
+    #"""
     def __init__(self, fpath, residues, save, output_dir):
-        """RNAmodel
-
-        :Example:
-
-            >>> rna = RNAmodel("test_data/rp14/rp14_5ddp_bound_clean_ligand.pdb", [1], False, None)
-            >>> rna.get_report()
-            "File:  rp14_5ddp_bound_clean_ligand.pdb  # of atoms: 1 \\nresi:  1  atom:  <Atom C3'> \\n"
-
-        :param fpath: file path, string
-        :param residues: list of residues to use (and since we take only 1 atom, C3', this equals to number of atoms.
-        :param save: boolean, save to output_dir or not
-        :param output_dir: string, if save, save segments to this folder
-        :returns: None
-        :rtype: None
-
-        """
         # parser 1-5 -> 1 2 3 4 5
         self.struc = Bio.PDB.PDBParser().get_structure('', fpath)
         self.residues = residues #self.__parser_residues(residues)
@@ -90,7 +88,6 @@ class RNAmodel:
             sup.apply(other_rnamodel.struc.get_atoms())
             io.set_structure( other_rnamodel.struc )
             io.save("aligned2.pdb")
-            
         return rms
 
     def save(self, output_dir, verbose=True):
@@ -114,6 +111,7 @@ class RNAmodel:
         RESI = self.residues
         if not self.struc:
             raise Exception('self.struct was not defined! Can not save a pdb!')
+
         class BpSelect(Select):
             def accept_residue(self, residue):
                 if residue.get_id()[1] in RESI:
