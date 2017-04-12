@@ -1,12 +1,13 @@
 #!/usr/bin/env python
-
+from __future__ import print_function
 __docformat__ = 'reStructuredText'
-
 import os
 import Bio.PDB.PDBParser
 import Bio.PDB.Superimposer
 from Bio.PDB.PDBIO import Select
-from Bio.PDB import PDBIO, Superimposer
+from Bio.PDB import PDBIO
+from Bio import SVDSuperimposer.SVDSuperimposer
+from numpy import sqrt, array, asarray
 
 class RNAmodel:
     """RNAmodel
@@ -25,13 +26,14 @@ class RNAmodel:
     #:returns: None
     #:rtype: None
     #"""
-    def __init__(self, fpath, residues, save, output_dir):
+    def __init__(self, fpath, residues, save=False, output_dir=""):
+
         # parser 1-5 -> 1 2 3 4 5
         self.struc = Bio.PDB.PDBParser().get_structure('', fpath)
-        self.residues = residues #self.__parser_residues(residues)
-        self.__get_atoms()
         self.fpath = fpath
         self.fn = os.path.basename(fpath)
+        self.residues = residues #self.__parser_residues(residues)
+        self.__get_atoms()
         #self.atoms = []
         if save:
             self.save(output_dir) # @save
@@ -57,7 +59,7 @@ class RNAmodel:
                 #ref_atoms.extend(, ref_res['P'])
             #ref_atoms.append(ref_res.get_list())
         if len(self.atoms) <= 0:
-            raise Exception('problem: none atoms were selected!')
+            raise Exception('problem: none atoms were selected!: %s' % self.fn)
         return self.atoms
 
     def __str__(self):
@@ -73,11 +75,27 @@ class RNAmodel:
             t += ' '.join(['resi: ', str(r), ' atom: ', str(a), '\n'])
         return t
 
-    def get_rmsd_to(self, other_rnamodel, output=''):
+    def get_rmsd_to(self, other_rnamodel, output='', dont_move=False):
         """Calc rmsd P-atom based rmsd to other rna model"""
         sup = Bio.PDB.Superimposer()
-        sup.set_atoms(self.atoms, other_rnamodel.atoms)
+
+        if dont_move:
+            coords = array([[array(a.get_vector()) for a in self.atoms]])
+            other_coords = array([[array(a.get_vector()) for a in other_rnamodel.atoms]])
+
+            s = SVDSuperimposer()
+            s.set(coords,other_coords)
+            return s.get_init_rms()
+
+        try:
+            sup.set_atoms(self.atoms, other_rnamodel.atoms)
+        except:
+            print(self.fn, len(self.atoms),  other_rnamodel.fn, len(other_rnamodel.atoms))
+            for a,b in zip(self.atoms, other_rnamodel.atoms):
+                print(a.parent, b.parent)#a.get_full_id(), b.get_full_id())
+
         rms = round(sup.rms, 3)
+        
         if output:
             io = Bio.PDB.PDBIO()
             sup.apply(self.struc.get_atoms())
@@ -124,19 +142,26 @@ class RNAmodel:
         fn = folder_to_save + 'structures' + os.sep + self.fn #+ '.pdb'
         io.save(fn)
         if verbose:
-            print '    saved to struc: %s ' % fn
+            print('    saved to struc: %s ' % fn)
 
         io = PDBIO()
         io.set_structure(self.struc)
         fn = folder_to_save +  'motifs/' + os.sep + self.fn #+ self.fn.replace('.pdb', '_motif.pdb')# #+ '.pdb'
         io.save(fn, BpSelect())
         if verbose:
-            print '    saved to motifs: %s ' % fn
+            print('    saved to motifs: %s ' % fn)
 
+#main
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
 
-    rna = RNAmodel("test_data/rp14/rp14_5ddp_bound_clean_ligand.pdb", [1], False, None)
-    print rna.get_report()
+    #rna = RNAmodel("test_data/rp14/rp14_5ddp_bound_clean_ligand.pdb", [1], False, Non3e)
+    #print(rna.get_report())
+    a = RNAmodel("test_data/GGC.pdb", [46,47,48])
+    b = RNAmodel("test_data/GUC.pdb", [31, 32, 33])
 
+    print(a.get_rmsd_to(b))
+
+    print(a.get_rmsd_to(b, False))
+    
