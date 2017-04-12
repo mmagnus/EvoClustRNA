@@ -6,7 +6,7 @@ import Bio.PDB.PDBParser
 import Bio.PDB.Superimposer
 from Bio.PDB.PDBIO import Select
 from Bio.PDB import PDBIO
-from Bio import SVDSuperimposer.SVDSuperimposer
+from Bio.SVDSuperimposer import SVDSuperimposer
 from numpy import sqrt, array, asarray
 
 class RNAmodel:
@@ -162,6 +162,5 @@ if __name__ == '__main__':
     b = RNAmodel("test_data/GUC.pdb", [31, 32, 33])
 
     print(a.get_rmsd_to(b))
-
-    print(a.get_rmsd_to(b, False))
+    print(a.get_rmsd_to(b, dont_move=True))
     
