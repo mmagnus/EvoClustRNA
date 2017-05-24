@@ -80,9 +80,9 @@ class RNAmodel:
         sup = Bio.PDB.Superimposer()
 
         if dont_move:
-            coords = array([[array(a.get_vector()) for a in self.atoms]])
-            other_coords = array([[array(a.get_vector()) for a in other_rnamodel.atoms]])
-
+            # fix http://biopython.org/DIST/docs/api/Bio.PDB.Vector%27.Vector-class.html
+            coords = array([a.get_vector().get_array() for a in self.atoms])
+            other_coords = array([a.get_vector().get_array() for a in other_rnamodel.atoms])
             s = SVDSuperimposer()
             s.set(coords,other_coords)
             return s.get_init_rms()
