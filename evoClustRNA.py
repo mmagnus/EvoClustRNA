@@ -105,8 +105,12 @@ if __name__ == '__main__':
         sys.exit(1)
         
     ra = RNAalignment(opts.rna_alignment_fn)
+
     global save # ugly hack!
-    save = opts.save
+    if opts.output_dir:
+        save = True
+    else:
+        save = opts.save
     global output_dir  # ugly hack!
     output_dir = opts.output_dir
     input_dir = opts.input_dir
