@@ -47,10 +47,11 @@ class ClustixResult(object):
         print '= structures ======================================'
 
         for i, r in enumerate(reps):
-            rpath = commands.getoutput("find . -iname " + r)
-            cmd = (rpath + ' -> ' +
+            rpath = commands.getoutput("find . -iname " + r).split()[0].strip()
+            cmd = ('cp -v ' + rpath + ' ' +
                    output_prefix + 'reps/c' + str(i + 1) + '_' + r)
-            print(cmd)
+            print cmd
+            os.system(cmd)
         try:
             os.mkdir(output_prefix + 'reps_motifs')
         except OSError:
