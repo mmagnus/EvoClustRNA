@@ -113,7 +113,7 @@ def calc_evo_rmsd(targetfn, target_name_alignment, files, mapping, rna_alignment
     for model in models:
         # print
         # print r1.fn, r2.fn, r1.get_rmsd_to(r2)#, 'tmp.pdb')
-        rmsd = target.get_rmsd_to(model)  # , 'tmp.pdb')
+        rmsd = round(target.get_rmsd_to(model), 2)  # , 'tmp.pdb')
         # print target, model, rmsd, group_name
         data['target'].append(target)
         data['model'].append(model)
