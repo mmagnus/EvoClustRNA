@@ -53,6 +53,10 @@ def get_rna_models_from_dir(directory, residues, save, output_dir):
             continue
         if 'clust03X' in f:
             continue
+        if 'clust04X' in f:
+            continue
+        if 'clust05X' in f:
+            continue
         models.append(RNAmodel(f, residues, save, output_dir))
     return models
 
