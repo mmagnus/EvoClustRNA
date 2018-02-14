@@ -26,7 +26,7 @@ from RNAalignment import RNAalignment
 from RNAmodel import RNAmodel
 
 
-def get_rna_models_from_dir(directory, residues, save, output_dir):
+def get_rna_models_from_dir(directory, residues, save, output_dir, flat_dir):
     """@todo
 
     This function goes folder by folder.
@@ -42,10 +42,23 @@ def get_rna_models_from_dir(directory, residues, save, output_dir):
 
     """
     models = []
-    if not os.path.exists(directory):
-        raise Exception('Dir does not exist! ', directory)
-    files = glob.glob(directory + "/*.pdb")
-    files_sorted = sort_nicely(files)
+    flat_structure = True
+    if flat_dir:
+        # structures/adepk'
+        path, rna_id = os.path.split(directory)
+        if not os.path.exists(path):
+            raise Exception('Dir does not exist! ', path)
+        print ('   analyzing... ' + path + "/" + rna_id + "*.pdb")
+        files = glob.glob(path + "/" + rna_id + "*.pdb")
+        print ('   # of structures ' + str(len(files)))
+        files_sorted = sort_nicely(files)
+    else:
+        # structures/adepk'
+        if not os.path.exists(directory):
+            raise Exception('Dir does not exist! ', directory)
+        files = glob.glob(directory + "/*.pdb")
+        files_sorted = sort_nicely(files)
+
     for f in files_sorted:
         # ignore files that can be found in your folder
         # be careful with this --magnus
@@ -111,6 +124,9 @@ def get_parser():
     parser.add_argument('-x', "--matrix_fn", default="", help="output matrix with rmsds all-vs-all")
     parser.add_argument("-s", "--save", action="store_true", default=False,
                         help="save motifs and structures to output_dir, this slows down the program")
+    parser.add_argument("-f", "--flat-dir", action="store_true", default=False,
+                        help="use flat directory structure, structures/<all pdbs here>, fetch pdbs based on leading part of names")
+
     return parser
 
 # main
@@ -164,7 +180,7 @@ if __name__ == '__main__':
         print(' ', rs_name_alignment, '<->', rs_name_dir)
         print('   cutting out fragments ... ')
         models.extend(get_rna_models_from_dir(input_dir + os.sep + rs_name_dir,
-                                              ra.get_range(rs_name_alignment), opts.save, opts.output_dir)[:])
+                                              ra.get_range(rs_name_alignment), opts.save, opts.output_dir, opts.flat_dir)[:])
     print(' # of models:', len(models))
 
     # prepare a matrix
