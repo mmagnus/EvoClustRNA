@@ -7,13 +7,15 @@ This script creates:
 - reps for top 5 clusters representative structures
 - resp_motifs for top 5 clusters representative motifs
 
+Add cutoff the name of reps, e.g. reps_c2.5
+
 OLD: It reads `out` folder created by evoclustRNA.py in structure such as:
 - out/structures/<homologs>
 """
 import argparse
 import os
 import shutil
-import commands
+import re
 
 
 def is_number(s):
@@ -26,7 +28,7 @@ def is_number(s):
 
 
 class ClustixResult(object):
-    def __init__(self, fn, input_dir, output_prefix, skip_motifs):
+    def __init__(self, fn, input_dir, output_prefix, skip_motifs, use_cutoff_for_names):
         if output_prefix:
             output_prefix += '_'
 
@@ -39,21 +41,30 @@ class ClustixResult(object):
         for i, r in enumerate(reps):
             print(str(i + 1) + '_' + r)
 
+        # use cutoff for naming, instead of reps/ do reps_c2.6
+        if use_cutoff_for_names:
+            suffix = '_' + re.split('_', os.path.splitext(os.path.basename(fn))[0])[-1]  # rp14pk_n-155_n1-93_n2-33_n3-29_cf2.5.out
+        else:
+            suffix = ''
+
         try:
-            os.mkdir(output_prefix + 'reps')
+            os.mkdir(output_prefix + 'reps' + suffix)
         except OSError:
             pass
 
-        print '= structures ======================================'
+        # out in this case is input, for search reps and reps_motifs
+        print '= structures == out/structures/<files>==================='
 
         for i, r in enumerate(reps):
-            rpath = commands.getoutput("find . -iname " + r).split()[0].strip()
+            #cmd = "find . -iname " + r
+            # commands.getoutput(cmd).split()[0].strip()
+            rpath = 'out/structures/' + r
             cmd = ('cp -v ' + rpath + ' ' +
-                   output_prefix + 'reps/c' + str(i + 1) + '_' + r)
+                   output_prefix + 'reps' + suffix + '/c' + str(i + 1) + '_' + r)
             print cmd
             os.system(cmd)
         try:
-            os.mkdir(output_prefix + 'reps_motifs')
+            os.mkdir(output_prefix + 'reps_motifs' + suffix)
         except OSError:
             pass
 
@@ -61,10 +72,10 @@ class ClustixResult(object):
             print '= motif =========================================='
             for i, r in enumerate(reps):
                 print(input_dir + '/motifs/' + r + ' -> ' +
-                      output_prefix + 'reps_motifs/' + str(i + 1) + '_' + r)
+                      output_prefix + 'reps_motifs' + suffix + '/' + str(i + 1) + '_' + r)
                 try:
                     shutil.copyfile(input_dir + '/motifs/' + r, output_prefix +
-                                    'reps_motifs/c' + str(i + 1) + '_' + r)
+                                    'reps_motifs' + suffix + '/c' + str(i + 1) + '_' + r)
                 except IOError:
                     print 'Missing motifs folder?'
 
@@ -78,6 +89,7 @@ def get_parser():
     parser.add_argument('-o', "--output_prefix",
                         help="output folder where motifs and structures will be saved, e.g. test_out/rp14", default='')
     parser.add_argument('clustix_results_fn', help="")
+    parser.add_argument('-c', '--use-cutoff-for-names', action='store_true')
     parser.add_argument('-s', '--skip_motifs', action='store_true')
     return parser
 
@@ -88,4 +100,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(os.path.basename(__file__))
     print('-' * 80)
-    ClustixResult(args.clustix_results_fn, args.input_dir, args.output_prefix, args.skip_motifs)
+    ClustixResult(args.clustix_results_fn, args.input_dir, args.output_prefix, args.skip_motifs, args.use_cutoff_for_names)
