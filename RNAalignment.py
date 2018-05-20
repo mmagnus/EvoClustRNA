@@ -37,8 +37,8 @@ class RNAalignment:
             Exception: Seq not found in the alignment: 'CP000879.1/21644622164546
 
         .. warning:: EvoClust lines has to be -1 in the alignemnt."""
-        # evoclust line 
-        x = self.alignment.get_all_seqs()[-1].seq # ---(((((((----xxxxx--
+        # evoclust line
+        x = self.alignment[-1].seq # ---(((((((----xxxxx--
 
         x_range = []
         seq_found = False
