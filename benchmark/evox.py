@@ -16,6 +16,7 @@ def get_parser():
     parser.add_argument('-p', '--process', action="store_true")
     parser.add_argument('-f', '--farna', help="", default="")
     parser.add_argument('-s', '--simrna', help="", default="")
+    parser.add_argument('-t', '--add-solution', help="", default="")
     parser.add_argument("-v", "--verbose",
                         action="store_true", help="be verbose")
     parser.add_argument('case')
@@ -105,6 +106,8 @@ if __name__ == '__main__':
                   'b28': '7bc1d432-eac8-47cf-a42e-aa3c89efc721'}
             get_simrna(hs, args.simrna)
 
+    # -t', '--add-solution'
+    #exe('cp -v ../../*ref.pdb
     if args.evoclust:
         exe("evoClustRNA.py -a ../../ade_plus_ade_cleanup.sto -i structures -m ../../mapping_pk.txt -f")
         exe("evoClust_autoclustix.py ade_plus_ade_cleanup_mapping_pkX.txt")
