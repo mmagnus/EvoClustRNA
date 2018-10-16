@@ -7,8 +7,8 @@ import shutil
 
 #FARNA_ARCHIVE = '/Users/magnus/work/rosetta-archive/'
 ROSETTA_ARCHIVE = "/home/magnus/work/rosetta-archive/"
+SIMRNA_ARCHIVE = "/home/magnus//work/simrnaweb-archive/"
 TRASH = False # trash everything in ade/evox/<mode>
-
 
 def get_parser():
     parser = argparse.ArgumentParser(
@@ -83,7 +83,6 @@ def get_simrna(hs, n):
     rna_simrnaweb_download_job.py -c ade_pk-35b2a2c1 -n $n
 
     """
-    SIMRNA_ARCHIVE = "/home/magnus//work/simrnaweb-archive/"
     root = os.getcwd()
     for h in hs.keys():
         job_id = hs[h]  # '{'ade_pk-35b2a2c1'
