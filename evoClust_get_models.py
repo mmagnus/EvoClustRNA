@@ -32,6 +32,8 @@ The script has the second mode right now::
     cp -v structures// reps_ns/c5_
     cp: structures// is a directory (not copied).
 
+    # evoClust_get_models.py -i structures/ ade_plus_ade_cleanup_mapping_pkX_*.out -n adepk
+
 first, the input is parsed to get borders of lines of clusters. These borders are used to select structures that come to a given cluster. For each cluster, there is a search if within it there is a structure that starts with a given name - defined with --NATIVE_SEQ_ONLY. If there is none, then to the reps list '' is appended.
 
 OLD: It reads `out` folder created by evoclustRNA.py in structure such as:

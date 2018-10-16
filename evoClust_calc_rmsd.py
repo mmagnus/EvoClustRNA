@@ -5,16 +5,20 @@ When RNA models are loaded, models ending with 'template.pdb' are ignore.
 
 c1_tha_96cdea07- tha in mapping
 """
+from __future__ import print_function
+
 import argparse
 import sys
 import re
 import pandas as pd
 import matplotlib.pyplot as plt
+import datetime
 
 from RNAalignment import RNAalignment
 from RNAmodel import RNAmodel
 
-pd.set_option('display.width', 1000)
+pd.set_option('display.max_colwidth', 100)
+pd.set_option('display.width', 200)
 plt.style.use('ggplot')
 debug = False
 
@@ -71,9 +75,9 @@ def get_parser():
     return parser
 
 
-def calc_evo_rmsd(targetfn, target_name_alignment, files, mapping, rna_alignment_fn, group_name='', output_fn=None):
+def calc_evo_rmsd(targetfn, target_name_alignment, files, mapping, rna_alignment_fn, group_name='', output_fn=''):
     ra = RNAalignment(rna_alignment_fn)
-    print 'target:', targetfn
+    print('target:', targetfn)
     target_residues = ra.get_range(target_name_alignment)
     target = RNAmodel(targetfn, target_residues, save=False, output_dir=None)
 
@@ -83,9 +87,9 @@ def calc_evo_rmsd(targetfn, target_name_alignment, files, mapping, rna_alignment
         if not r.startswith('#'):
             rnastruc.append(r.strip())
 
-    print ' # of rnastruc :', len(rnastruc)
-    print ' rnastruc:', rnastruc
-    print ' WARNING: if any of your PDB file is missing, check mapping!'
+    print(' # of rnastruc :', len(rnastruc))
+    print(' rnastruc:', rnastruc)
+    print(' WARNING: if any of your PDB file is missing, check mapping!')
     models = []
 
     for rs in rnastruc:
@@ -125,7 +129,7 @@ def calc_evo_rmsd(targetfn, target_name_alignment, files, mapping, rna_alignment
     try:
         df.sort_values(by='rmsd').plot(y='rmsd', use_index=False)
     except TypeError:
-        print 'Check if the representives have tags, e.g. c1_thf_pk_...'
+        print('Check if the representives have tags, e.g. c1_thf_pk_...')
     plt.savefig(output_fn.replace('.csv', '.png'))
     return df
 
@@ -136,7 +140,7 @@ def test():
     x = calc_evo_rmsd("test_data/rp14/rp14_5ddp_bound_clean_ligand.pdb", 'target',
                       ['test_data/rp14/rp14_farna_eloop_nol2fixed_cst/rp14_farna_eloop_nol2fixed_cst.out.1.pdb'],
                       mapping, rna_alignment_fn="test_data/rp14/rp14sub.stk")
-    print x
+    print(x)
     sys.exit(0)
 
 
@@ -144,6 +148,8 @@ if __name__ == '__main__':
     # if True: test()
     parser = get_parser()
     opts = parser.parse_args()
+    print(datetime.datetime.now().ctime())
     df = calc_evo_rmsd(opts.target, opts.target_name, opts.files, opts.mapping_fn,
                        opts.rna_alignment_fn, opts.group_name, opts.output_fn)  # , opts.dont_ignore_clusters)
-    print df
+
+    print(df)
