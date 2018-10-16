@@ -1,0 +1,4 @@
+target,fn,inf_all,inf_stack,inf_WC,inf_nWC,sns_WC,ppv_WC,sns_nWC,ppv_nWC
+trna_rpr_x_ref.pdb.outCR,c1_trna_min.out.3.pdb.outCR,0.815,0.000,0.973,0.548,0.947,1.000,0.500,0.600
+trna_rpr_x_ref.pdb.outCR,c4_trna_min.out.2.pdb.outCR,0.775,0.000,0.973,0.408,0.947,1.000,0.333,0.500
+trna_rpr_x_ref.pdb.outCR,c5_trna_a9bc516d-e3da-489d-93ef-5eb20e3f13c3_ALL-000001_AA.pdb.outCR,0.754,0.000,0.919,0.436,0.895,0.944,0.333,0.571

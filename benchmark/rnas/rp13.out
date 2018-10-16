@@ -1,0 +1,474 @@
+scp malibu:/home/magnus/rna-evo-malibu/rp13/rp13/rp13_min.out /home/magnus/work/rosetta-archive/rp13/rp13_min.out
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.1.pdb structures/rp13_min.out.1.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.1.pdb structures/rp13_min.out.1.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.2.pdb structures/rp13_min.out.2.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.2.pdb structures/rp13_min.out.2.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.3.pdb structures/rp13_min.out.3.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.3.pdb structures/rp13_min.out.3.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.4.pdb structures/rp13_min.out.4.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.4.pdb structures/rp13_min.out.4.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.5.pdb structures/rp13_min.out.5.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.5.pdb structures/rp13_min.out.5.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.6.pdb structures/rp13_min.out.6.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.6.pdb structures/rp13_min.out.6.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.7.pdb structures/rp13_min.out.7.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.7.pdb structures/rp13_min.out.7.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.8.pdb structures/rp13_min.out.8.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.8.pdb structures/rp13_min.out.8.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.9.pdb structures/rp13_min.out.9.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.9.pdb structures/rp13_min.out.9.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.10.pdb structures/rp13_min.out.10.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13_min.out.10.pdb structures/rp13_min.out.10.pdb
+scp malibu:/home/magnus/rna-evo-malibu/rp13/rp13cp0016/rp13cp0016_min.out /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.1.pdb structures/rp13cp0016_min.out.1.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.1.pdb structures/rp13cp0016_min.out.1.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.2.pdb structures/rp13cp0016_min.out.2.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.2.pdb structures/rp13cp0016_min.out.2.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.3.pdb structures/rp13cp0016_min.out.3.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.3.pdb structures/rp13cp0016_min.out.3.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.4.pdb structures/rp13cp0016_min.out.4.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.4.pdb structures/rp13cp0016_min.out.4.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.5.pdb structures/rp13cp0016_min.out.5.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.5.pdb structures/rp13cp0016_min.out.5.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.6.pdb structures/rp13cp0016_min.out.6.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.6.pdb structures/rp13cp0016_min.out.6.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.7.pdb structures/rp13cp0016_min.out.7.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.7.pdb structures/rp13cp0016_min.out.7.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.8.pdb structures/rp13cp0016_min.out.8.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.8.pdb structures/rp13cp0016_min.out.8.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.9.pdb structures/rp13cp0016_min.out.9.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.9.pdb structures/rp13cp0016_min.out.9.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.10.pdb structures/rp13cp0016_min.out.10.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13cp0016_min.out.10.pdb structures/rp13cp0016_min.out.10.pdb
+scp malibu:/home/magnus/rna-evo-malibu/rp13/rp13nc3295/rp13nc3295_min.out /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.1.pdb structures/rp13nc3295_min.out.1.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.1.pdb structures/rp13nc3295_min.out.1.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.2.pdb structures/rp13nc3295_min.out.2.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.2.pdb structures/rp13nc3295_min.out.2.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.3.pdb structures/rp13nc3295_min.out.3.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.3.pdb structures/rp13nc3295_min.out.3.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.4.pdb structures/rp13nc3295_min.out.4.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.4.pdb structures/rp13nc3295_min.out.4.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.5.pdb structures/rp13nc3295_min.out.5.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.5.pdb structures/rp13nc3295_min.out.5.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.6.pdb structures/rp13nc3295_min.out.6.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.6.pdb structures/rp13nc3295_min.out.6.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.7.pdb structures/rp13nc3295_min.out.7.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.7.pdb structures/rp13nc3295_min.out.7.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.8.pdb structures/rp13nc3295_min.out.8.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.8.pdb structures/rp13nc3295_min.out.8.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.9.pdb structures/rp13nc3295_min.out.9.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.9.pdb structures/rp13nc3295_min.out.9.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.10.pdb structures/rp13nc3295_min.out.10.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc3295_min.out.10.pdb structures/rp13nc3295_min.out.10.pdb
+scp malibu:/home/magnus/rna-evo-malibu/rp13/rp13nc9445/rp13nc9445_min.out /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.1.pdb structures/rp13nc9445_min.out.1.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.1.pdb structures/rp13nc9445_min.out.1.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.2.pdb structures/rp13nc9445_min.out.2.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.2.pdb structures/rp13nc9445_min.out.2.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.3.pdb structures/rp13nc9445_min.out.3.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.3.pdb structures/rp13nc9445_min.out.3.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.4.pdb structures/rp13nc9445_min.out.4.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.4.pdb structures/rp13nc9445_min.out.4.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.5.pdb structures/rp13nc9445_min.out.5.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.5.pdb structures/rp13nc9445_min.out.5.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.6.pdb structures/rp13nc9445_min.out.6.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.6.pdb structures/rp13nc9445_min.out.6.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.7.pdb structures/rp13nc9445_min.out.7.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.7.pdb structures/rp13nc9445_min.out.7.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.8.pdb structures/rp13nc9445_min.out.8.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.8.pdb structures/rp13nc9445_min.out.8.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.9.pdb structures/rp13nc9445_min.out.9.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.9.pdb structures/rp13nc9445_min.out.9.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.10.pdb structures/rp13nc9445_min.out.10.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nc9445_min.out.10.pdb structures/rp13nc9445_min.out.10.pdb
+scp malibu:/home/magnus/rna-evo-malibu/rp13/rp13nzaaox/rp13nzaaox_min.out /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.1.pdb structures/rp13nzaaox_min.out.1.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.1.pdb structures/rp13nzaaox_min.out.1.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.2.pdb structures/rp13nzaaox_min.out.2.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.2.pdb structures/rp13nzaaox_min.out.2.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.3.pdb structures/rp13nzaaox_min.out.3.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.3.pdb structures/rp13nzaaox_min.out.3.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.4.pdb structures/rp13nzaaox_min.out.4.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.4.pdb structures/rp13nzaaox_min.out.4.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.5.pdb structures/rp13nzaaox_min.out.5.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.5.pdb structures/rp13nzaaox_min.out.5.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.6.pdb structures/rp13nzaaox_min.out.6.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.6.pdb structures/rp13nzaaox_min.out.6.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.7.pdb structures/rp13nzaaox_min.out.7.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.7.pdb structures/rp13nzaaox_min.out.7.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.8.pdb structures/rp13nzaaox_min.out.8.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.8.pdb structures/rp13nzaaox_min.out.8.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.9.pdb structures/rp13nzaaox_min.out.9.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.9.pdb structures/rp13nzaaox_min.out.9.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.10.pdb structures/rp13nzaaox_min.out.10.pdb
+ln -s /home/magnus/work/rosetta-archive/rp13/rp13nzaaox_min.out.10.pdb structures/rp13nzaaox_min.out.10.pdb
+a1ea6711
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000001_AA.pdb structures/znc_a1ea6711_ALL-000001_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000001_AA.pdb structures/znc_a1ea6711_ALL-000001_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000002_AA.pdb structures/znc_a1ea6711_ALL-000002_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000002_AA.pdb structures/znc_a1ea6711_ALL-000002_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000003_AA.pdb structures/znc_a1ea6711_ALL-000003_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000003_AA.pdb structures/znc_a1ea6711_ALL-000003_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000004_AA.pdb structures/znc_a1ea6711_ALL-000004_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000004_AA.pdb structures/znc_a1ea6711_ALL-000004_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000005_AA.pdb structures/znc_a1ea6711_ALL-000005_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000005_AA.pdb structures/znc_a1ea6711_ALL-000005_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000006_AA.pdb structures/znc_a1ea6711_ALL-000006_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000006_AA.pdb structures/znc_a1ea6711_ALL-000006_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000007_AA.pdb structures/znc_a1ea6711_ALL-000007_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000007_AA.pdb structures/znc_a1ea6711_ALL-000007_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000008_AA.pdb structures/znc_a1ea6711_ALL-000008_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000008_AA.pdb structures/znc_a1ea6711_ALL-000008_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000009_AA.pdb structures/znc_a1ea6711_ALL-000009_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000009_AA.pdb structures/znc_a1ea6711_ALL-000009_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000010_AA.pdb structures/znc_a1ea6711_ALL-000010_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_a1ea6711_ALL_top1000/a1ea6711_ALL_top1000-000010_AA.pdb structures/znc_a1ea6711_ALL-000010_AA.pdb
+684ef8ce
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000001_AA.pdb structures/zbaa_684ef8ce_ALL-000001_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000001_AA.pdb structures/zbaa_684ef8ce_ALL-000001_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000002_AA.pdb structures/zbaa_684ef8ce_ALL-000002_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000002_AA.pdb structures/zbaa_684ef8ce_ALL-000002_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000003_AA.pdb structures/zbaa_684ef8ce_ALL-000003_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000003_AA.pdb structures/zbaa_684ef8ce_ALL-000003_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000004_AA.pdb structures/zbaa_684ef8ce_ALL-000004_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000004_AA.pdb structures/zbaa_684ef8ce_ALL-000004_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000005_AA.pdb structures/zbaa_684ef8ce_ALL-000005_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000005_AA.pdb structures/zbaa_684ef8ce_ALL-000005_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000006_AA.pdb structures/zbaa_684ef8ce_ALL-000006_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000006_AA.pdb structures/zbaa_684ef8ce_ALL-000006_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000007_AA.pdb structures/zbaa_684ef8ce_ALL-000007_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000007_AA.pdb structures/zbaa_684ef8ce_ALL-000007_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000008_AA.pdb structures/zbaa_684ef8ce_ALL-000008_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000008_AA.pdb structures/zbaa_684ef8ce_ALL-000008_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000009_AA.pdb structures/zbaa_684ef8ce_ALL-000009_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000009_AA.pdb structures/zbaa_684ef8ce_ALL-000009_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000010_AA.pdb structures/zbaa_684ef8ce_ALL-000010_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_684ef8ce_ALL_top1000/684ef8ce_ALL_top1000-000010_AA.pdb structures/zbaa_684ef8ce_ALL-000010_AA.pdb
+6537608a
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000001_AA.pdb structures/zcp_6537608a_ALL-000001_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000001_AA.pdb structures/zcp_6537608a_ALL-000001_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000002_AA.pdb structures/zcp_6537608a_ALL-000002_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000002_AA.pdb structures/zcp_6537608a_ALL-000002_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000003_AA.pdb structures/zcp_6537608a_ALL-000003_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000003_AA.pdb structures/zcp_6537608a_ALL-000003_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000004_AA.pdb structures/zcp_6537608a_ALL-000004_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000004_AA.pdb structures/zcp_6537608a_ALL-000004_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000005_AA.pdb structures/zcp_6537608a_ALL-000005_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000005_AA.pdb structures/zcp_6537608a_ALL-000005_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000006_AA.pdb structures/zcp_6537608a_ALL-000006_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000006_AA.pdb structures/zcp_6537608a_ALL-000006_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000007_AA.pdb structures/zcp_6537608a_ALL-000007_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000007_AA.pdb structures/zcp_6537608a_ALL-000007_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000008_AA.pdb structures/zcp_6537608a_ALL-000008_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000008_AA.pdb structures/zcp_6537608a_ALL-000008_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000009_AA.pdb structures/zcp_6537608a_ALL-000009_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000009_AA.pdb structures/zcp_6537608a_ALL-000009_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000010_AA.pdb structures/zcp_6537608a_ALL-000010_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6537608a_ALL_top1000/6537608a_ALL_top1000-000010_AA.pdb structures/zcp_6537608a_ALL-000010_AA.pdb
+20569fa1
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000001_AA.pdb structures/rp13_20569fa1_ALL-000001_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000001_AA.pdb structures/rp13_20569fa1_ALL-000001_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000002_AA.pdb structures/rp13_20569fa1_ALL-000002_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000002_AA.pdb structures/rp13_20569fa1_ALL-000002_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000003_AA.pdb structures/rp13_20569fa1_ALL-000003_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000003_AA.pdb structures/rp13_20569fa1_ALL-000003_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000004_AA.pdb structures/rp13_20569fa1_ALL-000004_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000004_AA.pdb structures/rp13_20569fa1_ALL-000004_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000005_AA.pdb structures/rp13_20569fa1_ALL-000005_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000005_AA.pdb structures/rp13_20569fa1_ALL-000005_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000006_AA.pdb structures/rp13_20569fa1_ALL-000006_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000006_AA.pdb structures/rp13_20569fa1_ALL-000006_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000007_AA.pdb structures/rp13_20569fa1_ALL-000007_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000007_AA.pdb structures/rp13_20569fa1_ALL-000007_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000008_AA.pdb structures/rp13_20569fa1_ALL-000008_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000008_AA.pdb structures/rp13_20569fa1_ALL-000008_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000009_AA.pdb structures/rp13_20569fa1_ALL-000009_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000009_AA.pdb structures/rp13_20569fa1_ALL-000009_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000010_AA.pdb structures/rp13_20569fa1_ALL-000010_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_20569fa1_ALL_top1000/20569fa1_ALL_top1000-000010_AA.pdb structures/rp13_20569fa1_ALL-000010_AA.pdb
+6a68812b
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000001_AA.pdb structures/zaa_6a68812b_ALL-000001_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000001_AA.pdb structures/zaa_6a68812b_ALL-000001_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000002_AA.pdb structures/zaa_6a68812b_ALL-000002_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000002_AA.pdb structures/zaa_6a68812b_ALL-000002_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000003_AA.pdb structures/zaa_6a68812b_ALL-000003_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000003_AA.pdb structures/zaa_6a68812b_ALL-000003_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000004_AA.pdb structures/zaa_6a68812b_ALL-000004_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000004_AA.pdb structures/zaa_6a68812b_ALL-000004_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000005_AA.pdb structures/zaa_6a68812b_ALL-000005_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000005_AA.pdb structures/zaa_6a68812b_ALL-000005_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000006_AA.pdb structures/zaa_6a68812b_ALL-000006_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000006_AA.pdb structures/zaa_6a68812b_ALL-000006_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000007_AA.pdb structures/zaa_6a68812b_ALL-000007_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000007_AA.pdb structures/zaa_6a68812b_ALL-000007_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000008_AA.pdb structures/zaa_6a6881../../target_13_solution_0_renumber_puzzle_ref.pdb -> structures/solution.pdb
+rp13finalX_noSSperSeq_ref_mapping_refX.txt
+ # of rnastruc: 12
+ rnastruc: ['rp13:rp13_', 'cp0016:rp13cp0016', 'nc3295:rp13nc3295', 'nc3295:nc3295', 'nc9445:rp13nc9445', 'nzaaox:rp13nzaaox', 'rp13:zmp', 'rp13:solution', 'CP000927.1/5164264-5164343:zaa', 'BAAV01000055:zbaa', 'cp0016:zcp', 'nc9445:znc']
+  rp13 <-> rp13_
+   cutting out fragments ... 
+   analyzing... structures/rp13_*.pdb
+   # of structures 20
+  cp0016 <-> rp13cp0016
+   cutting out fragments ... 
+   analyzing... structures/rp13cp0016*.pdb
+   # of structures 10
+  nc3295 <-> rp13nc3295
+   cutting out fragments ... 
+   analyzing... structures/rp13nc3295*.pdb
+   # of structures 10
+  nc3295 <-> nc3295
+   cutting out fragments ... 
+   analyzing... structures/nc3295*.pdb
+   # of structures 0
+  nc9445 <-> rp13nc9445
+   cutting out fragments ... 
+   analyzing... structures/rp13nc9445*.pdb
+   # of structures 10
+  nzaaox <-> rp13nzaaox
+   cutting out fragments ... 
+   analyzing... structures/rp13nzaaox*.pdb
+   # of structures 10
+  rp13 <-> zmp
+   cutting out fragments ... 
+   analyzing... structures/zmp*.pdb
+   # of structures 0
+  rp13 <-> solution
+   cutting out fragments ... 
+   analyzing... structures/solution*.pdb
+   # of structures 1
+  CP000927.1/5164264-5164343 <-> zaa
+   cutting out fragments ... 
+   analyzing... structures/zaa*.pdb
+   # of structures 10
+  BAAV01000055 <-> zbaa
+   cutting out fragments ... 
+   analyzing... structures/zbaa*.pdb
+   # of structures 10
+  cp0016 <-> zcp
+   cutting out fragments ... 
+   analyzing... structures/zcp*.pdb
+   # of structures 10
+  nc9445 <-> znc
+   cutting out fragments ... 
+   analyzing... structures/znc*.pdb
+   # of structures 10
+ # of models: 101
+matrix was created!  rp13finalX_noSSperSeq_ref_mapping_refX.txt
+# of struc 101
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 0
+n:  0
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf0*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 0.5
+n:  1
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf0.5*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 1.0
+n:  1
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf1.0*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 1.5
+n:  2
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf1.5*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 2.0
+n:  2
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf2.0*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 2.5
+n:  3
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf2.5*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 3.0
+n:  4
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf3.0*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 3.5
+n:  6
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf3.5*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 4.0
+n:  9
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf4.0*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 4.5
+n:  10
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf4.5*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 5.0
+n:  10
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf5.0*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 5.5
+n:  12
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf5.5*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 6.0
+n:  13
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf6.0*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 6.5
+n:  15
+rm rp13finalX_noSSperSeq_ref_mapping_refX*cf6.5*.out # auto-removal
+evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.txt -c 7.0
+n:  22
+Tue Oct 16 22:57:28 2018
+target: ../../target_13_solution_0_renumber_puzzle_ref.pdb
+ # of rnastruc : 12
+ rnastruc: ['rp13:rp13_', 'cp0016:rp13cp0016', 'nc3295:rp13nc3295', 'nc3295:nc3295', 'nc9445:rp13nc9445', 'nzaaox:rp13nzaaox', 'rp13:zmp', 'rp13:solution', 'CP000927.1/5164264-5164343:zaa', 'BAAV01000055:zbaa', 'cp0016:zcp', 'nc9445:znc']
+ WARNING: if any of your PDB file is missing, check mapping!
+                                           target                            model   rmsd group_name
+0    target_13_solution_0_renumber_puzzle_ref.pdb  rp13_20569fa1_ALL-000001_AA.pdb  10.20           
+1    target_13_solution_0_renumber_puzzle_ref.pdb  rp13_20569fa1_ALL-000002_AA.pdb  10.52           
+2    target_13_solution_0_renumber_puzzle_ref.pdb  rp13_20569fa1_ALL-000003_AA.pdb   6.73           
+3    target_13_solution_0_renumber_puzzle_ref.pdb  rp13_20569fa1_ALL-000004_AA.pdb  11.58           
+4    target_13_solution_0_renumber_puzzle_ref.pdb  rp13_20569fa1_ALL-000005_AA.pdb  10.81           
+5    target_13_solution_0_renumber_puzzle_ref.pdb  rp13_20569fa1_ALL-000006_AA.pdb   7.10           
+6    target_13_solution_0_renumber_puzzle_ref.pdb  rp13_20569fa1_ALL-000007_AA.pdb   6.68           
+7    target_13_solution_0_renumber_puzzle_ref.pdb  rp13_20569fa1_ALL-000008_AA.pdb  10.19           
+8    target_13_solution_0_renumber_puzzle_ref.pdb  rp13_20569fa1_ALL-000009_AA.pdb   8.52           
+9    target_13_solution_0_renumber_puzzle_ref.pdb  rp13_20569fa1_ALL-000010_AA.pdb  10.50           
+10   target_13_solution_0_renumber_puzzle_ref.pdb               rp13_min.out.1.pdb   4.41           
+11   target_13_solution_0_renumber_puzzle_ref.pdb              rp13_min.out.10.pdb   8.71           
+12   target_13_solution_0_renumber_puzzle_ref.pdb               rp13_min.out.2.pdb  15.99           
+13   target_13_solution_0_renumber_puzzle_ref.pdb               rp13_min.out.3.pdb  12.86           
+14   target_13_solution_0_renumber_puzzle_ref.pdb               rp13_min.out.4.pdb   8.38           
+15   target_13_solution_0_renumber_puzzle_ref.pdb               rp13_min.out.5.pdb   5.22           
+16   target_13_solution_0_renumber_puzzle_ref.pdb               rp13_min.out.6.pdb   8.11           
+17   target_13_solution_0_renumber_puzzle_ref.pdb               rp13_min.out.7.pdb   5.81           
+18   target_13_solution_0_renumber_puzzle_ref.pdb               rp13_min.out.8.pdb   9.23           
+19   target_13_solution_0_renumber_puzzle_ref.pdb               rp13_min.out.9.pdb   5.59           
+20   target_13_solution_0_renumber_puzzle_ref.pdb         rp13cp0016_min.out.1.pdb  13.89           
+21   target_13_solution_0_renumber_puzzle_ref.pdb        rp13cp0016_min.out.10.pdb  19.74           
+22   target_13_solution_0_renumber_puzzle_ref.pdb         rp13cp0016_min.out.2.pdb  17.09           
+23   target_13_solution_0_renumber_puzzle_ref.pdb         rp13cp0016_min.out.3.pdb  11.52           
+24   target_13_solution_0_renumber_puzzle_ref.pdb         rp13cp0016_min.out.4.pdb  14.74           
+25   target_13_solution_0_renumber_puzzle_ref.pdb         rp13cp0016_min.out.5.pdb  10.58           
+26   target_13_solution_0_renumber_puzzle_ref.pdb         rp13cp0016_min.out.6.pdb  13.70           
+27   target_13_solution_0_renumber_puzzle_ref.pdb         rp13cp0016_min.out.7.pdb  18.17           
+28   target_13_solution_0_renumber_puzzle_ref.pdb         rp13cp0016_min.out.8.pdb  16.08           
+29   target_13_solution_0_renumber_puzzle_ref.pdb         rp13cp0016_min.out.9.pdb  18.02           
+..                                            ...                              ...    ...        ...
+91   target_13_solution_0_renumber_puzzle_ref.pdb  zbaa_684ef8ce_ALL-000001_AA.pdb  18.97           
+92   target_13_solution_0_renumber_puzzle_ref.pdb  zbaa_684ef8ce_ALL-000002_AA.pdb  18.89           
+93   target_13_solution_0_renumber_puzzle_ref.pdb  zbaa_684ef8ce_ALL-000003_AA.pdb  19.70           
+94   target_13_solution_0_renumber_puzzle_ref.pdb  zbaa_684ef8ce_ALL-000004_AA.pdb  15.89           
+95   target_13_solution_0_renumber_puzzle_ref.pdb  zbaa_684ef8ce_ALL-000005_AA.pdb  15.92           
+96   target_13_solution_0_renumber_puzzle_ref.pdb  zbaa_684ef8ce_ALL-000006_AA.pdb  19.75           
+97   target_13_solution_0_renumber_puzzle_ref.pdb  zbaa_684ef8ce_ALL-000007_AA.pdb  19.31           
+98   target_13_solution_0_renumber_puzzle_ref.pdb  zbaa_684ef8ce_ALL-000008_AA.pdb  16.08           
+99   target_13_solution_0_renumber_puzzle_ref.pdb  zbaa_684ef8ce_ALL-000009_AA.pdb  20.39           
+100  target_13_solution_0_renumber_puzzle_ref.pdb  zbaa_684ef8ce_ALL-000010_AA.pdb  19.63           
+101  target_13_solution_0_renumber_puzzle_ref.pdb   zcp_6537608a_ALL-000001_AA.pdb   7.91           
+102  target_13_solution_0_renumber_puzzle_ref.pdb   zcp_6537608a_ALL-000002_AA.pdb   6.81           
+103  target_13_solution_0_renumber_puzzle_ref.pdb   zcp_6537608a_ALL-000003_AA.pdb  11.30           
+104  target_13_solution_0_renumber_puzzle_ref.pdb   zcp_6537608a_ALL-000004_AA.pdb   7.55           
+105  target_13_solution_0_renumber_puzzle_ref.pdb   zcp_6537608a_ALL-000005_AA.pdb  11.89           
+106  target_13_solution_0_renumber_puzzle_ref.pdb   zcp_6537608a_ALL-000006_AA.pdb   7.72           
+107  target_13_solution_0_renumber_puzzle_ref.pdb   zcp_6537608a_ALL-000007_AA.pdb   9.92           
+108  target_13_solution_0_renumber_puzzle_ref.pdb   zcp_6537608a_ALL-000008_AA.pdb   7.75           
+109  target_13_solution_0_renumber_puzzle_ref.pdb   zcp_6537608a_ALL-000009_AA.pdb  10.28           
+110  target_13_solution_0_renumber_puzzle_ref.pdb   zcp_6537608a_ALL-000010_AA.pdb  11.84           
+111  target_13_solution_0_renumber_puzzle_ref.pdb   znc_a1ea6711_ALL-000001_AA.pdb  12.83           
+112  target_13_solution_0_renumber_puzzle_ref.pdb   znc_a1ea6711_ALL-000002_AA.pdb  13.40           
+113  target_13_solution_0_renumber_puzzle_ref.pdb   znc_a1ea6711_ALL-000003_AA.pdb  13.10           
+114  target_13_solution_0_renumber_puzzle_ref.pdb   znc_a1ea6711_ALL-000004_AA.pdb  13.14           
+115  target_13_solution_0_renumber_puzzle_ref.pdb   znc_a1ea6711_ALL-000005_AA.pdb  11.94           
+116  target_13_solution_0_renumber_puzzle_ref.pdb   znc_a1ea6711_ALL-000006_AA.pdb  12.08           
+117  target_13_solution_0_renumber_puzzle_ref.pdb   znc_a1ea6711_ALL-000007_AA.pdb  12.22           
+118  target_13_solution_0_renumber_puzzle_ref.pdb   znc_a1ea6711_ALL-000008_AA.pdb  12.84           
+119  target_13_solution_0_renumber_puzzle_ref.pdb   znc_a1ea6711_ALL-000009_AA.pdb  12.40           
+120  target_13_solution_0_renumber_puzzle_ref.pdb   znc_a1ea6711_ALL-000010_AA.pdb  13.45           
+
+[121 rows x 4 columns]
+structures//rp13_20569fa1_ALL-000001_AA.pdb -> reps/c1_rp13_20569fa1_ALL-000001_AA.pdb
+structures//rp13_20569fa1_ALL-000004_AA.pdb -> reps/c2_rp13_20569fa1_ALL-000004_AA.pdb
+structures//zaa_6a68812b_ALL-000001_AA.pdb -> reps/c3_zaa_6a68812b_ALL-000001_AA.pdb
+structures//zbaa_684ef8ce_ALL-000001_AA.pdb -> reps/c4_zbaa_684ef8ce_ALL-000001_AA.pdb
+structures//rp13cp0016_min.out.8.pdb -> reps/c5_rp13cp0016_min.out.8.pdb
+evoClust_get_models.py
+--------------------------------------------------------------------------------
+1_rp13_20569fa1_ALL-000001_AA.pdb
+2_rp13_20569fa1_ALL-000004_AA.pdb
+3_zaa_6a68812b_ALL-000001_AA.pdb
+4_zbaa_684ef8ce_ALL-000001_AA.pdb
+5_rp13cp0016_min.out.8.pdb
+= structures == out/structures/<files>===================
+cp -v structures//rp13_20569fa1_ALL-000001_AA.pdb reps/c1_rp13_20569fa1_ALL-000001_AA.pdb
+cp -v structures//rp13_20569fa1_ALL-000004_AA.pdb reps/c2_rp13_20569fa1_ALL-000004_AA.pdb
+cp -v structures//zaa_6a68812b_ALL-000001_AA.pdb reps/c3_zaa_6a68812b_ALL-000001_AA.pdb
+cp -v structures//zbaa_684ef8ce_ALL-000001_AA.pdb reps/c4_zbaa_684ef8ce_ALL-000001_AA.pdb
+cp -v structures//rp13cp0016_min.out.8.pdb reps/c5_rp13cp0016_min.out.8.pdb
+= motif ==========================================
+structures//motifs/rp13_20569fa1_ALL-000001_AA.pdb -> reps_motifs/1_rp13_20569fa1_ALL-000001_AA.pdb
+Missing motifs folder?
+structures//motifs/rp13_20569fa1_ALL-000004_AA.pdb -> reps_motifs/2_rp13_20569fa1_ALL-000004_AA.pdb
+Missing motifs folder?
+structures//motifs/zaa_6a68812b_ALL-000001_AA.pdb -> reps_motifs/3_zaa_6a68812b_ALL-000001_AA.pdb
+Missing motifs folder?
+structures//motifs/zbaa_684ef8ce_ALL-000001_AA.pdb -> reps_motifs/4_zbaa_684ef8ce_ALL-000001_AA.pdb
+Missing motifs folder?
+structures//motifs/rp13cp0016_min.out.8.pdb -> reps_motifs/5_rp13cp0016_min.out.8.pdb
+Missing motifs folder?
+structures//rp13_20569fa1_ALL-000001_AA.pdb -> reps_ns/c1_rp13_20569fa1_ALL-000001_AA.pdb
+structures//rp13_20569fa1_ALL-000004_AA.pdb -> reps_ns/c2_rp13_20569fa1_ALL-000004_AA.pdb
+evoClust_get_models.py
+--------------------------------------------------------------------------------
+['rp13_20569fa1_ALL-000001_AA.pdb', 'rp13_20569fa1_ALL-000004_AA.pdb', '', '', '']
+1_rp13_20569fa1_ALL-000001_AA.pdb
+2_rp13_20569fa1_ALL-000004_AA.pdb
+3_
+4_
+5_
+= structures == out/structures/<files>===================
+cp -v structures//rp13_20569fa1_ALL-000001_AA.pdb reps_ns/c1_rp13_20569fa1_ALL-000001_AA.pdb
+cp -v structures//rp13_20569fa1_ALL-000004_AA.pdb reps_ns/c2_rp13_20569fa1_ALL-000004_AA.pdb
+cp -v structures// reps_ns/c3_
+cp -v structures// reps_ns/c4_
+cp -v structures// reps_ns/c5_
+= motif ==========================================
+structures//motifs/rp13_20569fa1_ALL-000001_AA.pdb -> reps_motifs_ns/1_rp13_20569fa1_ALL-000001_AA.pdb
+Missing motifs folder?
+structures//motifs/rp13_20569fa1_ALL-000004_AA.pdb -> reps_motifs_ns/2_rp13_20569fa1_ALL-000004_AA.pdb
+Missing motifs folder?
+structures//motifs/ -> reps_motifs_ns/3_
+Missing motifs folder?
+structures//motifs/ -> reps_motifs_ns/4_
+Missing motifs folder?
+structures//motifs/ -> reps_motifs_ns/5_
+Missing motifs folder?
+Tue Oct 16 22:57:43 2018
+target: ../../target_13_solution_0_renumber_puzzle_ref.pdb
+ # of rnastruc : 12
+ rnastruc: ['rp13:rp13_', 'cp0016:rp13cp0016', 'nc3295:rp13nc3295', 'nc3295:nc3295', 'nc9445:rp13nc9445', 'nzaaox:rp13nzaaox', 'rp13:zmp', 'rp13:solution', 'CP000927.1/5164264-5164343:zaa', 'BAAV01000055:zbaa', 'cp0016:zcp', 'nc9445:znc']
+ WARNING: if any of your PDB file is missing, check mapping!
+                                         target                               model   rmsd group_name
+0  target_13_solution_0_renumber_puzzle_ref.pdb  c1_rp13_20569fa1_ALL-000001_AA.pdb  10.20           
+1  target_13_solution_0_renumber_puzzle_ref.pdb  c2_rp13_20569fa1_ALL-000004_AA.pdb  11.58           
+2  target_13_solution_0_renumber_puzzle_ref.pdb         c5_rp13cp0016_min.out.8.pdb  16.08           
+3  target_13_solution_0_renumber_puzzle_ref.pdb   c3_zaa_6a68812b_ALL-000001_AA.pdb  15.31           
+4  target_13_solution_0_renumber_puzzle_ref.pdb  c4_zbaa_684ef8ce_ALL-000001_AA.pdb  18.97           
+method: all-atom-built-in
+# of models: 2
+c1_rp13_20569fa1_ALL-000001_AA.pdb 10.52 1295
+c2_rp13_20569fa1_ALL-000004_AA.pdb 12.11 1295
+# of atoms used: 1295
+csv was created!  rmsds.csv
+csv was created!  inf.csv
+2b_ALL-000008_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000008_AA.pdb structures/zaa_6a68812b_ALL-000008_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000009_AA.pdb structures/zaa_6a68812b_ALL-000009_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000009_AA.pdb structures/zaa_6a68812b_ALL-000009_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000010_AA.pdb structures/zaa_6a68812b_ALL-000010_AA.pdb
+ln -s /home/magnus//work/simrnaweb-archive/_6a68812b_ALL_top1000/6a68812b_ALL_top1000-000010_AA.pdb structures/zaa_6a68812b_ALL-000010_AA.pdb
+cp -v ../../*ref.pdb structures/solution.pdb
+evoClustRNA.py -a ../../rp13*ref.sto -i structures -m ../../*mapping*ref.txt -f
+evoClust_autoclustix.py *mapping*X.txt
+evoClust_calc_rmsd.py -a ../../rp13*ref.sto -t ../../*ref.pdb -o rmsd_all_strucs.csv -n rp13 -m ../../*mapping*ref.txt  structures/*.pdb
+evoClust_get_models.py -i structures/ *.out
+evoClust_get_models.py -i structures/ *.out -n 'rp13_'
+cd reps_ns && rna_pdb_toolsx.py --delete 'A:46-56' --inplace *
+evoClust_calc_rmsd.py -a ../../rp13*ref.sto -t ../../*ref.pdb -n rp13 -m ../../*mapping*ref.txt -o rmsd_motif.csv reps/*.pdb
+rna_pdb_toolsx.py --inplace --get_rnapuzzle_ready reps_ns/*.pdb
+rna_calc_rmsd.py -t ../../*ref.pdb reps_ns/*.pdb
+rna_calc_inf.py -f -t ../../*ref.pdb reps_ns/*.pdb
+!!! skip gmp!!!
+!!! skip rp13.out!!!
+!!! skip tpp!!!
+!!! skip trna!!!
+!!! skip rp17!!!
+!!! skip ade!!!
+!!! skip thf!!!
+!!! skip rp14!!!
+[rp13]
+ evox.py -s 10 -f 10 -p -e -t  -a rp13 in evox/test
+evox.py -s 10 -f 10 -p -e -t  -a rp13

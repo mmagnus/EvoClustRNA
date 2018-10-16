@@ -1,0 +1,6 @@
+trna:trna
+trna:solution
+AF396436.1:taf
+M57527.1:tm5
+AB009835.1:tab
+M26977.1:tm2

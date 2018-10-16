@@ -1,0 +1,6 @@
+,target,model,rmsd,group_name
+0,target_13_solution_0_renumber_puzzle_ref.pdb,c1_rp13_20569fa1_ALL-000001_AA.pdb,10.2,
+1,target_13_solution_0_renumber_puzzle_ref.pdb,c2_rp13_20569fa1_ALL-000004_AA.pdb,11.58,
+2,target_13_solution_0_renumber_puzzle_ref.pdb,c5_rp13cp0016_min.out.8.pdb,16.08,
+3,target_13_solution_0_renumber_puzzle_ref.pdb,c3_zaa_6a68812b_ALL-000001_AA.pdb,15.31,
+4,target_13_solution_0_renumber_puzzle_ref.pdb,c4_zbaa_684ef8ce_ALL-000001_AA.pdb,18.97,
