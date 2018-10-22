@@ -15,6 +15,8 @@ import re
 import time
 
 
+LIMIT = 40
+
 def get_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('matrix',
@@ -39,6 +41,8 @@ if __name__ == '__main__':
 
     c = 0
     while 1:
+        if c > 40:
+            print("You reached the limit, I'm quitting!")
         cmd = "evoClust_clustix.py " + args.matrix + " -c " + str(c)
         if args.half:
             cmd += " -o " + args.matrix.replace('.txt', '-half')
