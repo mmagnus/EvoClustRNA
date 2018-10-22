@@ -11,3 +11,4 @@
 
 	: to map alignment id with folder name, dont use | any more. Use newline.
 	# can be used to mark comments.
+
