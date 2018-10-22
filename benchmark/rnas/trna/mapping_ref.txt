@@ -1,4 +1,4 @@
-trna:trna
+trna:tar
 trna:solution
 AF396436.1:taf
 M57527.1:tm5

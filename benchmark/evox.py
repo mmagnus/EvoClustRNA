@@ -7,7 +7,7 @@ import shutil
 
 #FARNA_ARCHIVE = '/Users/magnus/work/rosetta-archive/'
 ROSETTA_ARCHIVE = "/home/magnus/work/rosetta-archive/"
-SIMRNA_ARCHIVE = "/home/magnus//work/simrnaweb-archive/"
+SIMRNA_ARCHIVE = "/home/magnus/work/simrnaweb-archive/"
 TRASH = False # trash everything in ade/evox/<mode>
 
 def get_parser():
@@ -39,26 +39,30 @@ def get_farna(hs, n, case):
     hs = ['a04pk', 'a99pk', 'adepk', 'b28pk', 'u51pk']
     n = topX, e.g. top10
     """
-    for h in hs:
+    root = os.getcwd()
+    for h in hs.keys():
+        job_id = hs[h]
         # cmd = "scp malibu:/home/magnus/rna-evo-malibu/ade/" + h + "/" + h + "_top" + n + "/* structures/"
         # /home/magnus/rna-evo-malibu/ade/a04pk
         try: os.mkdir(ROSETTA_ARCHIVE + case)
         except OSError: pass
 
         # ok, download trajectories files
-        local_out_fn = ROSETTA_ARCHIVE + case + "/" + h + "_min.out"
-        if not os.path.isfile(local_out_fn):
-            cmd = "scp malibu:/home/magnus/rna-evo-malibu/" + case + "/" + h + "/" + h + "_min.out " + \
-              local_out_fn
-            exe(cmd)
-        else:
-            print('Exists ' + local_out_fn + ' [ok]')
+        # this is off at the moment :)
+        ## local_out_fn = ROSETTA_ARCHIVE + case + "/" + h + "_min.out"
+        ## if not os.path.isfile(local_out_fn):
+        ##     cmd = "scp malibu:/home/magnus/rna-evo-malibu/" + case + "/" + h + "/" + h + "_min.out " + \
+        ##       local_out_fn
+        ##     exe(cmd)
+        ## else:
+        ##     print('Exists ' + local_out_fn + ' [ok]')
 
         for i in range(1, int(n) + 1):
             # /Users/magnus/work/rosetta-archive/trna/trna_min.out.99.pdb
-            pdb_fn = h + '_min.out.' + str(i) + '.pdb'
-            lnfn = 'ln -s ' + ROSETTA_ARCHIVE + case + '/' + pdb_fn + ' ' + \
-                            'structures/' + pdb_fn
+            pdb_fn_in = hs[h] + '_min.out.' + str(i) + '.pdb'
+            pdb_fn_out = h + '_min.out.' + str(i) + '.pdb'
+            lnfn = 'ln -s ' + ROSETTA_ARCHIVE + case + '/' + pdb_fn_in + ' ' + \
+                            'structures/' + pdb_fn_out
             print(lnfn)
             exe(lnfn)
 
@@ -123,143 +127,168 @@ if __name__ == '__main__':
         # this is for rosetta
         # this is not ideal, but it works ;-)
         if args.case == 'ade' and args.target_only:
-            hs = ['adepk']
+            hs = {'tar' : 'adepk'}
         elif args.case == 'ade':
-            hs = ['a04pk', 'a99pk', 'adepk', 'b28pk', 'u51pk'] # options for this I can have!
+            hs = {'a04' : 'a04pk',
+                  'a99' : 'a99pk',
+                  'tar' : 'adepk',
+                  'b28' : 'b28pk',
+                  'u51' : 'u51pk'}  # options for this I can have!
 
         if args.case == 'tpp' and args.target_only:
-            hs = ['tpp']
+            hs = {'tar': 'tpp'}
         elif args.case == 'tpp':
-            hs = 'tae  tal  tb2  tc5  tpp'.split()
+            hs = {'tae' : 'tae',
+                  'tal' : 'tal',
+                  'tb2' : 'tc5',
+                  'tar' : 'tpp'}
 
         if args.case == 'gmp' and args.target_only:
-            hs = ['gmp']
+            hs = {'tar' : 'gmp'}
         elif args.case == 'gmp':
-            hs = 'gapP  gbaP  gbx  gmp  gxx'.split()
+            hs = {'gap' : 'gapP',
+                  'gba' : 'gbaP',
+                  'gbx' : 'gbx',
+                  'tar' : 'gmp',
+                  'gxx' : 'gxx'}
 
         if args.case == 'thf' and args.target_only:
-            hs = ['thf']
+            hs = {'tar' : 'thf'}
         elif args.case == 'thf':
-            hs = 'hak  haqpk  hcppk  tha  thf'.split()
+            hs = {'tar' : 'thf',
+                  'hak' : 'hak',
+                  'haq' : 'haqpk',
+                  'hcp' : 'hcppk',
+                  'tha' : 'tha'}
 
         if args.case == 'trna' and args.target_only:
-            hs = ['trna']
+            hs = {'tar' : 'trna'}
         elif args.case == 'trna':
-            hs = 'tab  taf  tm2  tm5  trna'.split()
+            hs = {'tab' : 'tab',
+                  'taf' : 'taf',
+                  'tm2' : 'tm2',
+                  'tm5' : 'tm5',
+                  'tar' : 'trna'}
 
         if args.case == 'rp17' and args.target_only:
-            hs = ['rp17']
+            hs = {'tar': 'rp17'}
         elif args.case == 'rp17':
-            hs = 'rp17   rp17hcf     rp17pistol  rp17s221    rp17s223'.split()
+            hs = {'tar' : 'rp17',
+                'hcf' : 'rp17hcf',
+                'pis' : 'rp17pistol',
+                's21' : 'rp17s221',
+                's23' : 'rp17s223'}
 
-        if args.case == 'rp06' and args.target_only:
-            hs = ['rp06']
-        elif args.case == 'rp06':
-            hs = 'rp06 rp06af193 rp06bx571'.split()
+        ## if args.case == 'rp06' and args.target_only:
+        ##     hs = ['rp06']
+        ## elif args.case == 'rp06':
+        ##     hs = 'rp06 rp06af193 rp06bx571'.split()
 
         if args.case == 'rp13' and args.target_only:
-            hs = ['rp13']
+            hs = {'tar' : 'rp13'}
         elif args.case == 'rp13':
-            hs = 'rp13 rp13cp0016 rp13nc3295 rp13nc9445 rp13nzaaox'.split()
+            hs = {'tar' : 'rp13',
+                  'zcp' : 'rp13cp0016',
+                  'zc3' : 'rp13nc3295',
+                  'znc' : 'rp13nc9445',
+                  'zza' : 'rp13nzaaox'}
             # tutaj ten kod mozesz sobie uzyc jakbym kiedys chcial pracowac na modelach
             # pochodzacych z modelowania z więzami
             # hs = 'rp13cp0016cst nc3295cst rp13nc9445cst nzaaoxcst rp13prs_cst'.split()
+            #hs = []
             #hs = ''.split() # '
 
         if args.case == 'rp14' and args.target_only:
-            hs = ['rp14']
+            hs = {'tar' , 'rp14'}
         elif args.case == 'rp14':
-            hs = 'rp14 rp14_aj63 rp14_aacy23'.split()
+            hs = {'tar' : 'rp14',
+                  'aj6' : 'rp14_aj63',
+                  'cy2' : 'rp14_aacy23'}
 
         get_farna(hs, args.farna, args.case)
 
     if args.simrna:
 
         if args.case == 'ade' and args.target_only:
-            hs = {'ade_pk': 'ade_pk-35b2a2c1'}
+            hs = {'tar': 'ade_pk-35b2a2c1'}
         elif args.case == 'ade':
-            hs = {'ade_pk': 'ade_pk-35b2a2c1',
+            hs = {'tar': 'ade_pk-35b2a2c1',
                   'a04': '9c6339e0-591c-498d-9745-1a828f9ee81d',
                   'a99': '2e496700-b989-4044-883d-d34257b022ab',
                   'u51': 'e614e4a0-0898-45f2-9964-52db07279965',
                   'b28': '7bc1d432-eac8-47cf-a42e-aa3c89efc721'}
 
         if args.case == 'tpp' and args.target_only:
-            hs = {'tpp': '16662ebf-cf31-42d1-98a3-2aae31f28087'}
+            hs = {'tar': '16662ebf-cf31-42d1-98a3-2aae31f28087'}
         elif args.case == 'tpp':
-            hs = {'tpp': '16662ebf-cf31-42d1-98a3-2aae31f28087',
+            hs = {'tar': '16662ebf-cf31-42d1-98a3-2aae31f28087',
                   'tc5': 'aed2c40b-bb70-44a7-846d-b133359fc6bd',
                   'tb2': '0abbb76e-9cda-482f-abb2-94557e91acd8',
                   'tae': '6bff10d7-d4ec-43ce-8f79-8f538fa1ae65',
                   'tal': 'd2609d4d-bd6f-49fd-acbe-0ab278e0166b'}
 
         if args.case == 'trna' and args.target_only:
-            hs = {'trna': 'a9bc516d-e3da-489d-93ef-5eb20e3f13c3'}
+            hs = {'tar': 'a9bc516d-e3da-489d-93ef-5eb20e3f13c3'}
         elif args.case == 'trna':
-            hs = {'trna': 'a9bc516d-e3da-489d-93ef-5eb20e3f13c3',
+            hs = {'tar': 'a9bc516d-e3da-489d-93ef-5eb20e3f13c3',
                   'taf': '822df074-320e-4166-9fd1-8fbcf085908a',
                   'tm5': '613bcfcf-f513-4945-9cf4-6df7db04545e',
                   'tab': 'cf61bea5-88c4-4e82-8042-dc04ce5cadcf',
-                  'tm2': '8ca21d4d-7ceb-4736-9619-7c1814c75637'
-                      }
+                  'tm2': '8ca21d4d-7ceb-4736-9619-7c1814c75637'}
 
         if args.case == 'gmp' and  args.target_only:
-            hs = {'gmp': 'faa97ed7'}
+            hs = {'tar': 'faa97ed7'}
         elif args.case == 'gmp':
-            hs = {'gmp': 'faa97ed7',
-                      'gapP' : 'd9d225c5',
-                      'gbx' : '00de79c8',
-                      'gbaP' : 'd2b57aef',
-                      'gxx' : '6bd26658' }
+            hs = {'tar': 'faa97ed7',
+                  'gapP' : 'd9d225c5',
+                  'gbx' : '00de79c8',
+                  'gbaP' : 'd2b57aef',
+                  'gxx' : '6bd26658' }
 
         if args.case == 'thf' and  args.target_only:
-            hs = {'thf' : '7f0f8826'}
+            hs = {'tar' : '7f0f8826'}
         elif args.case == 'thf':
-            hs = {'thf' : '7f0f8826',
+            hs = {'tar' : '7f0f8826',
                   'tha' : '5f8916a8',
                   'hak' : 'cb6e7e4d',
                   'haq' : '497811c4',
-                  'hcp' : 'hcp-pk-374cbbb1',
-                  }
+                  'hcp' : 'hcp-pk-374cbbb1'}
 
         if args.case == 'rp17' and  args.target_only:
-            hs = {'rp17' : '948f56bb-ea7a-4619-9945-2fbfd6902c24'}
+            hs = {'tar' : '948f56bb-ea7a-4619-9945-2fbfd6902c24'}
         elif args.case == 'rp17':
-            hs = {'rp17' : '27b5093d',
-                  'rp17hcfc' : '6d8062dd',
-                  'rp17s223c' : '36828e10',
-                  'rp17s221c' : '742b47e6',
-                  'rp17pistol' : '336e0098'
-                  }
+            hs = {'tar' : '27b5093d',
+                  'hcf' : '6d8062dd',
+                  's23' : '36828e10',
+                  's21' : '742b47e6',
+                  'pis' : '336e0098'}
 
         if args.case == 'rp13' and  args.target_only:
-            hs = {'rp13' : '20569fa1'}
+            hs = {'tar' : '20569fa1'}
         elif args.case == 'rp13':
-            hs = {'rp13' : '20569fa1',
+            hs = {
+                  'tar' : '20569fa1',
                   'zcp' : '6537608a',
-                  'znc' : 'a1ea6711',
-                  'zbaa' : '684ef8ce',
-                  'zaa'  : '6a68812b'
-                  }
+                  'znc' :  'a1ea6711', #
+                  'zza' : 'rp13nzaaox-6e435e41',
+                  'zc3'  : 'rp13nc3295-aff20914'}
 
         if args.case == 'rp14' and  args.target_only:
-            hs = {'rp14' : 'rp14+m+pk2-946da607'}
+            hs = {'tar' : 'rp14+m+pk2-946da607'}
         elif args.case == 'rp14':
             hs = {
-                'rp14' : 'rp14+m+pk2-946da607',
-                'r14aj63' : 'r14aj63pk-2f5f0e3d',
-                'r14aacy23' : 'r14aacy23+m+pk2-84f4be23',
-                 }
+                'tar' : 'rp14+m+pk2-946da607',
+                'aj6' : 'r14aj63pk-2f5f0e3d',
+                'cy2' : 'r14aacy23+m+pk2-84f4be23'}
 
-        if args.case == 'rp06' and  args.target_only:
-            hs = {'rp06' : '9d39f986'}
-        elif args.case == 'rp06':
-            hs = {'rp06' : '9d39f986',
-                  'bx571' : '01621888',
-                  'cp771' : 'cf8f8bb2',
-                  'af193' : '545c05f8',
-                  'am40'  : '9c6345c3'
-                  }
+        ## if args.case == 'rp06' and  args.target_only:
+        ##     hs = {'rp06' : '9d39f986'}
+        ## elif args.case == 'rp06':
+        ##     hs = {'rp06' : '9d39f986',
+        ##           'bx571' : '01621888',
+        ##           'cp771' : 'cf8f8bb2',
+        ##           'af193' : '545c05f8',
+        ##           'am40'  : '9c6345c3'}
 
         get_simrna(hs, args.simrna)
 
@@ -280,7 +309,7 @@ if __name__ == '__main__':
     # '-p', '--process'
     if args.process:
         exe("evoClust_get_models.py -i structures/ *.out")
-        exe("evoClust_get_models.py -i structures/ *.out -n '" + args.case + "_'")  # rp13_
+        exe("evoClust_get_models.py -i structures/ *.out -n " + args.case + "_")  # rp13_
 
         # pre-process structures to be compatible with the native
         if args.case == 'rp13': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:46-56' --inplace *")
@@ -288,6 +317,8 @@ if __name__ == '__main__':
         if args.case == 'tpp': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:80' --inplace *")
 
         exe("evoClust_calc_rmsd.py -a ../../" + args.case + "*ref.sto -t ../../*ref.pdb -n " + args.case + " -m ../../*mapping*ref.txt -o rmsd_motif.csv reps/*.pdb")
+
+        #exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n tar -m ../../*mapping*ref.txt -o rmsd_motif.csv reps/*.pdb")
 
         exe("rna_pdb_toolsx.py --inplace --get_rnapuzzle_ready reps_ns/*.pdb")
         if args.case == 'trna':

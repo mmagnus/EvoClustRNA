@@ -1,12 +1,6 @@
-rp13:rp13_
-cp0016:rp13cp0016
-nc3295:rp13nc3295
-nc3295:nc3295
-nc9445:rp13nc9445
-nzaaox:rp13nzaaox
-rp13:zmp
+rp13:tar_
 rp13:solution
-CP000927.1/5164264-5164343:zaa
-BAAV01000055:zbaa
 cp0016:zcp
 nc9445:znc
+nc3295:zc3
+nzaaox:zza

@@ -66,7 +66,7 @@ def main(dryrun, path, case, test, args):
             ## #for sc in subcases:
             ## for i in [1000]: #
             if not test:
-                args = ' -a -p '  # only if you want to get rmsd-all-structs
+                args = ' -a -e -p '  # only if you want to get rmsd-all-structs
                 modes = {
                     #'simrna5x10rosetta5x10' : 'evox.py -s 10 -f 10 -e -p ade',
                     #     'simrna5x50rosetta5x50' : 'evox.py -s 50 -f 50 -e -p ade',
@@ -74,13 +74,15 @@ def main(dryrun, path, case, test, args):
                     # 'simrna5x10' : 'evox.py -s 10 -e -p ' + c,
 
                     ######## this is all required #######################################
-                    #'farna1000' : 'evox.py -f 1000 --target-only ' + args + c,
-                    #'simrna1000' : 'evox.py -s 1000 --target-only ' + args + c,
-                    #'simrna1x500farna1x500' : 'evox.py -s 500 -f 500 --target-only ' + args + c,
-                    #'simrna5x100farna5x100' : 'evox.py -s 100 -f 100 ' + args + c,
-                    #'simrna5x200' : 'evox.py -s 200 ' + args + c,
-                    #'farna5x200' : 'evox.py -f 200  ' + args + c,
+                    'farna1000' : 'evox.py -f 1000 --target-only -t ' + args + c,
+                    'simrna1000' : 'evox.py -s 1000 --target-only -t ' + args + c,
+                    'simrna1x500farna1x500' : 'evox.py -s 500 -f 500 --target-only -t ' + args + c,
+                    'simrna5x100farna5x100' : 'evox.py -s 100 -f 100 -t ' + args + c,
+                    'simrna5x200' : 'evox.py -s 200 -t ' + args + c,
+                    'farna5x200' : 'evox.py -f 200  -t ' + args + c,
+
                     ############ end #####################################################
+                    #'simrna5x10farna5x10' : 'evox.py -s 10 -f 10 -t ' + args + c,
 
                     #'simrna5x200farna5x200' : 'evox.py -s 200 -f 200 -e -p ' + c,
                     #'simrna5x400rosetta5x400' : 'evox.py -s 400 -f 400 -e -p ade',

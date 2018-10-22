@@ -1,6 +1,4 @@
-rp14:rp14+m+pk2
-rp14:rp14_min
-AACY023581040:r14aacy23+m+pk2
-AACY023581040:aacy23
-AJ630128:aj63
-#AJ630128:r14aj63pk
+rp14:tar
+rp14:solution
+AACY023581040:cy2
+AJ630128:aj6

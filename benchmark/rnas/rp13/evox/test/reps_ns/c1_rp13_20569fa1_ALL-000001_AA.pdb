@@ -1,7 +1,7 @@
 REMARK 250 Model edited with rna-pdb-tools
 REMARK 250  ver py2-245-g50d3d1f-dirty 
 REMARK 250  https://github.com/mmagnus/rna-pdb-tools 
-REMARK 250  Tue Oct 16 23:02:35 2018
+REMARK 250  Thu Oct 18 11:24:28 2018
 HEADER --delete A:46-56
 ATOM      1  P     G A   1      -8.162  40.996  45.534  1.00  0.00           P
 ATOM      2  OP1   G A   1      -9.268  41.927  45.220  1.00  0.00           O

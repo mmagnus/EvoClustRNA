@@ -1,12 +1,6 @@
-# rosetta
-ade:adepk
-a04:a04pk
-b28:b28pk
-u51:u51pk
-a99:a99pk
-# simrna
-ade:ade_pk
-a04:a04_9c
-b28:b28_7bc
-u51:u51_e61
-a99:a99_2e
+ade:tar
+a04:a04
+b28:b28
+u51:u51
+a99:a99
+ade:solution
