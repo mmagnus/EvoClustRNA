@@ -1,1 +1,6 @@
 ,target,model,rmsd,group_name
+0,trna_rpr_x_ref.pdb,c1_tar_min.out.3.pdb,14.6,
+1,trna_rpr_x_ref.pdb,c2_tar_min.out.8.pdb,11.1,
+2,trna_rpr_x_ref.pdb,c3_tar_min.out.12.pdb,14.16,
+3,trna_rpr_x_ref.pdb,c4_tar_min.out.36.pdb,11.73,
+4,trna_rpr_x_ref.pdb,c5_tar_min.out.9.pdb,16.41,
