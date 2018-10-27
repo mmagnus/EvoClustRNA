@@ -141,7 +141,8 @@ if __name__ == '__main__':
         elif args.case == 'tpp':
             hs = {'tae' : 'tae',
                   'tal' : 'tal',
-                  'tb2' : 'tc5',
+                  'tb2' : 'tb2',
+                  'tc5' : 'tc5',
                   'tar' : 'tpp'}
 
         if args.case == 'gmp' and args.target_only:
