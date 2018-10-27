@@ -54,12 +54,12 @@ def main(dryrun, path, case, test, args):
         # mode only for a specific case
         if case: # only if this is used
             if c != case:
-                print('!!! skip ' + c + '!!!')
+                # print('!!! skip ' + c + '!!!')
                 continue
 
         # if not break ed, use this
         if os.path.isdir(c):
-            print ('[%s]' % c)
+            print ('\_ inside folder: %s' % c)
             os.chdir(c) # go inside a folder
             ## # cmd
             ## #subcases = glob.glob('*.fa')
@@ -105,6 +105,7 @@ def main(dryrun, path, case, test, args):
                     os.system('trash ' + md)  # remove folder
                     os.mkdir(md)
                 # go inside
+                print (' \_ inside folder: %s' % md)
                 os.chdir(md)
                 print(' %s in %s' % (modes[m], md))
                 exe(modes[m], False)
