@@ -4,6 +4,7 @@ from __future__ import print_function
 import os
 import argparse
 import shutil
+import glob
 
 #FARNA_ARCHIVE = '/Users/magnus/work/rosetta-archive/'
 ROSETTA_ARCHIVE = "/home/magnus/work/rosetta-archive/"
@@ -300,6 +301,7 @@ if __name__ == '__main__':
     if args.evoclust:
         # exe("evoClustRNA.py -a ../../ade_plus_ade_cleanup.sto -i structures -m ../../mapping_pk.txt -f")  # ade
         exe("evoClustRNA.py -a ../../" + args.case + "*ref.sto -i structures -m ../../*mapping*ref.txt -f")  # tpp<bleble>.sto
+
         exe("evoClust_autoclustix.py *mapping*X.txt")
 
     # '-a', '--rmsd-all-structs'
@@ -320,9 +322,13 @@ if __name__ == '__main__':
 
         #exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n tar -m ../../*mapping*ref.txt -o rmsd_motif.csv reps/*.pdb")
 
-        exe("rna_pdb_toolsx.py --inplace --get_rnapuzzle_ready reps_ns/*.pdb")
-        if args.case == 'trna':
-            exe("rna_calc_rmsd.py -m align -t ../../*ref.pdb reps_ns/*.pdb")
-        else:
-            exe("rna_calc_rmsd.py -t ../../*ref.pdb reps_ns/*.pdb")
-        exe("rna_calc_inf.py -f -t ../../*ref.pdb reps_ns/*.pdb")
+        # if reps_ns are not empty
+        if glob.glob('reps_ns/*.pdb'):
+            exe("rna_pdb_toolsx.py --inplace --get_rnapuzzle_ready reps_ns/*.pdb")
+            if args.case == 'trna':
+                exe("rna_calc_rmsd.py -m align -t ../../*ref.pdb reps_ns/*.pdb")
+            else:
+                exe("rna_calc_rmsd.py -t ../../*ref.pdb reps_ns/*.pdb")
+            exe("rna_calc_inf.py -f -t ../../*ref.pdb reps_ns/*.pdb")
+
+    print('evox [ok]')
