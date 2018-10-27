@@ -200,7 +200,7 @@ if __name__ == '__main__':
             #hs = ''.split() # '
 
         if args.case == 'rp14' and args.target_only:
-            hs = {'tar' , 'rp14'}
+            hs = {'tar' : 'rp14'}
         elif args.case == 'rp14':
             hs = {'tar' : 'rp14',
                   'aj6' : 'rp14_aj63',
