@@ -1,1 +1,6 @@
 ,target,model,rmsd,group_name
+0,target_tpp_2gdi_ba_rpr_renumb_chainA_ref.pdb,c1_tar_16662ebf-cf31-42d1-98a3-2aae31f28087_ALL-000002_AA.pdb,24.08,
+1,target_tpp_2gdi_ba_rpr_renumb_chainA_ref.pdb,c2_tar_16662ebf-cf31-42d1-98a3-2aae31f28087_ALL-000036_AA.pdb,17.63,
+2,target_tpp_2gdi_ba_rpr_renumb_chainA_ref.pdb,c3_tar_16662ebf-cf31-42d1-98a3-2aae31f28087_ALL-000001_AA.pdb,15.36,
+3,target_tpp_2gdi_ba_rpr_renumb_chainA_ref.pdb,c4_tar_16662ebf-cf31-42d1-98a3-2aae31f28087_ALL-000015_AA.pdb,21.58,
+4,target_tpp_2gdi_ba_rpr_renumb_chainA_ref.pdb,c5_tar_16662ebf-cf31-42d1-98a3-2aae31f28087_ALL-000101_AA.pdb,13.61,

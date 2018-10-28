@@ -1,3 +1,0 @@
-target,fn,inf_all,inf_stack,inf_WC,inf_nWC,sns_WC,ppv_WC,sns_nWC,ppv_nWC
-target_tpp_2gdi_ba_rpr_renumb_chainA_ref.pdb.outCR,c2_tpp_16662ebf-cf31-42d1-98a3-2aae31f28087_ALL-000001_AA.pdb.outCR,0.711,0.000,0.935,0.129,1.000,0.875,0.083,0.200
-target_tpp_2gdi_ba_rpr_renumb_chainA_ref.pdb.outCR,c1_tpp_16662ebf-cf31-42d1-98a3-2aae31f28087_ALL-000003_AA.pdb.outCR,0.636,0.000,0.856,0.109,0.952,0.769,0.083,0.143

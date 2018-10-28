@@ -1,1 +1,6 @@
 ,target,model,rmsd,group_name
+0,5k7c_clean_onechain_renumber_as_puzzle_ref.pdb,c1_tar_min.out.1.pdb,13.37,
+1,5k7c_clean_onechain_renumber_as_puzzle_ref.pdb,c2_tar_min.out.2.pdb,14.83,
+2,5k7c_clean_onechain_renumber_as_puzzle_ref.pdb,c3_tar_min.out.7.pdb,9.75,
+3,5k7c_clean_onechain_renumber_as_puzzle_ref.pdb,c4_tar_min.out.16.pdb,14.09,
+4,5k7c_clean_onechain_renumber_as_puzzle_ref.pdb,c5_tar_min.out.4.pdb,11.93,

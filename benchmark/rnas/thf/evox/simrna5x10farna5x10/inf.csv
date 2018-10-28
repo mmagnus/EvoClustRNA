@@ -1,4 +1,2 @@
 target,fn,inf_all,inf_stack,inf_WC,inf_nWC,sns_WC,ppv_WC,sns_nWC,ppv_nWC
-4lvv_rpr_ref.pdb.outCR,c2_thf_min.out.2.pdb.outCR,0.818,0.000,0.948,0.453,0.964,0.931,0.308,0.667
-4lvv_rpr_ref.pdb.outCR,c1_thf_7f0f8826_ALL-000001_AA.pdb.outCR,0.723,0.000,0.902,0.263,0.964,0.844,0.231,0.300
-4lvv_rpr_ref.pdb.outCR,c3_thf_7f0f8826_ALL-000004_AA.pdb.outCR,0.691,0.000,0.863,0.263,0.893,0.833,0.231,0.300
+4lvv_rpr_ref.pdb.outCR,*.pdb.outCR,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000

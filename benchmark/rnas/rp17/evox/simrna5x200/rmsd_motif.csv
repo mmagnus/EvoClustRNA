@@ -1,1 +1,6 @@
 ,target,model,rmsd,group_name
+0,5k7c_clean_onechain_renumber_as_puzzle_ref.pdb,c1_tar_27b5093d_ALL-000001_AA.pdb,16.64,
+1,5k7c_clean_onechain_renumber_as_puzzle_ref.pdb,c3_tar_27b5093d_ALL-000193_AA.pdb,14.93,
+2,5k7c_clean_onechain_renumber_as_puzzle_ref.pdb,c5_tar_27b5093d_ALL-000010_AA.pdb,14.74,
+3,5k7c_clean_onechain_renumber_as_puzzle_ref.pdb,c2_s21_742b47e6_ALL-000018_AA.pdb,16.52,
+4,5k7c_clean_onechain_renumber_as_puzzle_ref.pdb,c4_s21_742b47e6_ALL-000001_AA.pdb,10.03,
