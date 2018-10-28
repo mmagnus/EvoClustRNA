@@ -43,6 +43,8 @@ if __name__ == '__main__':
     while 1:
         if c > 40:
             print("You reached the limit, I'm quitting!")
+            sys.exit(1)
+
         cmd = "evoClust_clustix.py " + args.matrix + " -c " + str(c)
         if args.half:
             cmd += " -o " + args.matrix.replace('.txt', '-half')
