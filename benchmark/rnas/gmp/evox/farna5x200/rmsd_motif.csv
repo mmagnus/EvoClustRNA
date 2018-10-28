@@ -1,0 +1,6 @@
+,target,model,rmsd,group_name
+0,3q3z_rpr_ref.pdb,c1_gxx_min.out.9.pdb,15.85,
+1,3q3z_rpr_ref.pdb,c2_gxx_min.out.57.pdb,10.32,
+2,3q3z_rpr_ref.pdb,c3_gxx_min.out.4.pdb,13.79,
+3,3q3z_rpr_ref.pdb,c4_gxx_min.out.1.pdb,9.72,
+4,3q3z_rpr_ref.pdb,c5_gxx_min.out.40.pdb,11.33,

@@ -1,0 +1,6 @@
+,target,model,rmsd,group_name
+0,target_13_solution_0_renumber_puzzle_ref.pdb,c1_tar_min.out.1.pdb,4.41,
+1,target_13_solution_0_renumber_puzzle_ref.pdb,c3_tar_min.out.66.pdb,10.32,
+2,target_13_solution_0_renumber_puzzle_ref.pdb,c4_tar_min.out.98.pdb,15.5,
+3,target_13_solution_0_renumber_puzzle_ref.pdb,c5_tar_min.out.25.pdb,15.24,
+4,target_13_solution_0_renumber_puzzle_ref.pdb,c2_zcp_min.out.8.pdb,16.08,
