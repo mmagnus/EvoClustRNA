@@ -139,6 +139,7 @@ class ClustixResult(object):
                 pass
 
             print '= motif =========================================='
+            input_dir = 'out'
             for i, r in enumerate(reps):
                 print(input_dir + '/motifs/' + r + ' -> ' +
                       output_prefix + reps_motifs_folder + suffix + '/' + str(i + 1) + '_' + r)
