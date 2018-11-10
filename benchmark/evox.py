@@ -312,7 +312,7 @@ if __name__ == '__main__':
     # '-p', '--process'
     if args.process:
         exe("evoClust_get_models.py -i structures/ *.out")
-        exe("evoClust_get_models.py -i structures/ *.out -n " + args.case + "_")  # rp13_
+        exe("evoClust_get_models.py -i structures/ *.out -n tar")  # rp13_
 
         # pre-process structures to be compatible with the native
         if args.case == 'rp13': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:46-56' --inplace *")
