@@ -12,8 +12,6 @@ import argparse
 import subprocess
 import sys
 import re
-import time
-
 
 LIMIT = 40
 

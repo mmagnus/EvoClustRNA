@@ -95,7 +95,7 @@ class RNAmodel:
                 print(a.parent, b.parent)#a.get_full_id(), b.get_full_id())
 
         rms = round(sup.rms, 3)
-        
+
         if output:
             io = Bio.PDB.PDBIO()
             sup.apply(self.struc.get_atoms())
@@ -138,11 +138,12 @@ class RNAmodel:
                     return 0
 
         io = PDBIO()
-        io.set_structure(self.struc)
-        fn = folder_to_save + 'structures' + os.sep + self.fn #+ '.pdb'
-        io.save(fn)
-        if verbose:
-            print('    saved to struc: %s ' % fn)
+
+        ## io.set_structure(self.struc)
+        ## fn = folder_to_save + 'structures' + os.sep + self.fn #+ '.pdb'
+        ## io.save(fn)
+        ## if verbose:
+        ##     print('    saved to struc: %s ' % fn)
 
         io = PDBIO()
         io.set_structure(self.struc)
@@ -163,4 +164,3 @@ if __name__ == '__main__':
 
     print(a.get_rmsd_to(b))
     print(a.get_rmsd_to(b, dont_move=True))
-    

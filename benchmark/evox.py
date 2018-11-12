@@ -19,11 +19,14 @@ def get_parser():
     parser.add_argument('-e', '--evoclust', action="store_true")
     parser.add_argument('-p', '--process', action="store_true")
     parser.add_argument('--target-only', action="store_true")
+    parser.add_argument('-l', '--inf-all', help="", action="store_true")
     parser.add_argument('-a', '--rmsd-all-structs', help="must be combined with -p",
                         action="store_true")
     parser.add_argument('-f', '--farna', help="", default="")
     parser.add_argument('-s', '--simrna', help="", default="")
+    parser.add_argument('-m', '--motif-save', help="", action="store_true")
     parser.add_argument('-t', '--add-solution', help="", action="store_true")
+
     parser.add_argument("-v", "--verbose",
                         action="store_true", help="be verbose")
     parser.add_argument('case')
@@ -301,7 +304,10 @@ if __name__ == '__main__':
     # -e', '--evoclust'
     if args.evoclust:
         # exe("evoClustRNA.py -a ../../ade_plus_ade_cleanup.sto -i structures -m ../../mapping_pk.txt -f")  # ade
-        exe("evoClustRNA.py -a ../../" + args.case + "*ref.sto -i structures -m ../../*mapping*ref.txt -f")  # tpp<bleble>.sto
+        options = ''
+        if args.motif_save:
+            options += ' -s '
+        exe("evoClustRNA.py -a ../../" + args.case + "*ref.sto -i structures -m ../../*mapping*ref.txt -f " + options)  # tpp<bleble>.sto
 
         exe("evoClust_autoclustix.py *mapping*X.txt")
 
@@ -309,19 +315,22 @@ if __name__ == '__main__':
     if args.rmsd_all_structs:
          exe("evoClust_calc_rmsd.py -a ../../" + args.case + "*ref.sto -t ../../*ref.pdb -o rmsd_all_strucs.csv -n " + args.case + " -m ../../*mapping*ref.txt  structures/*.pdb")
 
+    if args.inf_all:
+        exe("rna_calc_inf.py -f -t ../../*ref.pdb structures/tar*.pdb -o inf_all.csv -m 0")
+
     # '-p', '--process'
     if args.process:
-        exe("evoClust_get_models.py -i structures/ *.out")
-        exe("evoClust_get_models.py -i structures/ *.out -n tar")  # rp13_
-
-        # pre-process structures to be compatible with the native
-        if args.case == 'rp13': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:46-56' --inplace *")
-        if args.case == 'ade': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:72' --inplace *")
-        if args.case == 'tpp': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:80' --inplace *")
+        # -u --skip_structures
+        exe("evoClust_get_models.py -i structures/ *.out -u")
+        exe("evoClust_get_models.py -i structures/ *.out -n tar -u")
 
         exe("evoClust_calc_rmsd.py -a ../../" + args.case + "*ref.sto -t ../../*ref.pdb -n " + args.case + " -m ../../*mapping*ref.txt -o rmsd_motif.csv reps/*.pdb")
 
-        #exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n tar -m ../../*mapping*ref.txt -o rmsd_motif.csv reps/*.pdb")
+        # pre-process structures to be compatible with the native
+        if glob.glob('reps_ns/*.pdb'):
+            if args.case == 'rp13': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:46-56' --inplace *")
+            if args.case == 'ade': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:72' --inplace *")
+            if args.case == 'tpp': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:80' --inplace *")
 
         # if reps_ns are not empty
         if glob.glob('reps_ns/*.pdb'):
@@ -331,5 +340,6 @@ if __name__ == '__main__':
             else:
                 exe("rna_calc_rmsd.py -t ../../*ref.pdb reps_ns/*.pdb")
             exe("rna_calc_inf.py -f -t ../../*ref.pdb reps_ns/*.pdb")
+
 
     print('evox [ok]')

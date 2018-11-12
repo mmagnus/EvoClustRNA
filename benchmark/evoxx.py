@@ -13,7 +13,7 @@ import argparse
 import os
 import glob
 import sys
-
+import time
 
 def get_parser():
     """parser"""
@@ -60,38 +60,55 @@ def main(dryrun, path, case, test, args):
         # if not break ed, use this
         if os.path.isdir(c):
             print ('\_ inside folder: %s' % c)
+            time.sleep(2)
             os.chdir(c) # go inside a folder
             ## # cmd
             ## #subcases = glob.glob('*.fa')
             ## #for sc in subcases:
             ## for i in [1000]: #
             if not test:
-                args = ' -a -e -p '  # only if you want to get rmsd-all-structs
-                modes = {
-                    #'simrna5x10rosetta5x10' : 'evox.py -s 10 -f 10 -e -p ade',
-                    #     'simrna5x50rosetta5x50' : 'evox.py -s 50 -f 50 -e -p ade',
-                    # 1k # farna5x100  simrna5x100 done
-                    # 'simrna5x10' : 'evox.py -s 10 -e -p ' + c,
+                #args = ' -p ' # process only
+                #args = '-a -e -p -t -m -g '  # only if you want to get rmsd-all-structs
+                # -m save motifs
+                args = ''
+                if 1:
+                        modes = {
+                            'test' : 'evox.py --inf-all --target-only ' + args + c,
+                            'farna1000' : 'evox.py --inf-all --target-only ' + args + c,
+                            'simrna1000' : 'evox.py --inf-all --target-only ' + args + c,
+                            }
+                        #'simrna1000' : 'evox.py -p ' + args + c,
+                        #'simrna1x500farna1x500' : 'evox.py -p ' + args + c,
+                        #'simrna5x100farna5x100' : 'evox.py -p ' + args + c,
+                        #'simrna5x200' : 'evox.py -p  ' + args + c,
+                        #'farna5x200' : 'evox.py -p  ' + args + c,
+                else:
+                    modes = {
+                        #'simrna5x10rosetta5x10' : 'evox.py -s 10 -f 10 -e -p ade',
+                        #     'simrna5x50rosetta5x50' : 'evox.py -s 50 -f 50 -e -p ade',
+                        # 1k # farna5x100  simrna5x100 done
+                        # 'simrna5x10' : 'evox.py -s 10 -e -p ' + c,
 
-                    ######## this is all required #######################################
-                    'farna1000' : 'evox.py -f 1000 --target-only -t ' + args + c,
-                    'simrna1000' : 'evox.py -s 1000 --target-only -t ' + args + c,
-                    'simrna1x500farna1x500' : 'evox.py -s 500 -f 500 --target-only -t ' + args + c,
-                    'simrna5x100farna5x100' : 'evox.py -s 100 -f 100 -t ' + args + c,
-                    'simrna5x200' : 'evox.py -s 200 -t ' + args + c,
-                    'farna5x200' : 'evox.py -f 200  -t ' + args + c,
+                        ######## this is all required #######################################
+                        'farna1000' : 'evox.py -f 1000 --target-only ' + args + c,
+                        'simrna1000' : 'evox.py -s 1000 --target-only ' + args + c,
+                        'simrna1x500farna1x500' : 'evox.py -s 500 -f 500 --target-only ' + args + c,
+                        'simrna5x100farna5x100' : 'evox.py -s 100 -f 100 ' + args + c,
+                        'simrna5x200' : 'evox.py -s 200  ' + args + c,
+                        'farna5x200' : 'evox.py -f 200  ' + args + c,
+                        ############ end #####################################################
+                        #'simrna5x10farna5x10' : 'evox.py -s 10 -f 10 -t ' + args + c,
 
-                    ############ end #####################################################
-                    #'simrna5x10farna5x10' : 'evox.py -s 10 -f 10 -t ' + args + c,
-
-                    #'simrna5x200farna5x200' : 'evox.py -s 200 -f 200 -e -p ' + c,
-                    #'simrna5x400rosetta5x400' : 'evox.py -s 400 -f 400 -e -p ade',
-                    #'simrna5x500rosetta5x500' : 'evox.py -s 500 -f 500 -e -p ade',
-                    }
+                        #'simrna5x200farna5x200' : 'evox.py -s 200 -f 200 -e -p ' + c,
+                        #'simrna5x400rosetta5x400' : 'evox.py -s 400 -f 400 -e -p ade',
+                        #'simrna5x500rosetta5x500' : 'evox.py -s 500 -f 500 -e -p ade',
+                        }
             else:
-                args = ' -a '
+                args = ' -a -e -p -t -m -g  '
+                n = 10
                 modes = {
-                    'test' : 'evox.py -s 10 -f 10 -p -e -t ' + args + c, # for testing
+                    #'test' : 'evox.py -s 10 -f 10 -p -e -t ' + args + c, # for testing
+                    'test' : 'evox.py -s ' + str(n) + ' -f ' + str(n) + ' ' + args + c, # for testing
                     #'farna1000' : 'evox.py -f 1000 --target-only ' + args + c,
                     #'farna10' : 'evox.py -f 10 --target-only ' + args + c,
                  }
@@ -102,10 +119,12 @@ def main(dryrun, path, case, test, args):
                 try:
                     os.mkdir(md)
                 except OSError:
-                    os.system('trash ' + md)  # remove folder
-                    os.mkdir(md)
+                    #os.system('trash ' + md)  # remove folder
+                    #os.mkdir(md)
+                    pass
                 # go inside
                 print (' \_ inside folder: %s' % md)
+                time.sleep(2)
                 os.chdir(md)
                 print(' %s in %s' % (modes[m], md))
                 exe(modes[m], False)

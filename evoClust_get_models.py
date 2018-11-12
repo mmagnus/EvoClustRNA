@@ -55,7 +55,7 @@ def is_number(s):
 
 
 class ClustixResult(object):
-    def __init__(self, fn, input_dir, output_prefix, skip_motifs, use_cutoff_for_names, native_seq_only):
+    def __init__(self, fn, input_dir, output_prefix, skip_motifs, use_cutoff_for_names, native_seq_only, skip_structures):
         if output_prefix:
             output_prefix += '_'
 
@@ -111,20 +111,21 @@ class ClustixResult(object):
 
         # out in this case is input, for search reps and reps_motifs
         print '= structures == out/structures/<files>==================='
+        #if not skip_structures:
+        if 1:
+            for i, r in enumerate(reps):
+                #cmd = "find . -iname " + r
+                # commands.getoutput(cmd).split()[0].strip()
 
-        for i, r in enumerate(reps):
-            #cmd = "find . -iname " + r
-            # commands.getoutput(cmd).split()[0].strip()
+                if input_dir:
+                    rpath = input_dir + os.sep + r
+                else:
+                    rpath = 'out/structures/' + r
 
-            if input_dir:
-                rpath = input_dir + os.sep + r
-            else:
-                rpath = 'out/structures/' + r
-
-            cmd = ('cp -v ' + rpath + ' ' +
-                   output_prefix + repsfolder + suffix + '/c' + str(i + 1) + '_' + r)
-            print cmd
-            os.system(cmd)
+                cmd = ('cp -v ' + rpath + ' ' +
+                       output_prefix + repsfolder + suffix + '/c' + str(i + 1) + '_' + r)
+                print cmd
+                os.system(cmd)
 
         # motifs
         if not skip_motifs:
@@ -161,6 +162,7 @@ def get_parser():
     parser.add_argument('clustix_results_fn', help="")
     parser.add_argument('-c', '--use-cutoff-for-names', action='store_true')
     parser.add_argument('-s', '--skip_motifs', action='store_true')
+    parser.add_argument('-u', '--skip_structures', action='store_true')
     parser.add_argument('-n', '--native-seq-only')
     return parser
 
@@ -171,4 +173,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(os.path.basename(__file__))
     print('-' * 80)
-    ClustixResult(args.clustix_results_fn, args.input_dir, args.output_prefix, args.skip_motifs, args.use_cutoff_for_names, args.native_seq_only)
+    ClustixResult(args.clustix_results_fn, args.input_dir, args.output_prefix, args.skip_motifs, args.use_cutoff_for_names, args.native_seq_only, args.skip_structures)
