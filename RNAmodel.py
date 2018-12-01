@@ -108,6 +108,31 @@ class RNAmodel:
             io.save("aligned2.pdb")
         return rms
 
+    def get_inf_to(self, b):
+        import string
+        import random
+        job_id = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
+        fn = self.save('/tmp/%s/' % job_id)
+        fn2 = b.save('/tmp/%s/' % job_id)
+
+        # rna-pdb-tools
+        # required installed
+        # https://github.com/mmagnus/rna-pdb-tools
+        # renumber files in place
+        fn_ren = fn.replace('.pdb', '') + '.renumber.pdb'
+        fn2_ren = fn2.replace('.pdb', '') + '.renumber.pdb'
+        os.system('rna_pdb_toolsx.py  --dont_report_missing_atoms --renumber_residues %s > %s' % (fn, fn_ren ))
+        os.system('rna_pdb_toolsx.py  --dont_report_missing_atoms --renumber_residues %s > %s' % (fn2, fn2_ren))
+
+        fn_inf = fn2_ren.replace('.pdb', '.infs')
+        os.system('rna_calc_inf.py -t %s %s -o %s ' % (fn_ren, fn2_ren, fn_inf))
+
+        import pandas as pd
+        pd.set_option('display.width', 200)
+        df = pd.read_csv(fn_inf)
+        print(df)
+        return float(df['inf_all'])
+
     def save(self, output_dir, verbose=True):
         """Save structures and motifs """
         folder_to_save =  output_dir + os.sep # ugly hack 'rp14/'
@@ -151,6 +176,7 @@ class RNAmodel:
         io.save(fn, BpSelect())
         if verbose:
             print('    saved to motifs: %s ' % fn)
+        return fn
 
 #main
 if __name__ == '__main__':
@@ -159,8 +185,10 @@ if __name__ == '__main__':
 
     #rna = RNAmodel("test_data/rp14/rp14_5ddp_bound_clean_ligand.pdb", [1], False, Non3e)
     #print(rna.get_report())
-    a = RNAmodel("test_data/GGC.pdb", [46,47,48])
+    a = RNAmodel("test_data/GGC.pdb", [46, 47, 48])
     b = RNAmodel("test_data/GUC.pdb", [31, 32, 33])
 
     print(a.get_rmsd_to(b))
     print(a.get_rmsd_to(b, dont_move=True))
+
+    print(a.get_inf_to(b))
