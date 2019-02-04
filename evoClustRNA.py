@@ -151,7 +151,7 @@ if __name__ == '__main__':
         matrix_fn = opts.matrix_fn
     else:
         matrix_fn = os.path.splitext(os.path.basename(opts.rna_alignment_fn))[0] + '_' + \
-            os.path.splitext(os.path.basename(opts.mapping_fn))[0] + 'X.txt'
+            os.path.splitext(os.path.basename(opts.mapping_fn))[0] + 'X.matrix'
     print(matrix_fn)
 
     # p
