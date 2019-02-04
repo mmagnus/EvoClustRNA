@@ -122,6 +122,7 @@ def get_parser():
                         help="input folder with structures, .e.g. test_data", default=".")
     parser.add_argument('-m', "--mapping_fn", help="a file with mapping folders on the drive with sequence names in the alignment (<name in the alignment>:<folder name>), use multiple lines for multiple seqs")
     parser.add_argument('-x', "--matrix_fn", default="", help="output matrix with rmsds all-vs-all")
+    parser.add_argument("--inf", action="store_true", default=False, help="Use INFs instead of RMSD")
     parser.add_argument("-s", "--save", action="store_true", default=False,
                         help="save motifs and structures to output_dir, this slows down the program")
     parser.add_argument("-f", "--flat-dir", action="store_true", default=False,
@@ -198,7 +199,11 @@ if __name__ == '__main__':
             for r2 in models:
                 # print
                 # print r1.fn, r2.fn, r1.get_rmsd_to(r2)#, 'tmp.pdb')
-                rmsd = r1.get_rmsd_to(r2)  # , 'tmp.pdb')
+                if opts.inf:
+                    rmsd = r1.get_inf_to(r2, verbose=opts.verbose)  # , 'tmp.pdb')
+                    print(rmsd)
+                else:
+                    rmsd = r1.get_rmsd_to(r2)  # , 'tmp.pdb')
                 # print rmsd
                 t += str(rmsd) + ' '
                 # break
