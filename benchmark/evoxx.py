@@ -3,6 +3,8 @@
 """
 A mother script to run evox.py.
 
+If no --case selected, it will be executed on all folder in the current directory or defined by --path.
+
 Improvements:
 - ln for structures, not copying any more!
 
@@ -24,9 +26,13 @@ def get_parser():
                         action="store_true", help="dry run", default=False)
 
     parser.add_argument('-p', '--path', help="", default='')
-    parser.add_argument('-a', '--args', help=' -e -p or -a (see evox.py for more)', default=" -p -a ") # -a -p -e
     parser.add_argument('-c', '--case', help="only one case, for test")
+    parser.add_argument('--dont-copy-models', help="", action="store_true")
     parser.add_argument('--one-mode', help="Run the script for one mode only", action="store_true")
+    parser.add_argument('--args', help="arguments for evox")
+    parser.add_argument('--half', help="half mode, run autoclustering with half, dont get models, and do evoclust, it has to be there",
+                        action="store_true")
+    #parser.add_argument('-a', '--args', help=' -e -p or -a (see evox.py for more)', default=" -p -a ") # -a -p -e
     parser.add_argument('-t', '--test', help="short testing run, without -c it will go over all folders", action="store_true")
     parser.add_argument("-v", "--verbose",
                         action="store_true", help="be verbose")
@@ -39,7 +45,7 @@ def exe(cmd, dryrun):
     if not dryrun: os.system(cmd)
 
 
-def main(dryrun, path, case, test, args):
+def main(dryrun, path, case, test, dont_copy_models, args, one_mode, half):
     """
 
     """
@@ -71,16 +77,48 @@ def main(dryrun, path, case, test, args):
                 args = ' --get-models -e -p --add-solution -m -g --half '
                 #modes = {'simrna5x100farna5x100' : 'evox.py %s %s ' % (args, c),}
                 modes = {'farna5x100' : 'evox.py %s %s ' % (args, c),}
-            if not test:
-                #args = ' -p ' # process only
+            elif not test:
+                args = ' -a -e -p -t -m -g  '
+                #args = ' --process ' # process only
                 #args = '-a -e -p -t -m -g '  # only if you want to get rmsd-all-structs
                 # -m save motifs
-                args = ''
-                if 1:
+                if half:
+                    #args = " -e -p --autoclusthalf -t -c "
+                    args = " -a -p --autoclusthalf -t -c "
+                    # keep this on only if you want to calc rmsds and infs
+                    args = " --calc-stats " # only calc
+                    modes = {
+                          'simrnatop1' : 'evox.py --calc-stats ' + c,
+                          'simrnatop3' : 'evox.py --calc-stats ' + c,
+                          'farnatop1' : 'evox.py --calc-stats ' + c,
+                          'farnatop3' : 'evox.py --calc-stats ' + c,
+                          'farnatop5' : 'evox.py --calc-stats ' + c,
+
+                         ## 'farna1000' : 'evox.py --target-only %s %s' % (args, c),
+                         ## 'simrna1000' : 'evox.py --target-only %s %s' % (args, c),
+
+                         ## 'simrna1x500farna1x500' : 'evox.py %s %s' % (args, c),
+
+                         ## 'simrna5x100farna5x100' : 'evox.py %s %s ' % (args, c),
+
+                         ## 'simrna5x200' : 'evox.py %s %s ' % (args, c),
+                         ## 'simrna5x100' : 'evox.py -s 100 -e %s %s ' % (args, c), # x
+                         ## 'farna5x100' : 'evox.py -f 100 -e %s %s ' % (args, c), # x
+                         ## 'farna5x200' : 'evox.py %s %s ' % (args, c), # x
+
+                        }
+                elif dont_copy_models:
                         modes = {
-                            'test' : 'evox.py --inf-all --target-only ' + args + c,
-                            'farna1000' : 'evox.py --inf-all --target-only ' + args + c,
-                            'simrna1000' : 'evox.py --inf-all --target-only ' + args + c,
+                            # required
+                            'farna1000' : 'evox.py --target-only %s %s' % (args, c),
+                            'simrna1000' : 'evox.py --target-only %s %s' % (args, c),
+                            'simrna1x500farna1x500' : 'evox.py --target-only %s %s' % (args, c),
+                            'simrna5x100farna5x100' : 'evox.py %s %s ' % (args, c),
+                            'simrna5x200' : 'evox.py %s %s ' % (args, c),
+                            'farna5x200' : 'evox.py %s %s ' % (args, c),
+                            #'test' : 'evox.py --inf-all --target-only ' + args + c,
+                            'farna1000' : 'evox.py  --target-only ' + args + c,
+                            'simrna1000' : 'evox.py --target-only ' + args + c,
                             }
                         #'simrna1000' : 'evox.py -p ' + args + c,
                         #'simrna1x500farna1x500' : 'evox.py -p ' + args + c,
@@ -95,12 +133,17 @@ def main(dryrun, path, case, test, args):
                         # 'simrna5x10' : 'evox.py -s 10 -e -p ' + c,
 
                         ######## this is all required #######################################
-                        'farna1000' : 'evox.py -f 1000 --target-only ' + args + c,
-                        'simrna1000' : 'evox.py -s 1000 --target-only ' + args + c,
-                        'simrna1x500farna1x500' : 'evox.py -s 500 -f 500 --target-only ' + args + c,
-                        'simrna5x100farna5x100' : 'evox.py -s 100 -f 100 ' + args + c,
-                        'simrna5x200' : 'evox.py -s 200  ' + args + c,
-                        'farna5x200' : 'evox.py -f 200  ' + args + c,
+                        'simrnatop1' : 'evox.py --calc-stats ' + c,
+                        'simrnatop3' : 'evox.py --calc-stats ' + c,
+                        'farnatop1' : 'evox.py --calc-stats ' + c,
+                        'farnatop3' : 'evox.py --calc-stats ' + c,
+                        'farnatop5' : 'evox.py --calc-stats ' + c,
+                        'farna1000' : 'evox.py -f 1000 --target-only ' + args + ' ' + c,
+                        'simrna1000' : 'evox.py -s 1000 --target-only ' + args + ' ' + c,
+                        'simrna1x500farna1x500' : 'evox.py -s 500 -f 500 --target-only ' + args + ' ' + c,
+                        'simrna5x100farna5x100' : 'evox.py -s 100 -f 100 ' + args + ' ' + c,
+                        'simrna5x200' : 'evox.py -s 200  ' + args + ' ' + c,
+                         'farna5x200' : 'evox.py -f 200  ' + args + ' ' + c,
                         ############ end #####################################################
                         #'simrna5x10farna5x10' : 'evox.py -s 10 -f 10 -t ' + args + c,
 
@@ -150,4 +193,4 @@ if __name__ == '__main__':
 
     #os.system('mdimport /home/magnus/work')
     #os.system('mdimport /home/magnus/')
-    main(args.dryrun, args.path, args.case, args.test, args.args)
+    main(args.dryrun, args.path, args.case, args.test, args.dont_copy_models, args.args, args.one_mode, args.half)
