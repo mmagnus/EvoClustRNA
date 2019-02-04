@@ -20,6 +20,7 @@ def get_parser():
     parser.add_argument('-p', '--process', action="store_true")
     parser.add_argument('--target-only', action="store_true")
     parser.add_argument('-l', '--inf-all', help="", action="store_true")
+    parser.add_argument('--autoclust', help="do autoclustering after -e (.matrix generation with evoClustRNA.py)", action="store_true")
     parser.add_argument('-a', '--rmsd-all-structs', help="must be combined with -p",
                         action="store_true")
     parser.add_argument('-f', '--farna', help="", default="")
@@ -311,7 +312,8 @@ if __name__ == '__main__':
             options += ' -s '
         exe("evoClustRNA.py -a ../../" + args.case + "*ref.sto -i structures -m ../../*mapping*ref.txt -f " + options)  # tpp<bleble>.sto
 
-        exe("evoClust_autoclustix.py *mapping*X.txt")
+    if args.autoclust:
+         exe("evoClust_autoclustix.py *mapping*X.matrix")
 
     # '-a', '--rmsd-all-structs'
     if args.rmsd_all_structs:
