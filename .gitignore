@@ -6,3 +6,5 @@
 docs/build/*
 .ipynb_checkpoints
 .cache
+# on and off
+benchmark
