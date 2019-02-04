@@ -26,6 +26,7 @@ def get_parser():
     parser.add_argument('-p', '--path', help="", default='')
     parser.add_argument('-a', '--args', help=' -e -p or -a (see evox.py for more)', default=" -p -a ") # -a -p -e
     parser.add_argument('-c', '--case', help="only one case, for test")
+    parser.add_argument('--one-mode', help="Run the script for one mode only", action="store_true")
     parser.add_argument('-t', '--test', help="short testing run, without -c it will go over all folders", action="store_true")
     parser.add_argument("-v", "--verbose",
                         action="store_true", help="be verbose")
@@ -66,6 +67,10 @@ def main(dryrun, path, case, test, args):
             ## #subcases = glob.glob('*.fa')
             ## #for sc in subcases:
             ## for i in [1000]: #
+            if one_mode:
+                args = ' --get-models -e -p --add-solution -m -g --half '
+                #modes = {'simrna5x100farna5x100' : 'evox.py %s %s ' % (args, c),}
+                modes = {'farna5x100' : 'evox.py %s %s ' % (args, c),}
             if not test:
                 #args = ' -p ' # process only
                 #args = '-a -e -p -t -m -g '  # only if you want to get rmsd-all-structs
