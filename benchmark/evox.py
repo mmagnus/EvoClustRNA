@@ -366,7 +366,18 @@ if __name__ == '__main__':
         if glob.glob('reps_ns/*.pdb'):
             exe("rna_pdb_toolsx.py --inplace --get_rnapuzzle_ready reps_ns/*.pdb")
             if args.case == 'trna':
-                exe("rna_calc_rmsd.py -m align -t ../../*ref.pdb reps_ns/*.pdb")
+                exe("rna_calc_rmsd.py -t ../../*ref.pdb --model_ignore_selection A/34/O2  --target_ignore_selection A/34/O2 reps_ns/*.pdb")
+            elif args.case == 'rp14':  # ignore U/G 32
+                exe("rna_calc_rmsd.py -t ../../*ref.pdb  "
+                    "--target_selection A:1-31+33-61  "
+                    "--model_selection A:1-31+33-61   "
+                    "reps_ns/*.pdb")
+            elif args.case == 'rp17':
+                exe("rna_calc_rmsd.py   -t ../../*ref.pdb  "
+                    " --target_selection A:1-48+52-63  "
+                    "--model_selection A:1-48+52-63  "
+                    "--model_ignore_selection A/57/O2\\' "
+                    "reps_ns/*.pdb")
             else:
                 exe("rna_calc_rmsd.py -t ../../*ref.pdb reps_ns/*.pdb")
             exe("rna_calc_inf.py -f -t ../../*ref.pdb reps_ns/*.pdb")
