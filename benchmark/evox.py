@@ -116,6 +116,8 @@ if __name__ == '__main__':
     parser = get_parser()
     args = parser.parse_args()
 
+    print(args)
+
     # rna_simrnaweb_download_job.py -n 1000 -c ade_pk-35b2a2c1
     # mv _XXX -> structures
     if args.farna or args.simrna:
