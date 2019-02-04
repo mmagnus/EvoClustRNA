@@ -1,6 +1,0 @@
-,target,model,rmsd,group_name
-0,target_rp14_5ddp_bound_clean_noL2_ref.pdb,c1_tar_rp14+m+pk2-946da607_ALL-000002_AA.pdb,4.45,
-1,target_rp14_5ddp_bound_clean_noL2_ref.pdb,c2_tar_rp14+m+pk2-946da607_ALL-000005_AA.pdb,6.05,
-2,target_rp14_5ddp_bound_clean_noL2_ref.pdb,c3_tar_rp14+m+pk2-946da607_ALL-000001_AA.pdb,3.37,
-3,target_rp14_5ddp_bound_clean_noL2_ref.pdb,c4_tar_rp14+m+pk2-946da607_ALL-000077_AA.pdb,3.49,
-4,target_rp14_5ddp_bound_clean_noL2_ref.pdb,c5_tar_rp14+m+pk2-946da607_ALL-000063_AA.pdb,8.62,

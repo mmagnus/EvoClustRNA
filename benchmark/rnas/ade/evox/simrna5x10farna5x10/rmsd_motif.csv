@@ -1,6 +1,0 @@
-,target,model,rmsd,group_name
-0,1y26_rpr_ref.pdb,c2_tar_ade_pk-35b2a2c1_ALL-000002_AA.pdb,7.52,
-1,1y26_rpr_ref.pdb,c3_tar_ade_pk-35b2a2c1_ALL-000009_AA.pdb,6.93,
-2,1y26_rpr_ref.pdb,c1_a04_9c6339e0-591c-498d-9745-1a828f9ee81d_ALL-000009_AA.pdb,10.69,
-3,1y26_rpr_ref.pdb,c4_a04_9c6339e0-591c-498d-9745-1a828f9ee81d_ALL-000001_AA.pdb,9.62,
-4,1y26_rpr_ref.pdb,c5_a04_min.out.4.pdb,10.38,

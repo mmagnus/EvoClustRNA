@@ -1,6 +1,0 @@
-,target,model,rmsd,group_name
-0,target_tpp_2gdi_ba_rpr_renumb_chainA_ref.pdb,c1_tar_min.out.2.pdb,13.92,
-1,target_tpp_2gdi_ba_rpr_renumb_chainA_ref.pdb,c3_tar_min.out.11.pdb,19.9,
-2,target_tpp_2gdi_ba_rpr_renumb_chainA_ref.pdb,c4_tar_min.out.55.pdb,14.01,
-3,target_tpp_2gdi_ba_rpr_renumb_chainA_ref.pdb,c5_tar_min.out.1.pdb,9.1,
-4,target_tpp_2gdi_ba_rpr_renumb_chainA_ref.pdb,c2_tc5_min.out.8.pdb,19.5,

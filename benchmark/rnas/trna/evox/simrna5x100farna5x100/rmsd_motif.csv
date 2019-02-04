@@ -1,6 +1,0 @@
-,target,model,rmsd,group_name
-0,trna_rpr_x_ref.pdb,c1_tar_min.out.29.pdb,13.17,
-1,trna_rpr_x_ref.pdb,c2_tar_min.out.3.pdb,14.6,
-2,trna_rpr_x_ref.pdb,c4_tar_a9bc516d-e3da-489d-93ef-5eb20e3f13c3_ALL-000001_AA.pdb,14.52,
-3,trna_rpr_x_ref.pdb,c3_taf_822df074-320e-4166-9fd1-8fbcf085908a_ALL-000039_AA.pdb,14.93,
-4,trna_rpr_x_ref.pdb,c5_taf_822df074-320e-4166-9fd1-8fbcf085908a_ALL-000002_AA.pdb,9.13,

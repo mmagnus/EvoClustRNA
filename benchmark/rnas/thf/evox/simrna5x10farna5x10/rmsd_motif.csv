@@ -1,6 +1,0 @@
-,target,model,rmsd,group_name
-0,4lvv_rpr_ref.pdb,c1_tha_5f8916a8_ALL-000001_AA.pdb,11.35,
-1,4lvv_rpr_ref.pdb,c2_tha_min.out.5.pdb,5.37,
-2,4lvv_rpr_ref.pdb,c3_tha_5f8916a8_ALL-000007_AA.pdb,12.52,
-3,4lvv_rpr_ref.pdb,c4_hak_min.out.8.pdb,10.39,
-4,4lvv_rpr_ref.pdb,c5_hak_cb6e7e4d_ALL-000002_AA.pdb,11.8,

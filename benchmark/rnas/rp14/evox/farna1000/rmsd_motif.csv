@@ -1,6 +1,0 @@
-,target,model,rmsd,group_name
-0,target_rp14_5ddp_bound_clean_noL2_ref.pdb,c1_tar_min.out.1.pdb,4.83,
-1,target_rp14_5ddp_bound_clean_noL2_ref.pdb,c2_tar_min.out.4.pdb,4.62,
-2,target_rp14_5ddp_bound_clean_noL2_ref.pdb,c3_tar_min.out.11.pdb,4.17,
-3,target_rp14_5ddp_bound_clean_noL2_ref.pdb,c4_tar_min.out.21.pdb,4.92,
-4,target_rp14_5ddp_bound_clean_noL2_ref.pdb,c5_tar_min.out.5.pdb,4.8,

@@ -1,6 +1,0 @@
-,target,model,rmsd,group_name
-0,3q3z_rpr_ref.pdb,c1_gxx_6bd26658_ALL-000001_AA.pdb,9.65,
-1,3q3z_rpr_ref.pdb,c2_gbaP_d2b57aef_ALL-000112_AA.pdb,15.74,
-2,3q3z_rpr_ref.pdb,c3_gbaP_d2b57aef_ALL-000001_AA.pdb,10.7,
-3,3q3z_rpr_ref.pdb,c5_gbaP_d2b57aef_ALL-000008_AA.pdb,9.48,
-4,3q3z_rpr_ref.pdb,c4_gbx_00de79c8_ALL-000194_AA.pdb,13.17,
