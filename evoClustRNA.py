@@ -123,6 +123,7 @@ def get_parser():
     parser.add_argument('-m', "--mapping_fn", help="a file with mapping folders on the drive with sequence names in the alignment (<name in the alignment>:<folder name>), use multiple lines for multiple seqs")
     parser.add_argument('-x', "--matrix_fn", default="", help="output matrix with rmsds all-vs-all")
     parser.add_argument("--inf", action="store_true", default=False, help="Use INFs instead of RMSD")
+    parser.add_argument("-v", "--verbose", action="store_true", default=False, help="be verbose")
     parser.add_argument("-s", "--save", action="store_true", default=False,
                         help="save motifs and structures to output_dir, this slows down the program")
     parser.add_argument("-f", "--flat-dir", action="store_true", default=False,
