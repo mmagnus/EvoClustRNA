@@ -333,8 +333,11 @@ if __name__ == '__main__':
         # pre-process structures to be compatible with the native
         if glob.glob('reps_ns/*.pdb'):
             if args.case == 'rp13': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:46-56' --inplace *")
+            if args.case == 'rp14': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:35-44' --inplace *") # 32 U-G
+            if args.case == 'rp17': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:48-51' --inplace *")
             if args.case == 'ade': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:72' --inplace *")
             if args.case == 'tpp': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:80' --inplace *")
+            if args.case == 'gmp': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:76+77' --inplace *")
 
         # if reps_ns are not empty
         if glob.glob('reps_ns/*.pdb'):
