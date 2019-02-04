@@ -8,6 +8,7 @@ from Bio.PDB.PDBIO import Select
 from Bio.PDB import PDBIO
 from Bio.SVDSuperimposer import SVDSuperimposer
 from numpy import sqrt, array, asarray
+from rna_pdb_tools.opt.BasicAssessMetrics.BasicAssessMetrics import *
 
 class RNAmodel:
     """RNAmodel
@@ -108,12 +109,14 @@ class RNAmodel:
             io.save("aligned2.pdb")
         return rms
 
-    def get_inf_to(self, b):
+    def get_inf_to(self, b, verbose=False):
+        # @indev
         import string
         import random
-        job_id = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
-        fn = self.save('/tmp/%s/' % job_id)
-        fn2 = b.save('/tmp/%s/' % job_id)
+        #job_id = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
+        job_id = '/home/magnus/Desktop/evoclust/'
+        fn = self.save('/tmp/%s/' % job_id, verbose=verbose)
+        fn2 = b.save('/tmp/%s/' % job_id, verbose=verbose)
 
         # rna-pdb-tools
         # required installed
@@ -121,17 +124,43 @@ class RNAmodel:
         # renumber files in place
         fn_ren = fn.replace('.pdb', '') + '.renumber.pdb'
         fn2_ren = fn2.replace('.pdb', '') + '.renumber.pdb'
+
         os.system('rna_pdb_toolsx.py  --dont_report_missing_atoms --renumber_residues %s > %s' % (fn, fn_ren ))
         os.system('rna_pdb_toolsx.py  --dont_report_missing_atoms --renumber_residues %s > %s' % (fn2, fn2_ren))
 
-        fn_inf = fn2_ren.replace('.pdb', '.infs')
-        os.system('rna_calc_inf.py -t %s %s -o %s ' % (fn_ren, fn2_ren, fn_inf))
+        fn_inf = fn_ren.replace('.pdb', '') + '--' + fn2_ren.split('/')[-1].replace('.pdb', '') + '.infs'
+        rmsd, DI_ALL, INF_ALL, INF_WC, INF_NWC, INF_STACK = interaction_network_fidelity(fn_ren, None, fn2_ren, None)
+        return rmsd, DI_ALL, INF_ALL, INF_WC, INF_NWC, INF_STACK
+        # clarna based
+        ## # @indev
+        ## import string
+        ## import random
+        ## #job_id = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
+        ## job_id = '/home/magnus/Desktop/evoclust/'
+        ## fn = self.save('/tmp/%s/' % job_id, verbose=verbose)
+        ## fn2 = b.save('/tmp/%s/' % job_id, verbose=verbose)
 
-        import pandas as pd
-        pd.set_option('display.width', 200)
-        df = pd.read_csv(fn_inf)
-        print(df)
-        return float(df['inf_all'])
+        ## # rna-pdb-tools
+        ## # required installed
+        ## # https://github.com/mmagnus/rna-pdb-tools
+        ## # renumber files in place
+        ## fn_ren = fn.replace('.pdb', '') + '.renumber.pdb'
+        ## fn2_ren = fn2.replace('.pdb', '') + '.renumber.pdb'
+
+        ## os.system('rna_pdb_toolsx.py  --dont_report_missing_atoms --renumber_residues %s > %s' % (fn, fn_ren ))
+        ## os.system('rna_pdb_toolsx.py  --dont_report_missing_atoms --renumber_residues %s > %s' % (fn2, fn2_ren))
+
+        ## fn_inf = fn_ren.replace('.pdb', '') + '--' + fn2_ren.split('/')[-1].replace('.pdb', '') + '.infs'
+        ## quiet = ''
+        ## if not verbose:
+        ##     quiet = ' > /dev/null'
+        ## # os.system('rna_calc_inf.py -t %s %s -o %s %s ' % (fn_ren, fn2_ren, fn_inf, quiet))
+
+        ## import pandas as pd
+        ## pd.set_option('display.width', 200)
+        ## df = pd.read_csv(fn_inf)
+        ## if verbose: print(df)
+        ## return float(df['inf_all'])
 
     def save(self, output_dir, verbose=True):
         """Save structures and motifs """
