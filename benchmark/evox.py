@@ -27,7 +27,17 @@ def get_parser():
     parser.add_argument('-s', '--simrna', help="", default="")
     parser.add_argument('-m', '--motif-save', help="", action="store_true")
     parser.add_argument('-t', '--add-solution', help="", action="store_true")
+    parser.add_argument('--autoclusthalf', help="cluster in the half mode [overwrites the results and trash other clustering results .matrix"
+""" this option removes many things from the mode folder"
 
+        exe("trash reps")
+        exe("trash reps_ns")
+        exe("trash *mapping*.out")
+        exe("trash rmsds.csv")
+        exe("trash rmsd_motif.csv")
+
+"""
+                        , action="store_true")
     parser.add_argument("-v", "--verbose",
                         action="store_true", help="be verbose")
     parser.add_argument('case')
@@ -314,6 +324,19 @@ if __name__ == '__main__':
 
     if args.autoclust:
          exe("evoClust_autoclustix.py *mapping*X.matrix")
+
+    if args.autoclusthalf:
+        exe("trash reps")
+        exe("trash reps_ns")
+
+        exe("trash reps_motifs")
+        exe("trash reps_motifs_ns")
+
+        exe("trash *mapping*.out")
+        exe("trash rmsds.csv")
+        exe("trash inf.csv")
+        exe("trash rmsd_motif.csv")
+        exe("evoClust_autoclustix.py --half  *mapping*X.matrix")
 
     # '-a', '--rmsd-all-structs'
     if args.rmsd_all_structs:
