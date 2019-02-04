@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+-c is needed if you want to run it for only one case
+"""
+
 from __future__ import print_function
 import os
 import argparse
@@ -15,16 +19,17 @@ def get_parser():
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 
-    parser.add_argument('-g', '--get-models', help="", action="store_true")
-    parser.add_argument('-e', '--evoclust', action="store_true")
-    parser.add_argument('-p', '--process', action="store_true")
-    parser.add_argument('--target-only', action="store_true")
+    parser.add_argument('-g', '--get-models', help="has to go with --farna <100> or --simrna <100> or both", action="store_true")
+    parser.add_argument('-e', '--evoclust', action="store_true", help="run EvoClustRNA with auto, get models before")
+    parser.add_argument('-p', '--process', action="store_true", help="run evoClust_get_models.py ")
+    parser.add_argument('--target-only', action="store_true", help="collect only models for the reference (target) structure")
     parser.add_argument('-l', '--inf-all', help="", action="store_true")
+    parser.add_argument('-c', '--calc-stats', help="", action="store_true")
     parser.add_argument('--autoclust', help="do autoclustering after -e (.matrix generation with evoClustRNA.py)", action="store_true")
     parser.add_argument('-a', '--rmsd-all-structs', help="must be combined with -p",
                         action="store_true")
-    parser.add_argument('-f', '--farna', help="", default="")
-    parser.add_argument('-s', '--simrna', help="", default="")
+    parser.add_argument('-f', '--farna', help="collect Farna models needed for the analysis")
+    parser.add_argument('-s', '--simrna', help="collect SimRNA models needed for the anlysis")
     parser.add_argument('-m', '--motif-save', help="", action="store_true")
     parser.add_argument('-t', '--add-solution', help="", action="store_true")
     parser.add_argument('--autoclusthalf', help="cluster in the half mode [overwrites the results and trash other clustering results .matrix"
@@ -345,12 +350,14 @@ if __name__ == '__main__':
     if args.inf_all:
         exe("rna_calc_inf.py -f -t ../../*ref.pdb structures/tar*.pdb -o inf_all.csv -m 0")
 
-    # '-p', '--process'
+    # -p, --process
     if args.process:
         # -u --skip_structures
         exe("evoClust_get_models.py -i structures/ *.out -u")
         exe("evoClust_get_models.py -i structures/ *.out -n tar -u")
 
+    # -c, --calc-stats
+    if args.calc_stats:
         exe("evoClust_calc_rmsd.py -a ../../" + args.case + "*ref.sto -t ../../*ref.pdb -n " + args.case + " -m ../../*mapping*ref.txt -o rmsd_motif.csv reps/*.pdb")
 
         # pre-process structures to be compatible with the native
@@ -380,6 +387,7 @@ if __name__ == '__main__':
                     "reps_ns/*.pdb")
             else:
                 exe("rna_calc_rmsd.py -t ../../*ref.pdb reps_ns/*.pdb")
+
             exe("rna_calc_inf.py -f -t ../../*ref.pdb reps_ns/*.pdb")
 
 
