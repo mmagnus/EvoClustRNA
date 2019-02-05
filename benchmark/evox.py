@@ -343,6 +343,10 @@ if __name__ == '__main__':
     if args.autoclusthalf:
         exe("evoClust_autoclustix.py --half  *mapping*X.matrix")
 
+    # now case has different modes, so I have to clean up case to only first part
+    # rp17_X_X -> rp17
+    case = args.case.split('_')[0]
+
     # '-a', '--rmsd-all-structs'
     if args.rmsd_all_structs:
          exe("evoClust_calc_rmsd.py -a ../../" + args.case + "*ref.sto -t ../../*ref.pdb -o rmsd_all_strucs.csv -n " + args.case + " -m ../../*mapping*ref.txt  structures/*.pdb")
