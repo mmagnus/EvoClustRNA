@@ -25,6 +25,7 @@ def get_parser():
     parser.add_argument('--target-only', action="store_true", help="collect only models for the reference (target) structure")
     parser.add_argument('-l', '--inf-all', help="", action="store_true")
     parser.add_argument('-c', '--calc-stats', help="", action="store_true")
+    parser.add_argument('--clean', help="clean folder mode, keep only structures", action="store_true")
     parser.add_argument('--autoclust', help="do autoclustering after -e (.matrix generation with evoClustRNA.py)", action="store_true")
     parser.add_argument('-a', '--rmsd-all-structs', help="must be combined with -p",
                         action="store_true")
@@ -32,17 +33,8 @@ def get_parser():
     parser.add_argument('-s', '--simrna', help="collect SimRNA models needed for the anlysis")
     parser.add_argument('-m', '--motif-save', help="", action="store_true")
     parser.add_argument('-t', '--add-solution', help="", action="store_true")
-    parser.add_argument('--autoclusthalf', help="cluster in the half mode [overwrites the results and trash other clustering results .matrix"
-""" this option removes many things from the mode folder"
-
-        exe("trash reps")
-        exe("trash reps_ns")
-        exe("trash *mapping*.out")
-        exe("trash rmsds.csv")
-        exe("trash rmsd_motif.csv")
-
-"""
-                        , action="store_true")
+    parser.add_argument('--autoclusthalf', help="cluster in the half mode [overwrites the results and trash other clustering results .matrix "
+                        "to remove files of previous analysis use --clean", action="store_true")
     parser.add_argument("-v", "--verbose",
                         action="store_true", help="be verbose")
     parser.add_argument('case')
@@ -319,6 +311,23 @@ if __name__ == '__main__':
     if args.add_solution:
         exe('cp -v ../../*ref.pdb structures/solution.pdb')
 
+    if args.clean:
+        exe("trash reps")
+        exe("trash reps_ns") # hmm... for farnatop1
+
+        exe("trash reps_motifs")
+        exe("trash reps_motifs_ns")
+
+        exe("trash *mapping*.out")
+
+        exe("trash inf.csv")
+
+        exe("trash rmsd_motif.csv")
+        exe("trash rmsds.csv")
+        exe("trash rmsd_motif.png")
+
+        exe("trash *matrix")
+
     # -e', '--evoclust'
     if args.evoclust:
         # exe("evoClustRNA.py -a ../../ade_plus_ade_cleanup.sto -i structures -m ../../mapping_pk.txt -f")  # ade
@@ -330,17 +339,8 @@ if __name__ == '__main__':
     if args.autoclust:
          exe("evoClust_autoclustix.py *mapping*X.matrix")
 
+
     if args.autoclusthalf:
-        exe("trash reps")
-        exe("trash reps_ns")
-
-        exe("trash reps_motifs")
-        exe("trash reps_motifs_ns")
-
-        exe("trash *mapping*.out")
-        exe("trash rmsds.csv")
-        exe("trash inf.csv")
-        exe("trash rmsd_motif.csv")
         exe("evoClust_autoclustix.py --half  *mapping*X.matrix")
 
     # '-a', '--rmsd-all-structs'
