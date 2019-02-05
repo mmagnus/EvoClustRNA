@@ -334,7 +334,12 @@ if __name__ == '__main__':
         options = ''
         if args.motif_save:
             options += ' -s '
-        exe("evoClustRNA.py -a ../../" + args.case + "*ref.sto -i structures -m ../../*mapping*ref.txt -f " + options)  # tpp<bleble>.sto
+
+        # there should be only one sto, so I think I can remove this ref.sto, if there is more than
+        # one this should cause some error
+        #exe("evoClustRNA.py -a ../../" + args.case + "*ref.sto -i structures -s -m ../../*mapping*ref.txt -f " + options)  # tpp<bleble>.sto
+        exe("evoClustRNA.py -a ../../*ref.sto -i structures -s -m ../../*mapping*ref.txt -f " + options)  # tpp<bleble>.sto
+
 
     if args.autoclust:
          exe("evoClust_autoclustix.py *mapping*X.matrix")
@@ -349,7 +354,7 @@ if __name__ == '__main__':
 
     # '-a', '--rmsd-all-structs'
     if args.rmsd_all_structs:
-         exe("evoClust_calc_rmsd.py -a ../../" + args.case + "*ref.sto -t ../../*ref.pdb -o rmsd_all_strucs.csv -n " + args.case + " -m ../../*mapping*ref.txt  structures/*.pdb")
+         exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -o rmsd_all_strucs.csv -n " + case + " -m ../../*mapping*ref.txt  structures/*.pdb")
 
     if args.inf_all:
         exe("rna_calc_inf.py -f -t ../../*ref.pdb structures/tar*.pdb -o inf_all.csv -m 0")
@@ -362,28 +367,28 @@ if __name__ == '__main__':
 
     # -c, --calc-stats
     if args.calc_stats:
-        exe("evoClust_calc_rmsd.py -a ../../" + args.case + "*ref.sto -t ../../*ref.pdb -n " + args.case + " -m ../../*mapping*ref.txt -o rmsd_motif.csv reps/*.pdb")
+        exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m ../../*mapping*ref.txt -o rmsd_motif.csv reps/*.pdb")
 
         # pre-process structures to be compatible with the native
         if glob.glob('reps_ns/*.pdb'):
-            if args.case == 'rp13': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:46-56' --inplace *")
-            if args.case == 'rp14': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:35-44' --inplace *") # 32 U-G
-            if args.case == 'rp17': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:48-51' --inplace *")
-            if args.case == 'ade': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:72' --inplace *")
-            if args.case == 'tpp': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:80' --inplace *")
-            if args.case == 'gmp': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:76+77' --inplace *")
+            if case == 'rp13': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:46-56' --inplace *")
+            if case == 'rp14': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:35-44' --inplace *") # 32 U-G
+            if case == 'rp17': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:48-51' --inplace *")
+            if case == 'ade': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:72' --inplace *")
+            if case == 'tpp': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:80' --inplace *")
+            if case == 'gmp': exe("cd reps_ns && rna_pdb_toolsx.py --delete 'A:76+77' --inplace *")
 
         # if reps_ns are not empty
         if glob.glob('reps_ns/*.pdb'):
             exe("rna_pdb_toolsx.py --inplace --get_rnapuzzle_ready reps_ns/*.pdb")
-            if args.case == 'trna':
+            if case == 'trna':
                 exe("rna_calc_rmsd.py -t ../../*ref.pdb --model_ignore_selection A/34/O2  --target_ignore_selection A/34/O2 reps_ns/*.pdb")
-            elif args.case == 'rp14':  # ignore U/G 32
+            elif case == 'rp14':  # ignore U/G 32
                 exe("rna_calc_rmsd.py -t ../../*ref.pdb  "
                     "--target_selection A:1-31+33-61  "
                     "--model_selection A:1-31+33-61   "
                     "reps_ns/*.pdb")
-            elif args.case == 'rp17':
+            elif case == 'rp17':
                 exe("rna_calc_rmsd.py   -t ../../*ref.pdb  "
                     " --target_selection A:1-48+52-63  "
                     "--model_selection A:1-48+52-63  "
