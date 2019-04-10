@@ -61,12 +61,13 @@ if __name__ == '__main__':
                     if n >= int(size * 1 / 6):
                         sys.exit(0)
                     # clean matrix # hack
-                    cmd = 'rm ' + args.matrix.replace('.txt', '') + \
+                    # this assume that a matrix is blebleble.matrix
+                    cmd = 'rm ' + args.matrix.replace('.matrix', '') + \
                         '*cf' + str(c) + '*.out # auto-removal'
                     print(cmd)
                     os.system(cmd)
         else:
-            # Janusz mode, 50% in 3 clusters
+            # 50% in 3 clusters
             # start this procedure if you have even cluster #3
             if args.verbose: print(out)
             rn1 = re.compile("cluster #1  curr the biggest cluster size\s+(?P<n1>\d+)").search(out)
