@@ -69,13 +69,14 @@ def get_parser():
     parser.add_argument('files', nargs='+', help='files')
     parser.add_argument('-g', '--group_name',
                         help='name given group of structure, helps to analyze results', default='')
-
+    parser.add_argument('--debug',
+                        help='debug, print more prints', action='store_true')
     parser.add_argument('--dont_ignore_clusters',
                         help='dont ignore clustX or template.pdb', action='store_true')
     return parser
 
 
-def calc_evo_rmsd(targetfn, target_name_alignment, files, mapping, rna_alignment_fn, group_name='', output_fn=''):
+def calc_evo_rmsd(targetfn, target_name_alignment, files, mapping, rna_alignment_fn, group_name='', output_fn='', debug=False):
     ra = RNAalignment(rna_alignment_fn)
     print('target:', targetfn)
     target_residues = ra.get_range(target_name_alignment)
@@ -108,14 +109,13 @@ def calc_evo_rmsd(targetfn, target_name_alignment, files, mapping, rna_alignment
         for f in files:
             #
             if rs_name_dir in f:  # rp14_farna_eloop_nol2fixed_cst*pdb
-                # print(rs_name_dir)
+                if debug: print('\_', rs_name_dir, f)
                 # models.extend(get_rna_models_from_dir(input_dir + os.sep + rs_name_dir, ra.get_range(rs_name_alignment), False, False)[:])
                 # print(ra.get_range(rs_name_alignment))
                 models.append(RNAmodel(f, ra.get_range(rs_name_alignment), False, False))
 
     data = {'target': [], 'model': [], 'rmsd': [], 'group_name': []}
     for model in models:
-        # print
         # print r1.fn, r2.fn, r1.get_rmsd_to(r2)#, 'tmp.pdb')
         rmsd = round(target.get_rmsd_to(model), 2)  # , 'tmp.pdb')
         # print target, model, rmsd, group_name
@@ -149,7 +149,8 @@ if __name__ == '__main__':
     parser = get_parser()
     opts = parser.parse_args()
     print(datetime.datetime.now().ctime())
+    print(opts)
     df = calc_evo_rmsd(opts.target, opts.target_name, opts.files, opts.mapping_fn,
-                       opts.rna_alignment_fn, opts.group_name, opts.output_fn)  # , opts.dont_ignore_clusters)
+                       opts.rna_alignment_fn, opts.group_name, opts.output_fn, opts.debug)  # , opts.dont_ignore_clusters)
 
     print(df)
