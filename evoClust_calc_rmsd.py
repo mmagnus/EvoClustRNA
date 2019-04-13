@@ -93,21 +93,26 @@ def calc_evo_rmsd(targetfn, target_name_alignment, files, mapping, rna_alignment
     print(' WARNING: if any of your PDB file is missing, check mapping!')
     models = []
 
-    for rs in rnastruc:
-        try:
-            rs_name_alignment, rs_name_dir = rs.split(':')  # target:rp14_farna_eloop_nol2fixed_cst
-        except ValueError:
-            # if -m 'tpp|tpp_pdb|CP000050.1/ ..
-            # rnastruc: ['tpp', 'tpp_pdb', 'CP000050.1/1019813-1019911:tc5_pdb', 'AE017180.1/640928-641029:tae_pdb', 'BX248356.1/234808-234920:tb2_pdb']
-            # Traceback (most recent call last):
-            # File "/home/magnus/work/src/evoClustRNA/evoClustRNA.py", line 100, in <module>
-            # raise Exception("There is an error in your mapping, check all : and | carefully")
-            # Exception: There is an error in your mapping, check all : and | carefully
-            raise Exception("There is an error in your mapping, check all : and | carefully")
+    for f in files:
+        # OK, this `for` is very non-optimal.
+        # Before taking for f in files outside this loop, it was how it should be.
+        # "for f in files" was moved up because, in this way, the proper order of files is fixed.
+        # Before the files in here were processed according to the mapping file.
+        # Right now they will be processed as they are inputted to the program, so c1_ , c2, c3 etc.
+        for rs in rnastruc:
+            try:
+                rs_name_alignment, rs_name_dir = rs.split(':')  # target:rp14_farna_eloop_nol2fixed_cst
+            except ValueError:
+                # if -m 'tpp|tpp_pdb|CP000050.1/ ..
+                # rnastruc: ['tpp', 'tpp_pdb', 'CP000050.1/1019813-1019911:tc5_pdb', 'AE017180.1/640928-641029:tae_pdb', 'BX248356.1/234808-234920:tb2_pdb']
+                # Traceback (most recent call last):
+                # File "/home/magnus/work/src/evoClustRNA/evoClustRNA.py", line 100, in <module>
+                # raise Exception("There is an error in your mapping, check all : and | carefully")
+                # Exception: There is an error in your mapping, check all : and | carefully
+                raise Exception("There is an error in your mapping, check all : and | carefully")
 
-        # print ' ', rs_name_alignment,'<->', rs_name_dir # AACY023581040 <-> aacy23_cst
-        for f in files:
-            #
+            # print ' ', rs_name_alignment,'<->', rs_name_dir # AACY023581040 <-> aacy23_cst
+            #print(f)
             if rs_name_dir in f:  # rp14_farna_eloop_nol2fixed_cst*pdb
                 if debug: print('\_', rs_name_dir, f)
                 # models.extend(get_rna_models_from_dir(input_dir + os.sep + rs_name_dir, ra.get_range(rs_name_alignment), False, False)[:])
