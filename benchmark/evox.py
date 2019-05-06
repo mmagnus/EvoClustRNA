@@ -386,6 +386,7 @@ if __name__ == '__main__':
         exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m " + mapping + " -o rmsd_motif_top100.csv top100/*.pdb")
         exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m " + mapping + " -o rmsd_motif_top200.csv _*/*.pdb")
         exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m " + mapping + " -o rmsd_motif_top200.csv _*/*.pdb")
+        exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -o rmsd_all_strucs.csv -n " + case + " -m " + mapping + "  structures/*.pdb")
 
         # pre-process structures to be compatible with the native
         if glob.glob('reps_ns/*.pdb'):
