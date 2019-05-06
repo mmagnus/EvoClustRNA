@@ -27,7 +27,7 @@ def get_parser():
     parser.add_argument('--top200', action="store_true", help="make links of models and keep them in here @todo")
     parser.add_argument('-l', '--inf-all', help="", action="store_true")
     parser.add_argument('-c', '--calc-stats', help="", action="store_true")
-    parser.add_argument('--clean', help="clean folder mode, keep only structures", action="store_true")
+    parser.add_argument('--cleanall', help="clean folder mode, keep only structures! Be careful!", action="store_true")
     parser.add_argument('--autoclust', help="do autoclustering after -e (.matrix generation with evoClustRNA.py)", action="store_true")
     parser.add_argument('-a', '--rmsd-all-structs', help="must be combined with -p",
                         action="store_true")
@@ -318,7 +318,7 @@ if __name__ == '__main__':
     if args.add_solution:
         exe('cp -v ../../*ref.pdb structures/solution.pdb')
 
-    if args.clean:
+    if args.cleanall:
         exe("trash reps")
         exe("trash reps_ns") # hmm... for farnatop1
 
@@ -332,6 +332,9 @@ if __name__ == '__main__':
         exe("trash rmsd_motif.csv")
         exe("trash rmsds.csv")
         exe("trash rmsd_motif.png")
+
+        exe("trash *png")
+        exe("trash *csv")
 
         exe("trash *matrix")
 
