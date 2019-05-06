@@ -23,6 +23,8 @@ def get_parser():
     parser.add_argument('-e', '--evoclust', action="store_true", help="run EvoClustRNA with auto, get models before")
     parser.add_argument('-p', '--process', action="store_true", help="run evoClust_get_models.py ")
     parser.add_argument('--target-only', action="store_true", help="collect only models for the reference (target) structure")
+    parser.add_argument('--top100', action="store_true", help="make links of models and keep them in here @todo")
+    parser.add_argument('--top200', action="store_true", help="make links of models and keep them in here @todo")
     parser.add_argument('-l', '--inf-all', help="", action="store_true")
     parser.add_argument('-c', '--calc-stats', help="", action="store_true")
     parser.add_argument('--clean', help="clean folder mode, keep only structures", action="store_true")
@@ -136,6 +138,11 @@ if __name__ == '__main__':
         except OSError:
             shutil.rmtree('structures')
             os.mkdir('structures')
+
+    if args.top100:
+        os.system('ln -s /Users/magnus/work-src/evoClustRNA/benchmark/rnas_half/' + args.case + '/evox/top100/ structures')
+    if args.top200:
+        os.system('ln -s /Users/magnus/work-src/evoClustRNA/benchmark/rnas_half/' + args.case + '/evox/top200/ structures')
 
     if args.farna:
         # this is for rosetta
@@ -368,6 +375,10 @@ if __name__ == '__main__':
     # -c, --calc-stats
     if args.calc_stats:
         exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m ../../*mapping*ref.txt -o rmsd_motif.csv reps/*.pdb")
+        exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m " + mapping + " -o rmsd_motif_ns.csv reps_ns/*.pdb")
+        exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m " + mapping + " -o rmsd_motif_top100.csv top100/*.pdb")
+        exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m " + mapping + " -o rmsd_motif_top200.csv _*/*.pdb")
+        exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m " + mapping + " -o rmsd_motif_top200.csv _*/*.pdb")
 
         # pre-process structures to be compatible with the native
         if glob.glob('reps_ns/*.pdb'):
