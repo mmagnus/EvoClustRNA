@@ -25,6 +25,7 @@ def get_parser():
     parser.add_argument('--target-only', action="store_true", help="collect only models for the reference (target) structure")
     parser.add_argument('--top100', action="store_true", help="make links of models and keep them in here @todo")
     parser.add_argument('--top200', action="store_true", help="make links of models and keep them in here @todo")
+    parser.add_argument('--local-map', action="store_true", help="use some local mapping")
     parser.add_argument('-l', '--inf-all', help="", action="store_true")
     parser.add_argument('-c', '--calc-stats', help="", action="store_true")
     parser.add_argument('--cleanall', help="clean folder mode, keep only structures! Be careful!", action="store_true")
@@ -338,6 +339,10 @@ if __name__ == '__main__':
 
         exe("trash *matrix")
 
+    mapping = "../../*mapping*ref.txt"
+    if args.local_map:
+        mapping = "*mapping*ref.txt"
+
     # -e', '--evoclust'
     if args.evoclust:
         # exe("evoClustRNA.py -a ../../ade_plus_ade_cleanup.sto -i structures -m ../../mapping_pk.txt -f")  # ade
@@ -348,8 +353,7 @@ if __name__ == '__main__':
         # there should be only one sto, so I think I can remove this ref.sto, if there is more than
         # one this should cause some error
         #exe("evoClustRNA.py -a ../../" + args.case + "*ref.sto -i structures -s -m ../../*mapping*ref.txt -f " + options)  # tpp<bleble>.sto
-        exe("evoClustRNA.py -a ../../*ref.sto -i structures -s -m ../../*mapping*ref.txt -f " + options)  # tpp<bleble>.sto
-
+        exe("evoClustRNA.py -a ../../*ref.sto -i structures -m " + mapping + " -f " + options)  # tpp<bleble>.sto
 
     if args.autoclust:
          exe("evoClust_autoclustix.py *mapping*X.matrix")
@@ -364,7 +368,7 @@ if __name__ == '__main__':
 
     # '-a', '--rmsd-all-structs'
     if args.rmsd_all_structs:
-         exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -o rmsd_all_strucs.csv -n " + case + " -m ../../*mapping*ref.txt  structures/*.pdb")
+         exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -o rmsd_all_strucs.csv -n " + case + " -m " + mapping + "  structures/*.pdb")
 
     if args.inf_all:
         exe("rna_calc_inf.py -f -t ../../*ref.pdb structures/tar*.pdb -o inf_all.csv -m 0")
@@ -377,7 +381,7 @@ if __name__ == '__main__':
 
     # -c, --calc-stats
     if args.calc_stats:
-        exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m ../../*mapping*ref.txt -o rmsd_motif.csv reps/*.pdb")
+        exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m " + mapping + " -o rmsd_motif.csv reps/*.pdb")
         exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m " + mapping + " -o rmsd_motif_ns.csv reps_ns/*.pdb")
         exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m " + mapping + " -o rmsd_motif_top100.csv top100/*.pdb")
         exe("evoClust_calc_rmsd.py -a ../../*ref.sto -t ../../*ref.pdb -n " + case + " -m " + mapping + " -o rmsd_motif_top200.csv _*/*.pdb")
