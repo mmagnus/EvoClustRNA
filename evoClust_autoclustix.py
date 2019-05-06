@@ -4,6 +4,8 @@
 
 Size of the biggest cluster to quit, default 83 = 1/6 * 500, 300*1/6=50
 
+rp17_rmGaps_ref_mapping_pk_refX_n1c39_cf3.50.out
+
 """
 from __future__ import print_function
 
@@ -52,6 +54,7 @@ if __name__ == '__main__':
                              stderr=subprocess.PIPE)
         out = p.stdout.read().strip()
         err = p.stderr.read().strip()
+
         # print out
         if not args.half:
             for l in out.split('\n'):
@@ -67,6 +70,7 @@ if __name__ == '__main__':
                     print(cmd)
                     os.system(cmd)
         else:
+            # half mode
             # 50% in 3 clusters
             # start this procedure if you have even cluster #3
             if args.verbose: print(out)

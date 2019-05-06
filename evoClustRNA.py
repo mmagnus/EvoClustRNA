@@ -48,8 +48,8 @@ def get_rna_models_from_dir(directory, residues, save, output_dir, flat_dir):
         path, rna_id = os.path.split(directory)
         if not os.path.exists(path):
             raise Exception('Dir does not exist! ', path)
-        print ('   analyzing... ' + path + "/" + rna_id + "*.pdb")
-        files = glob.glob(path + "/" + rna_id + "*.pdb")
+        print ('   analyzing... ' + path + "/*" + rna_id + "*.pdb")
+        files = glob.glob(path + "/*" + rna_id + "*.pdb")
         print ('   # of structures ' + str(len(files)))
         files_sorted = sort_nicely(files)
     else:
@@ -138,6 +138,8 @@ if __name__ == '__main__':
     if not opts.rna_alignment_fn:
         parser.print_help()
         sys.exit(1)
+
+    print(' \_ evoClustRNA ', opts)
 
     ra = RNAalignment(opts.rna_alignment_fn)
 
