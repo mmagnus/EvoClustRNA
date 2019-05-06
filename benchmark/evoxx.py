@@ -29,6 +29,9 @@ def get_parser():
     parser.add_argument('-c', '--case', help="only one case, for test")
     parser.add_argument('--dont-copy-models', help="", action="store_true")
     parser.add_argument('--one-mode', help="Run the script for one mode only", action="store_true")
+    parser.add_argument('--naln', help="New alignment, so run all modes, otherwise run only modes including diff homologs", action="store_true", default=False)
+    parser.add_argument('--nvariant', help="new variant mode of homologs, so don't re-run top1000 and so on", action="store_true", default=False)
+
     parser.add_argument('--args', help="arguments for evox")
     parser.add_argument('--half', help="half mode, run autoclustering with half, dont get models, and do evoclust, it has to be there",
                         action="store_true")
@@ -45,7 +48,7 @@ def exe(cmd, dryrun):
     if not dryrun: os.system(cmd)
 
 
-def main(dryrun, path, case, test, dont_copy_models, args, one_mode, half):
+def main(dryrun, path, case, test, dont_copy_models, args, one_mode, half, naln, nvariant):
     """
 
     """
@@ -84,29 +87,57 @@ def main(dryrun, path, case, test, dont_copy_models, args, one_mode, half):
                 # -m save motifs
                 if half:
                     #args = " -e -p --autoclusthalf -t -c "
-                    args = " -a -p --autoclusthalf -t -c "
+                    args = " --clean --evoclust --process --autoclusthalf --rmsd-all-structs --add-solution --calc-stats "
                     # keep this on only if you want to calc rmsds and infs
-                    args = " --calc-stats " # only calc
-                    modes = {
+                    # args = " --calc-stats " # only calc
+                    if nvariant:
+                        print(" \_ new variant mode")
+                        modes = {
+                         'simrna5x100farna5x100' : 'evox.py %s %s ' % (args, c),
+                         'simrna5x200' : 'evox.py %s %s ' % (args, c),
+                         'farna5x100' : 'evox.py %s %s ' % (args, c), # x
+                         'farna5x200' : 'evox.py %s %s ' % (args, c), # x
+                         'simrna5x100' : 'evox.py %s %s ' % (args, c), # x
+
+                         # with getting models
+                         ## 'simrna5x100' : 'evox.py -s 100 -e %s %s ' % (args, c), # x
+                        }
+
+                    if naln:
+                        print(" \_ new alingmnet mode [naln]")
+                        modes = {
+                        # these are not processed ;-)
                           'simrnatop1' : 'evox.py --calc-stats ' + c,
                           'simrnatop3' : 'evox.py --calc-stats ' + c,
                           'farnatop1' : 'evox.py --calc-stats ' + c,
                           'farnatop3' : 'evox.py --calc-stats ' + c,
-                          'farnatop5' : 'evox.py --calc-stats ' + c,
 
-                         ## 'farna1000' : 'evox.py --target-only %s %s' % (args, c),
-                         ## 'simrna1000' : 'evox.py --target-only %s %s' % (args, c),
+                          'farna1000' : 'evox.py --target-only %s %s' % (args, c),
+                          'simrna1000' : 'evox.py --target-only %s %s' % (args, c),
 
-                         ## 'simrna1x500farna1x500' : 'evox.py %s %s' % (args, c),
+                         'simrna1x500farna1x500' : 'evox.py %s %s' % (args, c),
+                         'simrna5x100farna5x100' : 'evox.py %s %s ' % (args, c),
 
-                         ## 'simrna5x100farna5x100' : 'evox.py %s %s ' % (args, c),
+                         'simrna5x200' : 'evox.py %s %s ' % (args, c),
+                         'farna5x100' : 'evox.py %s %s ' % (args, c), # x
+                         'farna5x200' : 'evox.py %s %s ' % (args, c), # x
+                         'simrna5x100' : 'evox.py %s %s ' % (args, c), # x
 
-                         ## 'simrna5x200' : 'evox.py %s %s ' % (args, c),
+                         # with getting models
                          ## 'simrna5x100' : 'evox.py -s 100 -e %s %s ' % (args, c), # x
-                         ## 'farna5x100' : 'evox.py -f 100 -e %s %s ' % (args, c), # x
-                         ## 'farna5x200' : 'evox.py %s %s ' % (args, c), # x
-
                         }
+                    else:  # this is by default ;-)
+                        print(" \_ previous aln mode [no naln]")
+                        modes = {
+                         'simrna1x500farna1x500' : 'evox.py %s %s' % (args, c),
+                         'simrna5x100farna5x100' : 'evox.py %s %s ' % (args, c),
+
+                         'simrna5x200' : 'evox.py %s %s ' % (args, c),
+                         'farna5x100' : 'evox.py %s %s ' % (args, c), # x
+                         'farna5x200' : 'evox.py %s %s ' % (args, c), # x
+                         'simrna5x100' : 'evox.py %s %s ' % (args, c), # x
+                        }
+
                 elif dont_copy_models:
                         modes = {
                             # required
@@ -126,6 +157,7 @@ def main(dryrun, path, case, test, dont_copy_models, args, one_mode, half):
                         #'simrna5x200' : 'evox.py -p  ' + args + c,
                         #'farna5x200' : 'evox.py -p  ' + args + c,
                 else:
+                    args = " --calc-stats " # only calc
                     modes = {
                         #'simrna5x10rosetta5x10' : 'evox.py -s 10 -f 10 -e -p ade',
                         #     'simrna5x50rosetta5x50' : 'evox.py -s 50 -f 50 -e -p ade',
@@ -137,14 +169,25 @@ def main(dryrun, path, case, test, dont_copy_models, args, one_mode, half):
                         'simrnatop3' : 'evox.py --calc-stats ' + c,
                         'farnatop1' : 'evox.py --calc-stats ' + c,
                         'farnatop3' : 'evox.py --calc-stats ' + c,
-                        'farnatop5' : 'evox.py --calc-stats ' + c,
-                        'farna1000' : 'evox.py -f 1000 --target-only ' + args + ' ' + c,
-                        'simrna1000' : 'evox.py -s 1000 --target-only ' + args + ' ' + c,
-                        'simrna1x500farna1x500' : 'evox.py -s 500 -f 500 --target-only ' + args + ' ' + c,
-                        'simrna5x100farna5x100' : 'evox.py -s 100 -f 100 ' + args + ' ' + c,
-                        'simrna5x200' : 'evox.py -s 200  ' + args + ' ' + c,
-                         'farna5x200' : 'evox.py -f 200  ' + args + ' ' + c,
-                        ############ end #####################################################
+
+                        # 'farnatop5' : 'evox.py --calc-stats ' + c,
+                        # this is only for some calculactions
+
+                        ## 'farna1000' : 'evox.py ' + args + ' ' + c,
+                        ## 'simrna1000' : 'evox.py ' + args + ' ' + c,
+                        ## 'simrna1x500farna1x500' : 'evox.py  ' + args + ' ' + c,
+                        ## 'simrna5x100farna5x100' : 'evox.py ' + args + ' ' + c,
+                        ## 'simrna5x200' : 'evox.py  ' + args + ' ' + c,
+                        ## 'farna5x200' : 'evox.py  ' + args + ' ' + c,
+
+                        # this is for full run
+                        ## 'farna1000' : 'evox.py -f 1000 --target-only ' + args + ' ' + c,
+                        ## 'simrna1000' : 'evox.py -s 1000 --target-only ' + args + ' ' + c,
+                        ## 'simrna1x500farna1x500' : 'evox.py -s 500 -f 500 --target-only ' + args + ' ' + c,
+                        ## 'simrna5x100farna5x100' : 'evox.py -s 100 -f 100 ' + args + ' ' + c,
+                        ## 'simrna5x200' : 'evox.py -s 200  ' + args + ' ' + c,
+                        ##  'farna5x200' : 'evox.py -f 200  ' + args + ' ' + c,
+                        ## ############ end #####################################################
                         #'simrna5x10farna5x10' : 'evox.py -s 10 -f 10 -t ' + args + c,
 
                         #'simrna5x200farna5x200' : 'evox.py -s 200 -f 200 -e -p ' + c,
@@ -162,6 +205,12 @@ def main(dryrun, path, case, test, dont_copy_models, args, one_mode, half):
                  }
 
             case_root = os.getcwd()
+
+            for m in modes:
+                print (m.rjust(23), modes[m].rjust(100))
+            print('wating...')
+            time.sleep(5)
+
             for m in modes:
                 md = 'evox/' + m
                 try:
@@ -193,4 +242,5 @@ if __name__ == '__main__':
 
     #os.system('mdimport /home/magnus/work')
     #os.system('mdimport /home/magnus/')
-    main(args.dryrun, args.path, args.case, args.test, args.dont_copy_models, args.args, args.one_mode, args.half)
+    main(args.dryrun, args.path, args.case, args.test, args.dont_copy_models, args.args, args.one_mode, args.half, args.naln, args.nvariant)
+    print(args)
