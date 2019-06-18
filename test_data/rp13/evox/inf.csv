@@ -1,0 +1,5 @@
+target,fn,inf_all,inf_stack,inf_WC,inf_nWC,sns_WC,ppv_WC,sns_nWC,ppv_nWC
+target_13_solution_0_renumber_puzzle_ref.pdb.outCR,c4_tar_min.out.98.pdb.outCR,0.824,0.000,0.923,0.507,0.947,0.900,0.429,0.600
+target_13_solution_0_renumber_puzzle_ref.pdb.outCR,c3_tar_min.out.66.pdb.outCR,0.794,0.000,0.947,0.218,0.947,0.947,0.143,0.333
+target_13_solution_0_renumber_puzzle_ref.pdb.outCR,c1_tar_min.out.1.pdb.outCR,0.784,0.000,0.973,0.286,0.947,1.000,0.286,0.286
+target_13_solution_0_renumber_puzzle_ref.pdb.outCR,c5_tar_min.out.25.pdb.outCR,0.836,0.000,0.947,0.436,0.947,0.947,0.286,0.667
