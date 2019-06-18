@@ -34,7 +34,9 @@ The script has the second mode right now::
 
     # evoClust_get_models.py -i structures/ ade_plus_ade_cleanup_mapping_pkX_*.out -n adepk
 
-first, the input is parsed to get borders of lines of clusters. These borders are used to select structures that come to a given cluster. For each cluster, there is a search if within it there is a structure that starts with a given name - defined with --NATIVE_SEQ_ONLY. If there is none, then to the reps list '' is appended.
+first, the input is parsed to get borders of lines of clusters. These borders are used to select structures
+that come to a given cluster. For each cluster, there is a search if within it there is a structure that
+starts with a given name - defined with --NATIVE_SEQ_ONLY. If there is none, then to the reps list '' is appended.
 
 OLD: It reads `out` folder created by evoclustRNA.py in structure such as:
 - out/structures/<homologs>
