@@ -1,11 +1,21 @@
-RNA-Puzzle 13
-----------------------------------------------------------
+# RNA-Puzzle 13
 
-1. Model 5 homologs with method of your choice.
-2. Extract top100 models and put them into `structures`
+## Prepare a multiple sequence alignment (MSA)
 
--------------------------------------------------------------------------------
+For the target sequence, the user needs to prepare an alignment or download it from the from the Rfam database. 
+The sequence similarity should be reduced, using JalView to keep only diverse representatives.  In theory, all sequences could be folded but because of the computational costs of simulations (6-10h per sequence for 80 CPUs, using either SimRNAweb or Rosetta FARFAR), we decided to fold only 4 the shortest sequences from the MSA. Once the final set of homologs to be folded was selected, the positions common to all sequences selected were determined.
 
+## RNA 3D structure prediction to generate initial models
+
+For each sequence chosen for folding, the user must prepare an input for RNA 3D structure prediction method. Two methods were used in this study: SimRNA and Rosetta. For Rosetta, a total of 10,000 decoys were generated for the target sequence and each homologous sequence using the Rosetta FARFAR protocol. For SimRNA prediction, SimRNAweb (https://genesilico.pl/SimRNAweb/) server was used  using the default parameters. 
+
+To start with the EvoClustRNA protocol, we suggest using SimRNAweb first. The results are comparable to Rosetta, but the server is much easier to use for beginners.
+
+At the end of modeling, top100 models have to be extracted and copied into the `structures` folder.
+
+## Run EvoClustRNA clustering procedure (including extraction of conserved motifs)
+Run `evoClustRNA.py` on an alignment (`-a`) and a folder with structures (`-i`) using mapping (`-m`) and flat directory structure:
+    
     [mm] evox$ git:(master) ✗ evoClustRNA.py -a ../rp13finalX_noSSperSeq_ref.sto -i structures -m ../mapping_ref.txt -f
      \_ evoClustRNA  Namespace(flat_dir=True, inf=False, input_dir='structures', mapping_fn='../mapping_ref.txt', matrix_fn='', output_dir='out', rna_alignment_fn='../rp13finalX_noSSperSeq_ref.sto', save=False, verbose=False)
     rp13finalX_noSSperSeq_ref_mapping_refX.matrix
@@ -39,7 +49,25 @@ RNA-Puzzle 13
     matrix was created!  rp13finalX_noSSperSeq_ref_mapping_refX.matrix
     evoClustRNA.py -a ../rp13finalX_noSSperSeq_ref.sto -i structures -m ../mapping_ref.txt -f
 
-copy models from structures to reps
+`rp13finalX_noSSperSeq_ref_mapping_refX.matrix` is the matrix with all-vs-all RMSDs for all conserved motifs.
+
+Now it's time to cluster the matrix:
+
+    evoClust_autoclustix.py  rp13finalX_noSSperSeq_ref_mapping_refX.matrix
+    # of struc 1001
+    evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.matrix -c 0
+    n:  0
+    rm rp13finalX_noSSperSeq_ref_mapping_refX*cf0*.out # auto-removal
+    evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.matrix -c 0.5
+    n:  1
+    (....)
+    rm rp13finalX_noSSperSeq_ref_mapping_refX*cf8.5*.out # auto-removal
+    evoClust_clustix.py rp13finalX_noSSperSeq_ref_mapping_refX.matrix -c 9.0
+    n:  166
+
+When the clustering is done, the best clusters can be obtained and copied to two folders for futher analysis: `reps` and `reps_ns`.
+
+Copy the best cluster medoids from `structures` to reps
 
     [mm] evox$ git:(master) ✗ evoClust_get_models.py -i structures/ *.out -u
     evoClust_get_models.py
@@ -60,19 +88,8 @@ copy models from structures to reps
     structures//tar_min.out.98.pdb -> reps/c4_tar_min.out.98.pdb
     cp -v structures//tar_min.out.25.pdb reps/c5_tar_min.out.25.pdb
     structures//tar_min.out.25.pdb -> reps/c5_tar_min.out.25.pdb
-    = motif ==========================================
-    out/motifs/tar_min.out.1.pdb -> reps_motifs/1_tar_min.out.1.pdb
-    Missing motifs folder?
-    out/motifs/zcp_min.out.8.pdb -> reps_motifs/2_zcp_min.out.8.pdb
-    Missing motifs folder?
-    out/motifs/tar_min.out.66.pdb -> reps_motifs/3_tar_min.out.66.pdb
-    Missing motifs folder?
-    out/motifs/tar_min.out.98.pdb -> reps_motifs/4_tar_min.out.98.pdb
-    Missing motifs folder?
-    out/motifs/tar_min.out.25.pdb -> reps_motifs/5_tar_min.out.25.pdb
-    Missing motifs folder?
 
-copy models from structures to reps_ns (this is where only models for the target sequences are stored, so no models of homologs):
+Copy the best cluster medoids from `structures` to `reps_ns` (this is where only models for the target sequences are stored, so no models of homologs):
 
     [mm] evox$ git:(master) ✗ evoClust_get_models.py -i structures/ *.out -n tar -u
     evoClust_get_models.py
@@ -94,18 +111,8 @@ copy models from structures to reps_ns (this is where only models for the target
     structures//tar_min.out.98.pdb -> reps_ns/c4_tar_min.out.98.pdb
     cp -v structures//tar_min.out.25.pdb reps_ns/c5_tar_min.out.25.pdb
     structures//tar_min.out.25.pdb -> reps_ns/c5_tar_min.out.25.pdb
-    = motif ==========================================
-    out/motifs/tar_min.out.1.pdb -> reps_motifs_ns/1_tar_min.out.1.pdb
-    Missing motifs folder?
-    out/motifs/ -> reps_motifs_ns/2_
-    Missing motifs folder?
-    out/motifs/tar_min.out.66.pdb -> reps_motifs_ns/3_tar_min.out.66.pdb
-    Missing motifs folder?
-    out/motifs/tar_min.out.98.pdb -> reps_motifs_ns/4_tar_min.out.98.pdb
-    Missing motifs folder?
-    out/motifs/tar_min.out.25.pdb -> reps_motifs_ns/5_tar_min.out.25.pdb
-    Missing motifs folder?
 
+## Compare to the reference structure
 
 OK, so now we have two folders with models that we can compare to the reference structure.
 
@@ -121,4 +128,30 @@ Various methods can be used to do that. For `reps_ns` (so the models for the ref
     # of atoms used: 1295
     csv was created!  rmsds.csv
 
-For `reps`
+core RMSDs based on the alignment:
+
+    evoClust_calc_rmsd.py -a ..//*ref.sto -t ..//*ref.pdb -n rp13 -m ..//*mapping*ref.txt -o rmsd_motif.csv reps/*.pdb
+    Fri Jun 21 17:01:33 2019
+    Namespace(debug=False, dont_ignore_clusters=False, files=['reps/c1_tar_min.out.1.pdb', 'reps/c2_zcp_min.out.8.pdb', 'reps/c3_tar_min.out.66.pdb', 'reps/c4_tar_min.out.98.pdb', 'reps/c5_tar_min.out.25.pdb'], group_name='', mapping_fn='..//mapping_ref.txt', output_fn='rmsd_motif.csv', rna_alignment_fn='..//rp13finalX_noSSperSeq_ref.sto', target='..//target_13_solution_0_renumber_puzzle_ref.pdb', target_name='rp13')
+    target: ..//target_13_solution_0_renumber_puzzle_ref.pdb
+     # of rnastruc : 6
+     rnastruc: ['rp13:tar_', 'rp13:solution', 'cp0016:zcp', 'nc9445:znc', 'nc3295:zc3', 'nzaaox:zza']
+     WARNING: if any of your PDB file is missing, check mapping!
+                                             target                  model   rmsd group_name
+    0  target_13_solution_0_renumber_puzzle_ref.pdb   c1_tar_min.out.1.pdb   4.41
+    1  target_13_solution_0_renumber_puzzle_ref.pdb   c2_zcp_min.out.8.pdb  16.08
+    2  target_13_solution_0_renumber_puzzle_ref.pdb  c3_tar_min.out.66.pdb  10.32
+    3  target_13_solution_0_renumber_puzzle_ref.pdb  c4_tar_min.out.98.pdb  15.50
+    4  target_13_solution_0_renumber_puzzle_ref.pdb  c5_tar_min.out.25.pdb  15.24
+
+or INFs:
+
+    [mm] evox$ git:(master) ✗ rna_calc_inf.py -f -t ..//*ref.pdb reps_ns/*.pdb
+    100% (4 of 4) |###########################################################################################################################################################################| Elapsed Time: 0:00:16 ETA:  00:00:00csv was created!  inf.csv
+    [mm] evox$ git:(master) ✗ csv inf.csv
+    target                                              fn                           inf_all  inf_stack  inf_WC  inf_nWC  sns_WC  ppv_WC  sns_nWC  ppv_nWC
+    target_13_solution_0_renumber_puzzle_ref.pdb.outCR  c4_tar_min.out.98.pdb.outCR  0.453    0.000      0.923   0.507    0.947   0.900   0.429    0.600
+    target_13_solution_0_renumber_puzzle_ref.pdb.outCR  c3_tar_min.out.66.pdb.outCR  0.437    0.000      0.947   0.218    0.947   0.947   0.143    0.333
+    target_13_solution_0_renumber_puzzle_ref.pdb.outCR  c1_tar_min.out.1.pdb.outCR   0.431    0.000      0.973   0.286    0.947   1.000   0.286    0.286
+    target_13_solution_0_renumber_puzzle_ref.pdb.outCR  c5_tar_min.out.25.pdb.outCR  0.483    0.129      0.947   0.535    0.947   0.947   0.286    1.000
+
