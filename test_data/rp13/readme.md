@@ -1,4 +1,4 @@
-RNA Puzzle 13
+RNA-Puzzle 13
 ----------------------------------------------------------
 
 1. Model 5 homologs with method of your choice.
