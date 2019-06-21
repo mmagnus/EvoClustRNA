@@ -6,10 +6,19 @@ Marcin Magnus & Rhiju Das
      
 A clustering routines of evolutionary conserved regions (helical regions) for RNA fold prediction. 
 
-At the moment we are testing the approach using models from ROSETTA/FARNA (https://www.rosettacommons.org/) and SimRNAweb (http://genesilico.pl/SimRNAweb/).
-
-The documentation can be found here http://evoclustrna.readthedocs.io/en/latest/
+At the moment we are testing the approach using models from Rosetta Farna (https://www.rosettacommons.org/) and SimRNAweb (http://genesilico.pl/SimRNAweb/).
 	
+# Installation
+To install the package, type:
+
+    git clone https://github.com/mmagnus/EvoClustRNA.git
+
+or download https://github.com/mmagnus/EvoClustRNA/archive/master.zip and unzip the file.
+
+To install, type:
+
+    sudo ./install.sh 
+
 # Example
 
 ## RNA Puzzle Challenge 14: L-glutamine riboswitch (#1 modeling in the ranking)
