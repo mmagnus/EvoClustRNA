@@ -5,6 +5,13 @@ Prepare a multiple sequence alignment (MSA)
 
 For the target sequence, the user needs to prepare an alignment or download it from the from the Rfam database. The sequence similarity should be reduced, using JalView to keep only diverse representatives. In theory, all sequences could be folded but because of the computational costs of simulations (6-10h per sequence for 80 CPUs, using either SimRNAweb or Rosetta FARFAR), we decided to fold only 4 the shortest sequences from the MSA. Once the final set of homologs to be folded was selected, the positions common to all sequences selected were determined.
 
+![](../pngs/rp13_alignment2.png)
+Figure. **The alignment preparation.** The conserved residues are marked with "x" in the pseudo-sequence "x".
+The marked as the conserved residues columns can be inspected in an arc diagrams of RNA secondary structures as the pink line (at the very bottom)
+
+![](../pngs/jalview.png)
+Figure. **Obtain sequence and secondary structure**. Each sequence and associated secondary structure was "Saved as" to a Fasta file and used at the next stage of modeling with the use of the Jalview program.
+
 RNA 3D structure prediction to generate initial models
 -------------------------------------------
 
@@ -157,3 +164,10 @@ or INFs:
     target_13_solution_0_renumber_puzzle_ref.pdb.outCR  c3_tar_min.out.66.pdb.outCR  0.437    0.000      0.947   0.218    0.947   0.947   0.143    0.333
     target_13_solution_0_renumber_puzzle_ref.pdb.outCR  c1_tar_min.out.1.pdb.outCR   0.431    0.000      0.973   0.286    0.947   1.000   0.286    0.286
     target_13_solution_0_renumber_puzzle_ref.pdb.outCR  c5_tar_min.out.25.pdb.outCR  0.483    0.129      0.947   0.535    0.947   0.947   0.286    1.000
+
+The results can be also viewed with Clans.
+
+## Clanstix
+
+![](../pngs/pistol_clans.png)
+Figure. **Pistol Ribozyme (RNA-Puzzle 17)** Clustering visualized with Clans (A) the native structure, (B) the model with the close fold to the native, detected in a small cluster, (C) the biggest cluster with the model that was returned as the final prediction.

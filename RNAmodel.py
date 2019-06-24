@@ -8,7 +8,11 @@ from Bio.PDB.PDBIO import Select
 from Bio.PDB import PDBIO
 from Bio.SVDSuperimposer import SVDSuperimposer
 from numpy import sqrt, array, asarray
-from rna_pdb_tools.opt.BasicAssessMetrics.BasicAssessMetrics import *
+from rna_tools.opt.BasicAssessMetrics.BasicAssessMetrics import *
+
+
+verbose = False
+
 
 class RNAmodel:
     """RNAmodel
@@ -56,7 +60,7 @@ class RNAmodel:
         for res in self.struc.get_residues():
             if res.id[1] in self.residues:
                 self.atoms.append(res["C3'"])
-                #print res.id
+                if verbose: print(res.id)
                 #ref_atoms.extend(, ref_res['P'])
             #ref_atoms.append(ref_res.get_list())
         if len(self.atoms) <= 0:
@@ -91,9 +95,22 @@ class RNAmodel:
         try:
             sup.set_atoms(self.atoms, other_rnamodel.atoms)
         except:
-            print(self.fn, len(self.atoms),  other_rnamodel.fn, len(other_rnamodel.atoms))
-            for a,b in zip(self.atoms, other_rnamodel.atoms):
-                print(a.parent, b.parent)#a.get_full_id(), b.get_full_id())
+            print('Error:', self.fn, len(self.atoms),  other_rnamodel.fn, len(other_rnamodel.atoms))
+
+            # show seq
+            seqa = ''; seqb = ''
+            for a in self.atoms:
+                seqa += a.parent.get_resname().strip()
+            print(seqa)
+
+            for b in other_rnamodel.atoms:
+                seqb += b.parent.get_resname().strip()
+            print(seqb)
+
+            for a, b in zip(self.atoms, other_rnamodel.atoms):
+                print(a.parent, b.parent)
+                #print(a.get_full_id(), b.get_full_id())
+            sys.exit("Problem with the alignment")
 
         rms = round(sup.rms, 3)
 
