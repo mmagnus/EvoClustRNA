@@ -12,7 +12,7 @@ The code of the project can be found at GitHub (https://github.com/mmagnus/EvoCl
 
 A clustering routines of evolutionary conserved regions (helical regions) for RNA fold prediction. 
 
-At the moment we are testing the apprach using models from ROSETTA/FARNA (https://www.rosettacommons.org/) and SimRNAweb (http://genesilico.pl/SimRNAweb/).
+At the moment we are testing the apprach using models from Rosetta FARFAR (https://www.rosettacommons.org/) and SimRNAweb (http://genesilico.pl/SimRNAweb/).
 
 The documentation can be found here http://evoclustrna.readthedocs.io/en/latest/
 

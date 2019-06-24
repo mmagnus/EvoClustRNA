@@ -109,8 +109,6 @@ def parse_num_list(s):
 
 
 def get_parser():
-    """Get parser of arguments"""
-
     parser = argparse.ArgumentParser()
 
     parser.add_argument('-a', "--rna_alignment_fn",

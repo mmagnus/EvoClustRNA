@@ -1,26 +1,15 @@
 Adv
 ======================================================
 
-Modeling
+RNA 3D structure prediction
 -----------------------------------------------------
 
-See http://rna-pdb-tools.readthedocs.io/en/latest/utils.html#rosetta to read more how to use rna-pdb-tools to run ROSETTA.
+For each sequence chosen for folding, secondary structure predictions were generated based on the MSA. Two methods were used in this study: SimRNA and Rosetta. For Rosetta, a total of 10,000 decoys were generated for the target sequence and each homologous sequence using the Rosetta FARFAR protocol. For SimRNA prediction, SimRNAweb server was used using the default parameters.
 
-RNAmodel
-------------------------------------------------------
-
-.. automodule:: RNAmodel
-   :members:
-
-RNAalignment
-------------------------------------------------------
-
-.. automodule:: RNAalignment
-   :members:
-
+Both modeling steps can be performed in a semi-automated way with rna-tools (M.M. et al., unpublished, software available for download at https://github.com/mmagnus/rna-tools) as well as the pipeline of tools facilitating modeling with Rosetta (https://rna-tools.readthedocs.io/en/latest/tools.html#rosetta) and SimRNA/SimRNAweb (https://rna-tools.readthedocs.io/en/latest/tools.html#simrnaweb).
 
 evoClustRNA
-------------------------------------------------------
+-----------------------------------------------------
 
 .. argparse::
    :ref: evoClustRNA.get_parser
@@ -29,28 +18,47 @@ evoClustRNA
 .. automodule:: evoClustRNA
    :members:
 
-Clustix
+
+evoClust_autoclustix.py
+-----------------------------------------------------
+
+.. argparse::
+   :ref: evoClust_autoclustix.get_parser
+   :prog: evoClust_autoclustix.py
+
+.. automodule:: evoClust_autoclustix.py
+   :members:
+
+evoClust_autoclustix.py implements a simple interactive clustering. Technically, this script is a simple wrapper for evoClust_clustix.py.
+
+.. argparse::
+   :ref: evoClust_clustix.get_parser
+   :prog:  evoClust_clustix.py
+
+.. automodule:: evoClust_clustix.py
+   :members:
+
+
+evoClust_get_models.py
 ------------------------------------------------------
 
 .. argparse::
-   :ref: clustix.get_parser
-   :prog:  clustix.py
+   :ref: evoClust_get_models..get_parser
+   :prog: evoClust_get_models.py
 
-.. automodule:: clustix
+
+
+Python Classes used in the scripts
+------------------------------------------------------
+
+RNAmodel
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: RNAmodel
    :members:
-      
-Tricks
------------------------------------------------------
 
-Get mapping from a file::
+RNAalignment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   evoClustRNA.py -a ../sub.sto -i simrnaweb -m `cat mapping.txt` -s -o out
-   sub_matrix.txt
-    # of rnastruc: 5
-    rnastruc: ['ACCL02000010.1/116901-116991:tha', 'ACKX01000080.1/10519-10620:hak', 'AAQK01002704.1/947-1059:haq', 'CP001034.1/2651359-2651454:hcp', '4lVV:4lvv']
-     ACCL02000010.1/116901-116991 <-> tha
-      cutting out fragments ...
-       # selected residues: 88
-       saved to struc: out/structures/5f8916a8_ALL_100low-000001_AA.pdb
-       saved to motifs: out/motifs//5f8916a8_ALL_100low-000001_AA.pdb
-    
+.. automodule:: RNAalignment
+   :members:
