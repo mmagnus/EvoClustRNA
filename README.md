@@ -17,7 +17,7 @@ or download https://github.com/mmagnus/EvoClustRNA/archive/master.zip and unzip 
 
 To install, type:
 
-    sudo ./install.sh 
+    pip install --user -r docs/requirements.txt
 
 # Documentation
 
