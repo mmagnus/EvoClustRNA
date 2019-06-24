@@ -19,6 +19,10 @@ To install, type:
 
     sudo ./install.sh 
 
+# Documentation
+
+See the documentaiton <http://EvoClustRNA.rtfd.io>
+ 
 # Example
 
 See the RNA-Puzzle 13 example: <https://github.com/mmagnus/EvoClustRNA/tree/master/test_data/rp13>
