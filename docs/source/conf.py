@@ -207,7 +207,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'EvoClustRNA.tex', u'EvoClustRNA Documentation',
+  ('index', 'EvoClustRNA.tex', u'EvoClustRNA',
    u'Marcin Magnus', 'manual'),
 ]
 
@@ -237,7 +237,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'EvoClustRNA', u'EvoClustRNA Documentation',
+    ('index', 'EvoClustRNA', u'EvoClustRNA',
      [u'Marcin Magnus'], 1)
 ]
 
@@ -251,7 +251,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'EvoClustRNA', u'EvoClustRNA Documentation',
+  ('index', 'EvoClustRNA', u'EvoClustRNA',
    u'Marcin Magnus', 'EvoClustRNA', 'One line description of project.',
    'Miscellaneous'),
 ]
