@@ -1,4 +1,5 @@
 # RNA-Puzzle 13
+(All the code can be executed in the folder `evoClustRNA/test_data/rp13` of this repository)
 
 ## Prepare a multiple sequence alignment (MSA)
 
@@ -11,7 +12,7 @@ For each sequence chosen for folding, the user must prepare an input for RNA 3D 
 
 To start with the EvoClustRNA protocol, we suggest using SimRNAweb first. The results are comparable to Rosetta, but the server is much easier to use for beginners.
 
-At the end of modeling, top100 models have to be extracted and copied into the `structures` folder.
+At the end of modeling, top100 (or top200) models have to be extracted and copied into the `structures` folder.
 
 ## Run EvoClustRNA clustering procedure (including extraction of conserved motifs)
 Run `evoClustRNA.py` on an alignment (`-a`) and a folder with structures (`-i`) using mapping (`-m`) and flat directory structure:
