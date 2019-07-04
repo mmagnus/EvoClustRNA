@@ -12,7 +12,7 @@ Figure 1. **The alignment preparation.** The conserved residues are marked with 
 The marked as the conserved residues columns can be inspected in an arc diagrams of RNA secondary structures as the pink line (at the very bottom)
 
 ![](../pngs/jalview.png)
-Figure 2. **Obtain sequence and secondary structure**. Each sequence and associated secondary structure was "Saved as" to a Fasta file and used at the next stage of modeling with the use of the Jalview program.
+Figure 2. **Generation sequence and secondary structure**. Each sequence and associated secondary structure was "Saved as" to a Fasta file and used at the next stage of modeling with the use of the Jalview program.
 
 RNA 3D structure prediction to generate initial models
 -------------------------------------------
@@ -170,15 +170,15 @@ or INFs:
 ## Clanstix
 The results can be also viewed with Clans, shown in the Figure 3 & 4.
 
-In this clustering visualization, 100 models of five homologs are shown (each homolog uniquely colored, models of the target sequence are colored in lime). Models with a pairwise distance in terms of RMSDs lower than 6 Å are connected. The native structure was added to this clustering to see where it would be mapped. Interestingly, the native structure was mapped to the small cluster. In this cluster, there are three models for the target sequence. The model the closest to this the cluster center (Fig. 3B) achieved an RMSD of 6.98 Å to the native structure. This clustering visualization showed that there were models generated with the correct fold, but none of them were selected as the final prediction. The final prediction was the center of the biggest cluster (Fig. 3C).
+In this clustering visualization, 100 models of five homologs are shown (each homolog uniquely colored, models of the target sequence are colored in lime). Models with a pairwise distance in terms of RMSDs lower than 6 Å are connected. The native structure was added to this clustering to see where it would be mapped. Interestingly, the native structure was mapped to the small cluster. In this cluster, there are three models for the target sequence. The model the closest to this the cluster center (Fig. 3B) achieved an RMSD of 6.98 Å to the native structure. This clustering visualization showed that there were models generated with the correct fold, but none of them were selected as the final prediction. The final prediction was the center of the biggest cluster (Fig. 3C).
 
 ![](../pngs/pistol_clans.png)
-Figure 3. **Pistol Ribozyme (RNA-Puzzle 17)** Clustering visualized with Clans (A) the native structure, (B) the model with the close fold to the native, detected in a small cluster, (C) the biggest cluster with the model that was returned as the final prediction.
+Figure 3. **Clustering visualized with Clans for Pistol Ribozyme (RNA-Puzzle 17)** (A) the native structure, (B) the model with the close fold to the native, detected in a small cluster, (C) the biggest cluster with the model that was returned as the final prediction.
 
-An analogous analysis was performed the results of clustering of EvoClustRNA|SimRNAweb run for the TPP riboswitch. Models with a pairwise distance in terms of RMSDs lower than 9 Å are connected. Interestingly, the native structure (Fig. 4A, big dot) was mapped to a cluster of models of one of the homologs (Fig. 4, blue). The center of this cluster (Fig. 4B) achieved an RMSD (of helical, shared fragments) of 9 Å to the native structure. In this cluster, there were not models for the target sequence. Since SimRNAweb was not able to detect non-canonical interactions, most of the structures were in “open” conformation and clustered far from the native structure. The final prediction was (Fig. 4C) achieved an RMSD of 24.08 Å with respect to the native.
+An analogous analysis was performed the results of clustering of EvoClustRNA|SimRNAweb run for the TPP riboswitch. Models with a pairwise distance in terms of RMSDs lower than 9 Å are connected. Interestingly, the native structure (Fig. 4A, big dot) was mapped to a cluster of models of one of the homologs (Fig. 4, blue). The center of this cluster (Fig. 4B) achieved an RMSD (of helical, shared fragments) of 9 Å to the native structure. In this cluster, there were not models for the target sequence. Since SimRNAweb was not able to detect non-canonical interactions, most of the structures were in “open” conformation and clustered far from the native structure. The final prediction was (Fig. 4C) achieved an RMSD of 24.08 Å with respect to the native.
 
 ![](../pngs/tpp_clans.png)
 
-Figure 4: Clustering visualized with Clans (A) the native structure, (B) the model with the close fold to the native (C) the biggest cluster with the model that was returned as the final prediction.
+Figure 4: **Clustering visualized with Clans for TPP riboswitch** (A) the native structure, (B) the model with the close fold to the native (C) the biggest cluster with the model that was returned as the final prediction.
 
 Learn more about Clanstix https://rna-tools.readthedocs.io/en/latest/tools.html#module-rna_tools.tools.clanstix.rna_clanstix
