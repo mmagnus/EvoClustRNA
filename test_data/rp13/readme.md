@@ -1,4 +1,5 @@
 # RNA-Puzzle 13
+(All the code can be executed in the folder `evoClustRNA/test_data/rp13`)
 
 ## Prepare a multiple sequence alignment (MSA)
 
