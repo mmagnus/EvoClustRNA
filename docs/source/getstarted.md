@@ -167,7 +167,7 @@ or INFs:
     target_13_solution_0_renumber_puzzle_ref.pdb.outCR  c1_tar_min.out.1.pdb.outCR   0.431    0.000      0.973   0.286    0.947   1.000   0.286    0.286
     target_13_solution_0_renumber_puzzle_ref.pdb.outCR  c5_tar_min.out.25.pdb.outCR  0.483    0.129      0.947   0.535    0.947   0.947   0.286    1.000
 
-## Clanstix
+## [Example of post-EvoClustRNA analysis]
 The results can be also viewed with Clans, shown in the Figure 3 & 4.
 
 In this clustering visualization, 100 models of five homologs are shown (each homolog uniquely colored, models of the target sequence are colored in lime). Models with a pairwise distance in terms of RMSDs lower than 6 Å are connected. The native structure was added to this clustering to see where it would be mapped. Interestingly, the native structure was mapped to the small cluster. In this cluster, there are three models for the target sequence. The model the closest to this the cluster center (Fig. 3B) achieved an RMSD of 6.98 Å to the native structure. This clustering visualization showed that there were models generated with the correct fold, but none of them were selected as the final prediction. The final prediction was the center of the biggest cluster (Fig. 3C).
