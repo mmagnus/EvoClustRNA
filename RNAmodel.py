@@ -8,7 +8,6 @@ from Bio.PDB.PDBIO import Select
 from Bio.PDB import PDBIO
 from Bio.SVDSuperimposer import SVDSuperimposer
 from numpy import sqrt, array, asarray
-from rna_tools.opt.BasicAssessMetrics.BasicAssessMetrics import *
 
 
 verbose = False
