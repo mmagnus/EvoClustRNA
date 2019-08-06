@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 
@@ -52,8 +52,8 @@ if __name__ == '__main__':
         print(cmd)
         p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE)
-        out = p.stdout.read().strip()
-        err = p.stderr.read().strip()
+        out = p.stdout.read().decode().strip()
+        err = p.stderr.read().decode().strip()
 
         # print out
         if not args.half:

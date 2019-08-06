@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 When RNA models are loaded, models ending with 'template.pdb' are ignore.

@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
 """evoClust_get_models.py
 
 Uses find in curr directory to find needed file.
@@ -112,7 +113,7 @@ class ClustixResult(object):
             pass
 
         # out in this case is input, for search reps and reps_motifs
-        print '= structures == out/structures/<files>==================='
+        print('= structures == out/structures/<files>===================')
         #if not skip_structures:
         if 1:
             for i, r in enumerate(reps):
@@ -126,7 +127,7 @@ class ClustixResult(object):
 
                 cmd = ('cp -v ' + rpath + ' ' +
                        output_prefix + repsfolder + suffix + '/c' + str(i + 1) + '_' + r)
-                print cmd
+                print(cmd)
                 os.system(cmd)
 
         # motifs
@@ -141,7 +142,7 @@ class ClustixResult(object):
             except OSError:
                 pass
 
-            print '= motif =========================================='
+            print('= motif ==========================================')
             input_dir = 'out'
             for i, r in enumerate(reps):
                 print(input_dir + '/motifs/' + r + ' -> ' +
@@ -150,7 +151,7 @@ class ClustixResult(object):
                     shutil.copyfile(input_dir + '/motifs/' + r, output_prefix +
                                     reps_motifs_folder + suffix + '/c' + str(i + 1) + '_' + r)
                 except IOError:
-                    print 'Missing motifs folder?'
+                    print('Missing motifs folder?')
 
 
 def get_parser():
