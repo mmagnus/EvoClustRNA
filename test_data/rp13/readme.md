@@ -1,6 +1,8 @@
 # RNA-Puzzle 13
 (All the code can be executed in the folder `evoClustRNA/test_data/rp13` of this repository)
 
+See also https://evoclustrna.readthedocs.io/en/latest/getstarted.html
+
 ## Prepare a multiple sequence alignment (MSA)
 
 For the target sequence, the user needs to prepare an alignment or download it from the from the Rfam database. 
