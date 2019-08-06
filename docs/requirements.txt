@@ -1,3 +1,4 @@
+pandas
 sphinx-argparse
 numpy
 biopython
