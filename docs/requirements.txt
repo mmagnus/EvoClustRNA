@@ -2,3 +2,4 @@ pandas
 sphinx-argparse
 numpy
 biopython
+rna-tools
