@@ -1,8 +1,6 @@
 EvoClustRNA
 ================================================================================
 
-[![Documentation Status](https://readthedocs.org/projects/evoclustrna/badge/?version=latest)](http://evoclustrna.readthedocs.io/en/latest/?badge=latest)
-
 A clustering routines of evolutionary conserved regions (helical regions) for RNA fold prediction.
 
 At the moment we are testing the approach using models from Rosetta Farna (https://www.rosettacommons.org/) and SimRNAweb (http://genesilico.pl/SimRNAweb/).
